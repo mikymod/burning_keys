@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Alarm : MonoBehaviour
 {
-    bool isActive;
+    [SerializeField] private bool isActive;
 
     private void OnEnable()
     {

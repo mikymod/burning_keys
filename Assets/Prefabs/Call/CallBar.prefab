@@ -89,7 +89,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 317b8bcdc08d10240a53095b176aab3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bar: {fileID: 0}
   active: 0
   prefab: {fileID: 1721730939670316102, guid: 41ab3f5ff656a63448e64e08ebd5041e, type: 3}
   keycode: 103

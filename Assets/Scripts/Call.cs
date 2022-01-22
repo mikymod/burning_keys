@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Call : MonoBehaviour
 {
-    [SerializeField] private Image bar;
     [SerializeField] private bool active;
 
     [Header("Customization")]
@@ -30,7 +29,7 @@ public class Call : MonoBehaviour
     {
         for (int i = 0; i < numIterations; i++)
         {
-            var go = Instantiate(prefab, bar.transform);
+            var go = Instantiate(prefab, transform);
             var rt = go.GetComponent<Image>().rectTransform;
             rt.anchoredPosition = new Vector2(0f, 0f);
             pointerList.Add(rt);

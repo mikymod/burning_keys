@@ -7,12 +7,15 @@ public class WorldDone : UnityEvent { }
 
 public class MainDesktop : MonoBehaviour {
     public TMP_Text TextGO;
-    public List<string> Worlds;
+    public List<string> Words;
     public int SingleSmashScore = 1, ChangeSmashScore = 5, QuitSmashScore = 30;
 
     private int wordCurrentIndex = 0;
-    private bool isTyping = false, isSmashing = false;
-    private string world;
+
+    // TODO: Debug - remove SerilizedField
+    [SerializeField]private bool isSmashing = false;
+    [SerializeField]private bool isTyping = false;
+    private string word;
     private int localSmashScore;
 
     private void OnEnable() {
@@ -48,18 +51,18 @@ public class MainDesktop : MonoBehaviour {
         }
     }
 
-    private void NewString(bool isWorld) {
-        if (isWorld) {
-            world = Worlds[Random.Range(0, Worlds.Count)].ToUpper();
+    private void NewString(bool isWord) {
+        if (isWord) {
+            word = Words[Random.Range(0, Words.Count)].ToUpper();
         } else {
-            world = ((char)Random.Range(65, 91)).ToString();
+            word = ((char)Random.Range(65, 91)).ToString();
         }
-        TextGO.text = world;
+        TextGO.text = word;
     }
 
     private void Update() {
         if (isTyping || isSmashing) {
-            KeyCode currentKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), world[wordCurrentIndex].ToString());
+            KeyCode currentKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), word[wordCurrentIndex].ToString());
             if (Input.anyKeyDown && !(Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))) {
                 if (Input.GetKeyDown(currentKeyCode)) {
                     if (isSmashing) {
@@ -74,7 +77,7 @@ public class MainDesktop : MonoBehaviour {
                     } else {
                         wordCurrentIndex++;
                         TextGO.text = ColorWord();
-                        if (wordCurrentIndex == world.Length) {
+                        if (wordCurrentIndex == word.Length) {
                             TaskManager.TaskFinished.Invoke(TaskManager.TaskType.Typing);
                         }
                     }
@@ -88,12 +91,12 @@ public class MainDesktop : MonoBehaviour {
 
     }
     private string ColorWord(bool error = false) {
-        string doneString = world.Substring(0, wordCurrentIndex);
+        string doneString = word.Substring(0, wordCurrentIndex);
         string errorstring = "";
         if (error) {
-            errorstring = world.Substring(wordCurrentIndex, 1);
+            errorstring = word.Substring(wordCurrentIndex, 1);
         }
-        string remainingString = world.Substring(error ? wordCurrentIndex + 1 : wordCurrentIndex);
+        string remainingString = word.Substring(error ? wordCurrentIndex + 1 : wordCurrentIndex);
         return $"<color=#000000>{doneString}</color><color=#ff0000>{errorstring}</color>{remainingString}";
     }
 }
