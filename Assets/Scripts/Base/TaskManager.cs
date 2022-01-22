@@ -15,6 +15,6 @@ public class TaskManager : MonoBehaviour
         Count
     }
 
-    public static UnityEvent<TaskType> TaskStarted;
-    public static UnityEvent<TaskType> TaskFinished;
+    public static UnityEvent<TaskType> TaskStarted = new UnityEvent<TaskType>();
+    public static UnityEvent<TaskType> TaskFinished = new UnityEvent<TaskType>();
 }
