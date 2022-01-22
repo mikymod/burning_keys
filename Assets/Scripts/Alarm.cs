@@ -9,11 +9,13 @@ public class Alarm : MonoBehaviour
     private void OnEnable()
     {
         TaskManager.TaskStarted.AddListener(OnTaskStartedCallback);
+        TaskManager.TaskFinished.AddListener(OnTaskFinishedCallback);
     }
 
     private void OnDisable()
     {
         TaskManager.TaskStarted.RemoveListener(OnTaskStartedCallback);
+        TaskManager.TaskFinished.RemoveListener(OnTaskFinishedCallback);
     }
 
     private void OnTaskStartedCallback(TaskManager.TaskType taskType)

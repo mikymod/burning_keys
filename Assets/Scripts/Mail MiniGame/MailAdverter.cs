@@ -9,7 +9,6 @@ public class MailAdverter : MonoBehaviour
 {
     private GameObject mailPopUp;
     private TextMeshProUGUI textMailNumber;
-    private int mailNumber;
     private void Awake()
     {
         mailPopUp = gameObject.transform.GetChild(0).gameObject;
@@ -17,18 +16,28 @@ public class MailAdverter : MonoBehaviour
     }
     private void OnEnable()
     {
-        MailMgr.EmailTime.AddListener(ActivePopUp);
+        MailGame.MailTime.AddListener(ActivePopUp);
+        MailGame.EndThisMail.AddListener(DisactivePopUp);
     }
     private void OnDisable()
     {
-        MailMgr.EmailTime.RemoveListener(ActivePopUp);
+        MailGame.MailTime.RemoveListener(ActivePopUp);
+        MailGame.EndThisMail.RemoveListener(DisactivePopUp);
     }
-    private void ActivePopUp()
+    private void ActivePopUp(int mailNumber)
     {
-        mailNumber++;
+        Debug.Log("mi hanno chiamato");
         if (!mailPopUp.activeInHierarchy)
         {
             mailPopUp.SetActive(true);
+        }
+        textMailNumber.SetText($"{ mailNumber}");
+    }
+    private void DisactivePopUp(int mailNumber)
+    {
+        if (mailNumber == 0 && mailPopUp.activeInHierarchy)
+        {
+            mailPopUp.SetActive(false);
         }
         textMailNumber.SetText($"{ mailNumber}");
     }
