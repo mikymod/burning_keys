@@ -18,6 +18,16 @@ public class Alarm : MonoBehaviour
 
     private void OnTaskStartedCallback(TaskManager.TaskType taskType)
     {
+        isActive = true;
+    }
+
+    private void OnTaskFinishedCallback(TaskManager.TaskType taskType)
+    {
+        isActive = false;
+    }
+
+    private void Update()
+    {
         if (isActive)
         {
             //TODO Play NoiseSounds
@@ -31,11 +41,10 @@ public class Alarm : MonoBehaviour
                 }
             }
         }
-    }
-
-    private void OnTaskFinishedCallback(TaskManager.TaskType taskType)
-    {
-        //TODO Stop NoiseSounds
-        //TODO StressLevel--
+        else
+        {
+            //TODO Stop NoiseSounds
+            //TODO StressLevel--
+        }
     }
 }
