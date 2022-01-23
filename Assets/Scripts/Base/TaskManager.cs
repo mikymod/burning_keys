@@ -27,6 +27,12 @@ public class TaskManager : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit, mask))
             {
                 // TODO: Select Game object with task
+                //Camera in
+                //Task
+                if (hit.collider.gameObject.tag is "Alarm")
+                {
+                    TaskStarted.Invoke(TaskType.Alarm);
+                }
             }
         }    
     }

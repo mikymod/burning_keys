@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Alarm : MonoBehaviour
+public class AlarmTask : MonoBehaviour
 {
     [SerializeField] private bool isActive;
 
+    
     private void OnEnable()
     {
         TaskManager.TaskStarted.AddListener(OnTaskStartedCallback);
@@ -31,6 +32,7 @@ public class Alarm : MonoBehaviour
         if (taskType == TaskManager.TaskType.Alarm)
         {
             isActive = false;
+            GameManager.AlarmEnd.Invoke();
         }
     }
 
@@ -41,11 +43,12 @@ public class Alarm : MonoBehaviour
             //TODO Play NoiseSounds
             //TODO StressLevel++
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, LayerMask.NameToLayer("Alarm")))
+            if (Physics.Raycast(ray, LayerMask.NameToLayer("Interactable")))
             {
                 if (Input.GetMouseButtonDown(0))
                 {
                     Debug.Log("AlarmStopped");
+                    TaskManager.TaskFinished.Invoke(TaskManager.TaskType.Alarm);
                 }
             }
         }
