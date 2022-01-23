@@ -7,8 +7,7 @@ public class TaskManager : MonoBehaviour
 {
     public enum TaskType
     {
-        Smash,
-        Typing,
+        Main,
         Alarm,
         Email,
         Phone,
@@ -17,4 +16,18 @@ public class TaskManager : MonoBehaviour
 
     public static UnityEvent<TaskType> TaskStarted = new UnityEvent<TaskType>();
     public static UnityEvent<TaskType> TaskFinished = new UnityEvent<TaskType>();
+
+    [SerializeField] private LayerMask mask;
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit, mask))
+            {
+                // TODO: Select Game object with task
+            }
+        }    
+    }
 }
