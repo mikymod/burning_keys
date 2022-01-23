@@ -12,10 +12,42 @@ public class MailManager : MonoBehaviour
     [SerializeField] private TMP_Text firstGO;
     [SerializeField] private TMP_Text secondGO;
 
-
     private KeyCode currentKeyCode;
     private int counter = 0;
     private bool isCurrentKeyCodeSet = false;
+    private bool isActive;
+
+    private void OnEnable()
+    {
+        TaskManager.TaskStarted.AddListener(OnTaskStartedCallback);
+        TaskManager.TaskFinished.AddListener(OnTaskFinishedCallback);
+    }
+
+    private void OnDisable()
+    {
+        TaskManager.TaskStarted.RemoveListener(OnTaskStartedCallback);
+        TaskManager.TaskFinished.RemoveListener(OnTaskFinishedCallback);
+    }
+
+    private void OnTaskStartedCallback(TaskManager.TaskType type)
+    {
+        // TODO: manage multiple email task started
+        // sum new iterations to the old ones
+        if (type == TaskManager.TaskType.Email)
+        {
+            isActive = true;
+        }
+    }
+
+    private void OnTaskFinishedCallback(TaskManager.TaskType type)
+    {
+        if (type == TaskManager.TaskType.Email)
+        {
+            isActive = false;
+            isCurrentKeyCodeSet = false;
+            Debug.Log("Task completed");            
+        }
+    }
 
     private void Start()
     {
@@ -45,9 +77,7 @@ public class MailManager : MonoBehaviour
 
                     if (counter == iterations)
                     {
-                        // Send Task Completed event
-                        isCurrentKeyCodeSet = false;
-                        Debug.Log("Task completed");
+                        TaskManager.TaskFinished.Invoke(TaskManager.TaskType.Email);
                     }
                 }
                 else

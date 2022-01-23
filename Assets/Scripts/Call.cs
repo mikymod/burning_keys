@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,10 +7,11 @@ using UnityEngine.UI;
 
 public class Call : MonoBehaviour
 {
-    [SerializeField] private bool active;
+    [SerializeField] private bool isActive;
 
     [Header("Customization")]
     [SerializeField] private GameObject prefab;
+    [SerializeField] private GameObject bar;
     [SerializeField] private KeyCode keycode = KeyCode.G;
     [SerializeField] private int numIterations = 1;
     [SerializeField] private float speed = 1f;
@@ -29,7 +31,7 @@ public class Call : MonoBehaviour
     {
         for (int i = 0; i < numIterations; i++)
         {
-            var go = Instantiate(prefab, transform);
+            var go = Instantiate(prefab, bar.transform);
             var rt = go.GetComponent<Image>().rectTransform;
             rt.anchoredPosition = new Vector2(0f, 0f);
             pointerList.Add(rt);
@@ -37,10 +39,38 @@ public class Call : MonoBehaviour
 
         pointer = pointerList[0];
     }
+
+    private void OnEnable()
+    {
+        TaskManager.TaskStarted.AddListener(OnTaskStartedCallback);
+        TaskManager.TaskFinished.AddListener(OnTaskFinishedCallback);
+    }
+
+    private void OnTaskStartedCallback(TaskManager.TaskType type)
+    {
+        if (type == TaskManager.TaskType.Phone)
+        {
+            isActive = true;
+        }
+    }
+
+    private void OnTaskFinishedCallback(TaskManager.TaskType type)
+    {
+        if (type == TaskManager.TaskType.Phone)
+        {
+            isActive = false;
+        }
+    }
+
+    private void OnDisable()
+    {
+        TaskManager.TaskStarted.RemoveListener(OnTaskStartedCallback);
+        TaskManager.TaskFinished.RemoveListener(OnTaskFinishedCallback);
+    }
     
     private void Update()
     {
-        if (!active)
+        if (!isActive)
         {
             value = 0f;
             return;
@@ -65,8 +95,7 @@ public class Call : MonoBehaviour
                 pointerIndex++;
                 if (pointerIndex >= numIterations)
                 {
-                    // TODO: Michele - Invoke End Task
-                    active = false;
+                    TaskManager.TaskFinished.Invoke(TaskManager.TaskType.Phone);
                 }
                 else
                 {

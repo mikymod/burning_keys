@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6590716359731001241}
   - component: {fileID: 3639604784328840437}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Desktop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 6590716360298488713}
   - component: {fileID: 6590716360298488712}
   - component: {fileID: 6590716360298488719}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 6590716360445342038}
   - component: {fileID: 6590716360445342032}
   - component: {fileID: 6590716360445342039}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 6590716361026857782}
   - component: {fileID: 6590716361026857781}
   - component: {fileID: 6590716361026857780}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,7 +336,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7447666778213334542}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CamraPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,6 +369,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Word
+      objectReference: {fileID: 0}
+    - target: {fileID: 498479234432901906, guid: 98c056a017fd58c49b5d27252a0b6faa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 498479234432901907, guid: 98c056a017fd58c49b5d27252a0b6faa,
         type: 3}
@@ -500,6 +505,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 850502370064735357, guid: c88f2142bf3c7fd4a8111eb6eaa8f1fa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 850502370064735358, guid: c88f2142bf3c7fd4a8111eb6eaa8f1fa,
         type: 3}

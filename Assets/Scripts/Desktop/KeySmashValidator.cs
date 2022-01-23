@@ -21,7 +21,7 @@ public class KeySmashValidator : MonoBehaviour
     private void Awake()
     {
         textGO = GetComponent<TMP_Text>();
-        key = textGO.text;
+        key = textGO.text = GenerateKey();
     }
 
     private void Update()
@@ -39,17 +39,16 @@ public class KeySmashValidator : MonoBehaviour
 
             if (currentIterations == numIterations)
             {
-                ChangeKey();
+                key = textGO.text = GenerateKey();
                 currentIterations = 0;
                 KeySmashCompleted.Invoke();
             }
         }
     }
 
-    private void ChangeKey() 
+    private string GenerateKey() 
     {
-        key = ((char)Random.Range(65, 91)).ToString();
-        textGO.text = key;
+        return ((char)Random.Range(65, 91)).ToString();
     } 
 
     private IEnumerator EnableSmash()

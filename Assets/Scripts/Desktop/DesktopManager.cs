@@ -9,10 +9,6 @@ public class DesktopManager : MonoBehaviour
     private int numKeysSmashCompleted = 0;
     private int numWordsTypedCompleted = 0;
 
-    // [SerializeField] public int SingleSmashScore = 1;
-    // [SerializeField] private int ChangeSmashScore = 5;
-    // [SerializeField] private int QuitSmashScore = 30;
-
     private void OnEnable()
     {
         KeySmashValidator.KeySmashCompleted.AddListener(OnKeySmashDone);

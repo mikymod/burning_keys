@@ -20,12 +20,18 @@ public class Alarm : MonoBehaviour
 
     private void OnTaskStartedCallback(TaskManager.TaskType taskType)
     {
-        isActive = true;
+        if (taskType == TaskManager.TaskType.Alarm)
+        {
+            isActive = true;
+        }
     }
 
     private void OnTaskFinishedCallback(TaskManager.TaskType taskType)
     {
-        isActive = false;
+        if (taskType == TaskManager.TaskType.Alarm)
+        {
+            isActive = false;
+        }
     }
 
     private void Update()

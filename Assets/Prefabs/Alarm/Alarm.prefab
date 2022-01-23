@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7467731760836908217}
   - component: {fileID: 7467731760836908222}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Alarm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
