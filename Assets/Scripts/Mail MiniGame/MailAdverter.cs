@@ -11,34 +11,38 @@ public class MailAdverter : MonoBehaviour
     private TextMeshProUGUI textMailNumber;
     private void Awake()
     {
+        //Need a Fix: per il momento prende due obj (ovvero il text e l'image della notifica)
         mailPopUp = gameObject.transform.GetChild(0).gameObject;
         textMailNumber = gameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
     }
     private void OnEnable()
     {
-        MailGame.MailTime.AddListener(ActivePopUp);
-        MailGame.EndThisMail.AddListener(DisactivePopUp);
+        GameManager.MailAdverterStart.AddListener(ActivePopUp);
+        GameManager.MailAdverterEnd.AddListener(DisactivePopUp);
     }
     private void OnDisable()
     {
-        MailGame.MailTime.RemoveListener(ActivePopUp);
-        MailGame.EndThisMail.RemoveListener(DisactivePopUp);
+        GameManager.MailAdverterStart.RemoveListener(ActivePopUp);
+        GameManager.MailAdverterEnd.RemoveListener(DisactivePopUp);
     }
-    private void ActivePopUp(int mailNumber)
+    private void ActivePopUp()
     {
-        Debug.Log("mi hanno chiamato");
+        
+        Debug.Log("Arrivata Mail");
         if (!mailPopUp.activeInHierarchy)
         {
             mailPopUp.SetActive(true);
         }
-        textMailNumber.SetText($"{ mailNumber}");
+        textMailNumber.SetText($"{GameManager.MailCounter}");
     }
-    private void DisactivePopUp(int mailNumber)
+    private void DisactivePopUp()
     {
-        if (mailNumber == 0 && mailPopUp.activeInHierarchy)
+        if (GameManager.MailCounter == 0 && mailPopUp.activeInHierarchy)
         {
             mailPopUp.SetActive(false);
+            textMailNumber.SetText($"");
         }
-        textMailNumber.SetText($"{ mailNumber}");
+        else
+            textMailNumber.SetText($"{ GameManager.MailCounter}");
     }
 }

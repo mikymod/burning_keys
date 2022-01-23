@@ -42,32 +42,27 @@ public class Call : MonoBehaviour
 
     private void OnEnable()
     {
-        TaskManager.TaskStarted.AddListener(OnTaskStartedCallback);
-        TaskManager.TaskFinished.AddListener(OnTaskFinishedCallback);
+        GameManager.PhoneTaskStart.AddListener(OnTaskStartedCallback);
+        GameManager.PhoneTaskFinished.AddListener(OnTaskFinishedCallback);
     }
 
-    private void OnTaskStartedCallback(TaskManager.TaskType type)
+    private void OnTaskStartedCallback()
     {
-        if (type == TaskManager.TaskType.Phone)
-        {
-            isActive = true;
-        }
+        isActive = true;
     }
 
-    private void OnTaskFinishedCallback(TaskManager.TaskType type)
+    private void OnTaskFinishedCallback()
     {
-        if (type == TaskManager.TaskType.Phone)
-        {
-            isActive = false;
-        }
+        isActive = false;
+        GameManager.PhoneAdverterEnd.Invoke();
     }
 
     private void OnDisable()
     {
-        TaskManager.TaskStarted.RemoveListener(OnTaskStartedCallback);
-        TaskManager.TaskFinished.RemoveListener(OnTaskFinishedCallback);
+        GameManager.PhoneTaskStart.RemoveListener(OnTaskStartedCallback);
+        GameManager.PhoneTaskFinished.RemoveListener(OnTaskFinishedCallback);
     }
-    
+
     private void Update()
     {
         if (!isActive)
@@ -75,7 +70,7 @@ public class Call : MonoBehaviour
             value = 0f;
             return;
         }
-        
+
         value += (Time.deltaTime * speed * orientation);
         if (value <= 0f || value >= 1f - pointer.localScale.x)
         {
@@ -95,7 +90,7 @@ public class Call : MonoBehaviour
                 pointerIndex++;
                 if (pointerIndex >= numIterations)
                 {
-                    TaskManager.TaskFinished.Invoke(TaskManager.TaskType.Phone);
+                    GameManager.PhoneTaskFinished.Invoke();
                 }
                 else
                 {

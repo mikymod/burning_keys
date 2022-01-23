@@ -1,41 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AlarmTask : MonoBehaviour
 {
     [SerializeField] private bool isActive;
 
-    
+
     private void OnEnable()
     {
-        TaskManager.TaskStarted.AddListener(OnTaskStartedCallback);
-        TaskManager.TaskFinished.AddListener(OnTaskFinishedCallback);
+        GameManager.AlarmTaskStart.AddListener(OnTaskStartedCallback);
+        GameManager.AlarmTaskFinished.AddListener(OnTaskFinishCallback);
     }
-
     private void OnDisable()
     {
-        TaskManager.TaskStarted.RemoveListener(OnTaskStartedCallback);
-        TaskManager.TaskFinished.RemoveListener(OnTaskFinishedCallback);
+        GameManager.AlarmTaskStart.RemoveListener(OnTaskStartedCallback);
+        GameManager.AlarmTaskFinished.RemoveListener(OnTaskFinishCallback);
     }
-
-    private void OnTaskStartedCallback(TaskManager.TaskType taskType)
-    {
-        if (taskType == TaskManager.TaskType.Alarm)
-        {
-            isActive = true;
-        }
-    }
-
-    private void OnTaskFinishedCallback(TaskManager.TaskType taskType)
-    {
-        if (taskType == TaskManager.TaskType.Alarm)
-        {
-            isActive = false;
-            GameManager.AlarmEnd.Invoke();
-        }
-    }
-
     private void Update()
     {
         if (isActive)
@@ -45,10 +24,10 @@ public class AlarmTask : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, LayerMask.NameToLayer("Interactable")))
             {
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(1))
                 {
                     Debug.Log("AlarmStopped");
-                    TaskManager.TaskFinished.Invoke(TaskManager.TaskType.Alarm);
+                    GameManager.AlarmTaskFinished.Invoke();
                 }
             }
         }
@@ -57,5 +36,26 @@ public class AlarmTask : MonoBehaviour
             //TODO Stop NoiseSounds
             //TODO StressLevel--
         }
+    }
+    private void OnTaskStartedCallback()
+    {
+        if (isActive)
+        {
+            print("Alarm was alredy active");
+            return;
+        }
+        print("Alarm Task iniziata");
+        isActive = true;
+    }
+    private void OnTaskFinishCallback()
+    {
+        if (!isActive)
+        {
+            print("Alarm was alredy InActive");
+            return;
+        }
+        print("Alarm Task finita");
+        isActive = false;
+        GameManager.AlarmAdverterEnd.Invoke();
     }
 }

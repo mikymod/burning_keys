@@ -330,6 +330,11 @@ MonoBehaviour:
   SingleSmashScore: 1
   ChangeSmashScore: 5
   QuitSmashScore: 30
+  wordCurrentIndex: 0
+  isTyping: 0
+  isSmashing: 0
+  world: 
+  localSmashScore: 0
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,14 +403,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: -0, y: 0.27731237, z: -0, w: 0.96077985}
+  m_LocalRotation: {x: -0, y: -0.029693006, z: -0, w: 0.9995591}
   m_LocalPosition: {x: 0, y: 1.45, z: -1.8384781}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 32.2, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -3.403, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -763,9 +768,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 510014579}
+  - component: {fileID: 510014581}
+  - component: {fileID: 510014580}
   m_Layer: 0
   m_Name: AlarmPivot
-  m_TagString: Untagged
+  m_TagString: Alarm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -786,6 +793,32 @@ Transform:
   m_Father: {fileID: 1865685234}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &510014580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510014578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5808f29f7b5b8b6448048d9e0c24ae5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsActive: 0
+--- !u!114 &510014581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510014578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c01fbef30713e904cbfaf0110288d556, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 0
 --- !u!1 &623618794
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,7 +1079,7 @@ GameObject:
   - component: {fileID: 791142403}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Mail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1150,7 +1183,7 @@ GameObject:
   - component: {fileID: 974757039}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Alarm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2428,6 +2461,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1865685234}
+  - component: {fileID: 1865685235}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -2457,6 +2491,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1865685235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865685233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed9573e938f553b4c9f3c6e9050f9965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxAlarmCounter: 2
+  MaxMailCounter: 3
+  MaxCallCounter: 5
+  mask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &1882383862
 GameObject:
   m_ObjectHideFlags: 0
@@ -2595,10 +2647,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1901361400}
-  - component: {fileID: 1901361402}
+  - component: {fileID: 1901361401}
   m_Layer: 7
   m_Name: MonitorPivot (1)
-  m_TagString: Untagged
+  m_TagString: Mail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2619,7 +2671,7 @@ Transform:
   m_Father: {fileID: 1865685234}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
---- !u!114 &1901361402
+--- !u!114 &1901361401
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2628,18 +2680,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1901361399}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa715d511df04964eb3ed946ab042b47, type: 3}
+  m_Script: {fileID: 11500000, guid: beb4ceb5a1d225b41b05f8843d57a125, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeToMail: 2
-  TextGO:
-  - {fileID: 1320822125}
-  - {fileID: 82326607}
-  ValueOfProgress: 1
-  MaxScore: 5
-  MailGameCamera: {fileID: 1491871862}
-  MainCamera: {fileID: 330585545}
-  isActive: 1
+  firstKey: 97
+  secondKey: 98
+  iterations: 3
+  firstGO: {fileID: 1320822125}
+  secondGO: {fileID: 82326607}
 --- !u!1 &1970486817
 GameObject:
   m_ObjectHideFlags: 0
@@ -3226,6 +3274,11 @@ PrefabInstance:
     - target: {fileID: 6073871194650337151, guid: 238814c44f52c26439940dad982095f3,
         type: 3}
       propertyPath: m_Name
+      value: Phone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6073871195125769850, guid: 238814c44f52c26439940dad982095f3,
+        type: 3}
+      propertyPath: m_TagString
       value: Phone
       objectReference: {fileID: 0}
     - target: {fileID: 7945507977505443338, guid: 238814c44f52c26439940dad982095f3,

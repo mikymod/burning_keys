@@ -1,28 +1,27 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AlarmObject : MonoBehaviour
+public class CallsAdverter : MonoBehaviour
 {
     public bool IsActive;
 
     private void OnEnable()
     {
-        GameManager.AlarmAdverterStart.AddListener(ActiveObject);
-        GameManager.AlarmAdverterEnd.AddListener(DisableObject);
+        GameManager.PhoneAdverterStart.AddListener(ActiveObject);
+        GameManager.PhoneAdverterEnd.AddListener(DisableObject);
     }
     private void OnDisable()
     {
-        GameManager.AlarmAdverterStart.RemoveListener(ActiveObject);
-        GameManager.AlarmAdverterEnd.RemoveListener(DisableObject);
+        GameManager.PhoneAdverterStart.RemoveListener(ActiveObject);
+        GameManager.PhoneAdverterEnd.RemoveListener(DisableObject);
     }
     private void ActiveObject()
     {
         if (!IsActive)
         {
             IsActive = true;
-            print("Alarm Activation");
+            print("Phone Adverter");
             //Animation play
             //Audio play
         }
@@ -33,9 +32,9 @@ public class AlarmObject : MonoBehaviour
         if (IsActive)
         {
             IsActive = false;
+            print("Phone Adverter End");
             //Animation stop
             //Audio stop
         }
     }
-
 }

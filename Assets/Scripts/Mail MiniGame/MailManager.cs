@@ -19,35 +19,37 @@ public class MailManager : MonoBehaviour
 
     private void OnEnable()
     {
-        TaskManager.TaskStarted.AddListener(OnTaskStartedCallback);
-        TaskManager.TaskFinished.AddListener(OnTaskFinishedCallback);
+        GameManager.MailTaskStart.AddListener(OnTaskStartedCallback);
+        GameManager.MailTaskFinished.AddListener(OnTaskFinishedCallback);
     }
-
     private void OnDisable()
     {
-        TaskManager.TaskStarted.RemoveListener(OnTaskStartedCallback);
-        TaskManager.TaskFinished.RemoveListener(OnTaskFinishedCallback);
+        GameManager.MailTaskStart.RemoveListener(OnTaskStartedCallback);
+        GameManager.MailTaskFinished.RemoveListener(OnTaskFinishedCallback);
     }
-
-    private void OnTaskStartedCallback(TaskManager.TaskType type)
+    private void OnTaskStartedCallback()
     {
         // TODO: manage multiple email task started
         // sum new iterations to the old ones
-        if (type == TaskManager.TaskType.Email)
+        if (isActive)
         {
-            isActive = true;
+            print("Mail was alredy active");
+            return;
         }
+        print("Mail Task iniziata");
+        isActive = true;
+    }
+    private void OnTaskFinishedCallback()
+    {
+        if (!isActive)
+        {
+            print("Mail was alredy InActive");
+            return;
+        }
+        print("Mail Task finita");
+        isActive = false;
     }
 
-    private void OnTaskFinishedCallback(TaskManager.TaskType type)
-    {
-        if (type == TaskManager.TaskType.Email)
-        {
-            isActive = false;
-            isCurrentKeyCodeSet = false;
-            Debug.Log("Task completed");            
-        }
-    }
 
     private void Start()
     {
@@ -57,34 +59,53 @@ public class MailManager : MonoBehaviour
 
     private void Update()
     {
-        if (!isCurrentKeyCodeSet)
+        if (isActive)
         {
-            if (Input.GetKeyDown(firstKey) || Input.GetKeyDown(secondKey))
+            if (!isCurrentKeyCodeSet)
             {
-                SetInitialKeyCode();
-                return;
-            }
-        }
-        else
-        {
-            if (Input.anyKeyDown)
-            {
-                if (Input.GetKeyDown(currentKeyCode))
+                if (Input.GetKeyDown(firstKey) || Input.GetKeyDown(secondKey))
                 {
-                    counter++;
-                    SwitchCurrentKeyCode();
-                    Debug.Log("Correct key");
-
-                    if (counter == iterations)
-                    {
-                        TaskManager.TaskFinished.Invoke(TaskManager.TaskType.Email);
-                    }
+                    SetInitialKeyCode();
+                    return;
                 }
-                else
+            }
+            else
+            {
+                if (Input.anyKeyDown)
                 {
-                    counter = 0;
-                    isCurrentKeyCodeSet = false;
-                    Debug.Log("You have to restart");
+                    if (Input.GetKeyDown(currentKeyCode))
+                    {
+                        counter++;
+                        SwitchCurrentKeyCode();
+                        Debug.Log("Correct key");
+
+                        if (counter == iterations)
+                        {
+                            //Check the presence of other mails, take value from GameManager
+                            if (GameManager.MailCounter != 0)
+                            {
+                                print("Mail More");
+                                GameManager.MailCounter--;
+                                counter = 0;
+                                firstGO.text = firstKey.ToString();
+                                secondGO.text = secondKey.ToString();
+                            }
+                            //No other mail? Task End
+                            else
+                            {
+                                print("Mail No More");
+                                GameManager.MailTaskFinished.Invoke();
+                            }
+
+                            GameManager.MailAdverterEnd.Invoke();
+                        }
+                    }
+                    else
+                    {
+                        counter = 0;
+                        isCurrentKeyCodeSet = false;
+                        Debug.Log("You have to restart");
+                    }
                 }
             }
         }
