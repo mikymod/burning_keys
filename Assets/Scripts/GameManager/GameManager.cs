@@ -38,7 +38,6 @@ public class GameManager : MonoBehaviour
         if (alarmTimer >= MaxAlarmCounter)
         {
             alarmTimer = 0;
-
             AlarmAdverterStart.Invoke();
             print("Alarm Adverter");
         }

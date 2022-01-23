@@ -27,7 +27,6 @@ public class MailAdverter : MonoBehaviour
     }
     private void ActivePopUp()
     {
-        
         Debug.Log("Arrivata Mail");
         if (!mailPopUp.activeInHierarchy)
         {
