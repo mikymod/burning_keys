@@ -560,7 +560,7 @@ GameObject:
   - component: {fileID: 7240593306470961268}
   m_Layer: 6
   m_Name: SecondDesktop
-  m_TagString: Untagged
+  m_TagString: Mail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

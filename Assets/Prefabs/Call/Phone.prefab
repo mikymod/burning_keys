@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 4735823479917053677}
   m_Layer: 6
   m_Name: Phone
-  m_TagString: Untagged
+  m_TagString: Phone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

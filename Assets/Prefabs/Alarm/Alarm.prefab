@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7467731760836908217}
   - component: {fileID: 7467731760836908222}
+  - component: {fileID: -4344367030825102624}
   m_Layer: 6
   m_Name: Alarm
-  m_TagString: Untagged
+  m_TagString: Alarm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,6 +47,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+--- !u!114 &-4344367030825102624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7467731760836908216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a40d98c976941444c8d919a03c8672e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7467731761446370407
 GameObject:
   m_ObjectHideFlags: 0
