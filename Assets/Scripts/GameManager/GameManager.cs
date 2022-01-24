@@ -29,6 +29,22 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private LayerMask mask;
     private float mailTimer, alarmTimer, callTimer;
+
+    private void OnEnable()
+    {
+        AlarmAdverterEnd.AddListener(alarmTimerStop);
+        AlarmAdverterEnd.AddListener(callTimerStop);
+        AlarmAdverterEnd.AddListener(mailTimerStop);
+    }
+
+    private void OnDisable()
+    {
+        AlarmAdverterEnd.RemoveListener(alarmTimerStop);
+        AlarmAdverterEnd.RemoveListener(callTimerStop);
+        AlarmAdverterEnd.RemoveListener(mailTimerStop);
+    }
+
+
     private void Update()
     {
         //Time Gestrue need a Fix
@@ -43,15 +59,15 @@ public class GameManager : MonoBehaviour
         }
         if (mailTimer >= MaxMailCounter)
         {
-            MailCounter++;
             mailTimer = 0;
+            MailCounter++;            
             MailAdverterStart.Invoke();
             print("Mail Adverter");
         }
         if (callTimer >= MaxCallCounter)
         {
             callTimer = 0;
-            PhoneAdverterEnd.Invoke();
+            PhoneAdverterStart.Invoke();
             print("Phone Adverter");
         }
 
@@ -80,8 +96,22 @@ public class GameManager : MonoBehaviour
                     default:
                         break;
                 }
-
             }
         }
+    }
+
+    void alarmTimerStop()
+    {
+        alarmTimer = 0;
+    }
+
+    void callTimerStop()
+    {
+        callTimer = 0;
+    }
+
+    void mailTimerStop()
+    {
+        mailTimer = 0;
     }
 }

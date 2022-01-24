@@ -17,18 +17,21 @@ public class Call : MonoBehaviour
     [SerializeField] private float speed = 1f;
     [SerializeField] private float minRange = 0.35f;
     [SerializeField] private float maxRange = 0.65f;
+    [SerializeField] private AudioClip[] strangerVoices;
 
     private float value = 0f;
     private float orientation = 1f;
     private List<RectTransform> pointerList = new List<RectTransform>();
     private RectTransform pointer;
     private int pointerIndex;
+    private AudioSource audiosource;
 
     public static UnityEvent CallStepCompleted = new UnityEvent();
     public static UnityEvent CallStepFailed = new UnityEvent();
 
     private void Awake()
     {
+        audiosource = GetComponent<AudioSource>();
         for (int i = 0; i < numIterations; i++)
         {
             var go = Instantiate(prefab, bar.transform);
@@ -49,12 +52,13 @@ public class Call : MonoBehaviour
     private void OnTaskStartedCallback()
     {
         isActive = true;
+        GameManager.PhoneAdverterEnd.Invoke();
     }
 
     private void OnTaskFinishedCallback()
     {
         isActive = false;
-        GameManager.PhoneAdverterEnd.Invoke();
+        audiosource.Stop();
     }
 
     private void OnDisable()
@@ -69,6 +73,13 @@ public class Call : MonoBehaviour
         {
             value = 0f;
             return;
+        }
+
+        if (!audiosource.isPlaying)
+        {
+            int random = UnityEngine.Random.Range(0, 2);
+            audiosource.clip = strangerVoices[1];
+            audiosource.Play();
         }
 
         value += (Time.deltaTime * speed * orientation);
