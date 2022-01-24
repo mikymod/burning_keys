@@ -27,8 +27,23 @@ public class Call : MonoBehaviour
     public static UnityEvent CallStepCompleted = new UnityEvent();
     public static UnityEvent CallStepFailed = new UnityEvent();
 
-    private void Awake()
+    private void OnEnable()
     {
+        GameManager.PhoneTaskStart.AddListener(OnTaskStartedCallback);
+        GameManager.PhoneTaskFinished.AddListener(OnTaskFinishedCallback);
+    }
+
+    private void OnDisable()
+    {
+        GameManager.PhoneTaskStart.RemoveListener(OnTaskStartedCallback);
+        GameManager.PhoneTaskFinished.RemoveListener(OnTaskFinishedCallback);
+    }
+
+    private void OnTaskStartedCallback()
+    {
+        isActive = true;
+        GameManager.PhoneAdverterEnd.Invoke();
+
         for (int i = 0; i < numIterations; i++)
         {
             var go = Instantiate(prefab, bar.transform);
@@ -40,27 +55,10 @@ public class Call : MonoBehaviour
         pointer = pointerList[0];
     }
 
-    private void OnEnable()
-    {
-        GameManager.PhoneTaskStart.AddListener(OnTaskStartedCallback);
-        GameManager.PhoneTaskFinished.AddListener(OnTaskFinishedCallback);
-    }
-
-    private void OnTaskStartedCallback()
-    {
-        isActive = true;
-    }
-
     private void OnTaskFinishedCallback()
     {
         isActive = false;
-        GameManager.PhoneAdverterEnd.Invoke();
-    }
-
-    private void OnDisable()
-    {
-        GameManager.PhoneTaskStart.RemoveListener(OnTaskStartedCallback);
-        GameManager.PhoneTaskFinished.RemoveListener(OnTaskFinishedCallback);
+        pointerList.Clear();
     }
 
     private void Update()

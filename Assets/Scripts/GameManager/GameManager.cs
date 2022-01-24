@@ -20,6 +20,10 @@ public class GameManager : MonoBehaviour
     public static UnityEvent PhoneAdverterEnd = new UnityEvent();
     public static UnityEvent PhoneTaskStart = new UnityEvent();
     public static UnityEvent PhoneTaskFinished = new UnityEvent();
+
+    public static UnityEvent DesktopTaskFocus = new UnityEvent();
+    public static UnityEvent DesktopTaskUnfocus = new UnityEvent();
+    public static UnityEvent DesktopTaskFinished = new UnityEvent(); // end game
     #endregion
 
     public static int MailCounter;//needed for mail count info idk how to fix
@@ -76,8 +80,8 @@ public class GameManager : MonoBehaviour
                     case "Phone":
                         PhoneTaskStart.Invoke();
                         break;
-
-                    default:
+                    case "Desktop":
+                        DesktopTaskFocus.Invoke();
                         break;
                 }
 

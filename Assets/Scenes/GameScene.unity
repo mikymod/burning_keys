@@ -427,6 +427,11 @@ PrefabInstance:
       propertyPath: m_text
       value: test
       objectReference: {fileID: 0}
+    - target: {fileID: 6590716360298488717, guid: 0ac67ae19952d4a4586a738682c05bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Desktop
+      objectReference: {fileID: 0}
     - target: {fileID: 8916059689943709215, guid: 0ac67ae19952d4a4586a738682c05bc6,
         type: 3}
       propertyPath: m_text
@@ -882,14 +887,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 847513285}
-  m_LocalRotation: {x: -0, y: -0.029693006, z: -0, w: 0.9995591}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.45, z: -1.8384781}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: -3.403, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &868087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,14 +918,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 868087039}
-  m_LocalRotation: {x: 0.3509313, y: -0.6043515, z: 0.3359673, w: 0.6314527}
-  m_LocalPosition: {x: -1.7121818, y: 1.6472058, z: -0.90669674}
+  m_LocalRotation: {x: 0.3535534, y: -0.61237246, z: 0.3535534, w: 0.61237246}
+  m_LocalPosition: {x: -1.7121818, y: 1.6472058, z: -0.987}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 60, y: -90, z: 0}
 --- !u!4 &949347438 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 998679273057864667, guid: 46868c2387ebf9442b44c22605cbb4f3,
@@ -1560,15 +1565,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPos:
-  - {fileID: 1771247938}
-  - {fileID: 868087039}
-  - {fileID: 847513285}
-  - {fileID: 464840931}
-  keyForBack: 0
-  mailLerpTime: 0
-  phoneLerpTime: 0
-  desktopLerpTime: 0
-  visualSensitivity: 0
+  - {fileID: 1771247939}
+  - {fileID: 868087040}
+  - {fileID: 464840932}
+  - {fileID: 847513286}
+  keyForBack: 32
+  speed: 1.5
+  visualSensitivity: 1.5
 --- !u!114 &1865685236
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,105 +1,111 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CameraMgr : MonoBehaviour
 {
     //lista di punti raggiungibili
-    [SerializeField] private List<GameObject> cameraPos;
+    [SerializeField] private List<Transform> cameraPos;
     [SerializeField] private KeyCode keyForBack;
     //vengono utilizzati come time/value per incrementare il tempo di lerp
-    [SerializeField] [Tooltip("Più valore GRANDE più tempo impiega, mantnerlo sempre sopra 1!")] private float mailLerpTime, phoneLerpTime, desktopLerpTime;
+    [SerializeField] private float speed;
     [SerializeField] private float visualSensitivity;
 
     //prendo il valore poco prima di applicare il lerp della camera, avviene durante LerpMyCamToMail()/LerpMyCamToPhone()
     //private Transform LateCameraPos; Non funziona!
-    private bool mailLerp, phoneLerp, lateCamera, deskLerp, freeCamMove;
     private float yaw, pitch;
+
+    private bool freeCamMove = true;
+    private bool moving = false;
+
+
     private void OnEnable()
     {
         GameManager.PhoneTaskStart.AddListener(LerpMyCamToPhone);
+        GameManager.PhoneTaskFinished.AddListener(LerpMyCamToSit);
+        
         GameManager.MailTaskStart.AddListener(LerpMyCamToMail);
+        GameManager.MailTaskFinished.AddListener(LerpMyCamToSit);
+
+        GameManager.DesktopTaskFocus.AddListener(LerpMyCamToDesktop);
+        GameManager.DesktopTaskUnfocus.AddListener(LerpMyCamToSit);
     }
+
+
     private void OnDisable()
     {
         GameManager.PhoneTaskStart.RemoveListener(LerpMyCamToPhone);
+        GameManager.PhoneTaskFinished.RemoveListener(LerpMyCamToSit);
+
+        GameManager.MailTaskFinished.RemoveListener(LerpMyCamToSit);
         GameManager.MailTaskStart.RemoveListener(LerpMyCamToMail);
+
+        GameManager.DesktopTaskFocus.RemoveListener(LerpMyCamToDesktop);
+        GameManager.DesktopTaskUnfocus.RemoveListener(LerpMyCamToSit);
     }
-    private void Start()
-    {
-        //piccolo controllo per non far esplodere tutto in caso valore<=0
-        if (mailLerpTime == 0) mailLerpTime = 1;
-        if (phoneLerpTime == 0) phoneLerpTime = 1;
-        if (desktopLerpTime == 0) desktopLerpTime = 1;
-        //piccolo controllo se dovessimo dimenticarci di impostare il tasto
-        if (keyForBack == KeyCode.None) keyForBack = KeyCode.Space;
-        //controllo per visualSensitivit
-        if (visualSensitivity == 0) visualSensitivity = 1;
-        freeCamMove = true;
-    }
+
     private void Update()
     {
-
         if (Input.GetKeyDown(keyForBack))
-            lateCamera = true;
-        if (lateCamera) //Lerp per tornare posizione iniziale
         {
-            freeCamMove = false;
-            mailLerp = false;
-            phoneLerp = false;
-            if (Camera.main.transform.position == cameraPos[2].transform.position)
-            {
-                freeCamMove = true;
-                yaw = 0;
-                pitch = 0;
-                lateCamera = false;
-            }
-            //Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, LateCameraPos.transform.position, fractionReturn);
-            //Camera.main.transform.rotation = Quaternion.Slerp(Camera.main.transform.rotation, LateCameraPos.transform.rotation, fractionReturn);
-            Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, cameraPos[2].transform.position, Time.deltaTime * desktopLerpTime);
-            Camera.main.transform.rotation = Quaternion.Slerp(Camera.main.transform.rotation, cameraPos[2].transform.rotation, Time.deltaTime * desktopLerpTime);
+            LerpMyCamToSit();
         }
-
-        //Lerp per le Mail
-        if (mailLerp)
-        {
-            freeCamMove = false;
-            if (Camera.main.transform.position == cameraPos[0].transform.position) mailLerp = false;
-            Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, cameraPos[0].transform.position, Time.deltaTime * phoneLerpTime);
-            Camera.main.transform.rotation = Quaternion.Slerp(Camera.main.transform.rotation, cameraPos[0].transform.rotation, Time.deltaTime * phoneLerpTime);
-        }
-
-        //Lerp per il Phone
-        if (phoneLerp)
-        {
-            freeCamMove = false;
-            if (Camera.main.transform.position == cameraPos[1].transform.position) phoneLerp = false;
-            Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, cameraPos[1].transform.position, Time.deltaTime * phoneLerpTime);
-            Camera.main.transform.rotation = Quaternion.Slerp(Camera.main.transform.rotation, cameraPos[1].transform.rotation, Time.deltaTime * phoneLerpTime);
-        }
-
-        if (deskLerp) { } //Da aggiungere il desktop
-
+        
         //bozza camera move
         if (freeCamMove)
         {
             yaw += visualSensitivity * Input.GetAxis("Mouse X");
             pitch -= visualSensitivity * Input.GetAxis("Mouse Y");
             Camera.main.transform.eulerAngles = new Vector3(pitch, yaw, 0);
-            //LateCameraPos = Camera.main.transform; //non capisco perchè non funzioni! aggiorna il valore anche se non entra nell'if!
         }
-        
     }
 
     //Darei un ritocchino a questa cosa non amo dover mettere due metodi per fare praticamente la stessa cosa
+    private void LerpMyCamToDesktop()
+    {
+        if (moving) return;
+        freeCamMove = false;
+        StartCoroutine(MoveCameraCoroutine(cameraPos[2].position, cameraPos[2].rotation, speed));
+    }
+
     private void LerpMyCamToMail()
     {
-        if (mailLerp) return;
-        mailLerp = true;
+        if (moving) return;
+        freeCamMove = false;
+        StartCoroutine(MoveCameraCoroutine(cameraPos[0].position, cameraPos[0].rotation, speed));
     }
     private void LerpMyCamToPhone()
     {
-        if (phoneLerp) return;
-        phoneLerp = true;
+        if (moving) return;
+        freeCamMove = false;
+        StartCoroutine(MoveCameraCoroutine(cameraPos[1].position, cameraPos[1].rotation, speed));
+    }
+
+    private void LerpMyCamToSit()
+    {
+        if (moving) return;
+        freeCamMove = true;
+        StartCoroutine(MoveCameraCoroutine(cameraPos[3].position, cameraPos[3].rotation, speed));
+    }
+
+    private void MoveCamera(Vector3 position, Quaternion rotation, float speed)
+    {
+        StartCoroutine(MoveCameraCoroutine(position, rotation, speed));
+    }
+
+    private IEnumerator MoveCameraCoroutine(Vector3 position, Quaternion rotation, float speed)
+    {
+        moving = true;
+        while (Vector3.Distance(Camera.main.transform.position, position) > 0.01f)
+        {
+            Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, position, Time.deltaTime * speed);
+            Camera.main.transform.rotation = Quaternion.Slerp(Camera.main.transform.rotation, rotation, Time.deltaTime * speed);
+            yield return null;
+        }
+
+        Camera.main.transform.position = position;
+        moving = false;
     }
 }
