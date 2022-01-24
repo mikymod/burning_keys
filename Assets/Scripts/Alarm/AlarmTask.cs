@@ -4,7 +4,7 @@ public class AlarmTask : MonoBehaviour
 {
     [SerializeField] private bool isActive;
 
-
+    
     private void OnEnable()
     {
         GameManager.AlarmTaskStart.AddListener(OnTaskStartedCallback);

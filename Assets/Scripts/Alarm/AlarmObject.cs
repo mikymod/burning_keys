@@ -7,6 +7,13 @@ public class AlarmObject : MonoBehaviour
 {
     public bool IsActive;
 
+    private AudioSource audiosource;
+
+    private void Awake()
+    {
+        audiosource = GetComponent<AudioSource>();
+    }
+
     private void OnEnable()
     {
         GameManager.AlarmAdverterStart.AddListener(ActiveObject);
