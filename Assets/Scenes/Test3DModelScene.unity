@@ -1079,6 +1079,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2858108245561309621, guid: 1612966cf61851747bda4c80f6d6b445,
+        type: 3}
+      propertyPath: Going
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1612966cf61851747bda4c80f6d6b445, type: 3}
 --- !u!1001 &5114686594029759446
@@ -1093,11 +1098,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 330585545}
-    - target: {fileID: 5114686593544532770, guid: cbcac7e16028ebd449b75afd00289565,
-        type: 3}
-      propertyPath: speed
-      value: 0.01
-      objectReference: {fileID: 0}
     - target: {fileID: 5114686593544532772, guid: cbcac7e16028ebd449b75afd00289565,
         type: 3}
       propertyPath: m_RootOrder
@@ -1152,21 +1152,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5114686593544532773, guid: cbcac7e16028ebd449b75afd00289565,
-        type: 3}
-      propertyPath: MaxCallCounter
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5114686593544532773, guid: cbcac7e16028ebd449b75afd00289565,
-        type: 3}
-      propertyPath: MaxMailCounter
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5114686593544532773, guid: cbcac7e16028ebd449b75afd00289565,
-        type: 3}
-      propertyPath: MaxAlarmCounter
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5114686593544532775, guid: cbcac7e16028ebd449b75afd00289565,
         type: 3}

@@ -1,7 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+
+[Serializable]
+public class TimedEvent
+{
+    public enum TimedEventType
+    {
+        Alarm,
+        Email,
+        Phone
+    }
+
+    public TimedEventType type;
+    public float time;
+    [HideInInspector]public bool done;
+}
 
 public class GameManager : MonoBehaviour
 {
@@ -28,54 +44,103 @@ public class GameManager : MonoBehaviour
 
     public static int MailCounter;//needed for mail count info idk how to fix
 
-    [Tooltip("Dopo quanto tempo avviene action")] public float MaxAlarmCounter, MaxMailCounter, MaxCallCounter;
-
+    private bool phoneIsFocusable = false;
+    private bool alarmIsFocusable = false;
+    private bool mailIsFocusable = false;
 
     [SerializeField] private LayerMask mask;
+
     private float mailTimer, alarmTimer, callTimer;
+    private float timer = 0;
+
+    [SerializeField] TimedEvent[] timedEvents;
 
     private void OnEnable()
     {
-        AlarmAdverterEnd.AddListener(alarmTimerStop);
-        AlarmAdverterEnd.AddListener(callTimerStop);
-        AlarmAdverterEnd.AddListener(mailTimerStop);
+        AlarmAdverterStart.AddListener(OnAlarmAdverterStart);
+        PhoneAdverterStart.AddListener(OnPhoneAdverterStart);
+        MailAdverterStart.AddListener(OnMailAdverterStart);
+
+        AlarmAdverterEnd.AddListener(OnAlarmAdverterEnd);
+        PhoneAdverterEnd.AddListener(OnPhoneAdverterEnd);
+        MailAdverterEnd.AddListener(OnMailAdverterEnd);
     }
 
     private void OnDisable()
     {
-        AlarmAdverterEnd.RemoveListener(alarmTimerStop);
-        AlarmAdverterEnd.RemoveListener(callTimerStop);
-        AlarmAdverterEnd.RemoveListener(mailTimerStop);
+        AlarmAdverterStart.RemoveListener(OnAlarmAdverterStart);
+        PhoneAdverterStart.RemoveListener(OnPhoneAdverterStart);
+        MailAdverterStart.RemoveListener(OnMailAdverterStart);
+
+        AlarmAdverterEnd.RemoveListener(OnAlarmAdverterEnd);
+        PhoneAdverterEnd.RemoveListener(OnPhoneAdverterEnd);
+        MailAdverterEnd.RemoveListener(OnMailAdverterEnd);
     }
 
+    private void OnAlarmAdverterStart()
+    {
+        alarmIsFocusable = true;
+    }
+
+    private void OnPhoneAdverterStart()
+    {
+        phoneIsFocusable = true;
+    }
+
+    private void OnMailAdverterStart()
+    {
+        mailIsFocusable = true;
+    }
+
+    private void OnAlarmAdverterEnd()
+    {
+        // alarmTimer = 0;
+        alarmIsFocusable = false;
+    }
+
+    private void OnPhoneAdverterEnd()
+    {
+        // callTimer = 0;
+        phoneIsFocusable = false;
+    }
+
+    private void OnMailAdverterEnd()
+    {
+        // mailTimer = 0;
+        mailIsFocusable = false;
+    }
 
     private void Update()
     {
-        //Time Gestrue need a Fix
-        mailTimer += Time.deltaTime;
-        alarmTimer += Time.deltaTime;
-        callTimer += Time.deltaTime;
-        if (alarmTimer >= MaxAlarmCounter)
+        timer += Time.deltaTime;
+
+        foreach (var timedEvent in timedEvents)
         {
-            alarmTimer = 0;
-            AlarmAdverterStart.Invoke();
-            AlarmTaskStart.Invoke();
-            print("Alarm Adverter");
-        }
-        if (mailTimer >= MaxMailCounter)
-        {
-            mailTimer = 0;
-            MailCounter++;            
-            MailAdverterStart.Invoke();
-            print("Mail Adverter");
-        }
-        if (callTimer >= MaxCallCounter)
-        {
-            callTimer = 0;
-            PhoneAdverterStart.Invoke();
-            print("Phone Adverter");
+            if (timer >= timedEvent.time && !timedEvent.done)
+            {
+                timedEvent.done = true;
+                
+                switch (timedEvent.type)
+                {
+                    case TimedEvent.TimedEventType.Alarm:
+                        AlarmAdverterStart.Invoke();
+                        AlarmTaskStart.Invoke();
+                        break;
+                    case TimedEvent.TimedEventType.Email:
+                        MailAdverterStart.Invoke();
+                        break;
+                    case TimedEvent.TimedEventType.Phone:
+                        PhoneAdverterStart.Invoke();
+                        break;
+                }
+            }
         }
 
+        RaycastInterctable();
+    }
+
+    private void RaycastInterctable()
+    {
         if (Input.GetMouseButtonDown(0))
         {
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -85,10 +150,12 @@ public class GameManager : MonoBehaviour
                 switch (hit.collider.gameObject.tag)
                 {
                     case "Mail":
-                        MailTaskStart.Invoke();
+                        if (mailIsFocusable)
+                            MailTaskStart.Invoke();
                         break;
                     case "Phone":
-                        PhoneTaskStart.Invoke();
+                        if (phoneIsFocusable)
+                            PhoneTaskStart.Invoke();
                         break;
                     case "Desktop":
                         DesktopTaskFocus.Invoke();
@@ -96,20 +163,5 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-    }
-
-    void alarmTimerStop()
-    {
-        alarmTimer = 0;
-    }
-
-    void callTimerStop()
-    {
-        callTimer = 0;
-    }
-
-    void mailTimerStop()
-    {
-        mailTimer = 0;
-    }
+    }   
 }

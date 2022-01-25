@@ -15,7 +15,7 @@ public class MailManager : MonoBehaviour
     private KeyCode currentKeyCode;
     private int counter = 0;
     private bool isCurrentKeyCodeSet = false;
-    private bool isActive;
+    public bool isActive;
 
     private void OnEnable()
     {

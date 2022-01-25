@@ -284,12 +284,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed9573e938f553b4c9f3c6e9050f9965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxAlarmCounter: 2
-  MaxMailCounter: 3
-  MaxCallCounter: 5
   mask:
     serializedVersion: 2
     m_Bits: 64
+  timedEvents:
+  - type: 0
+    time: 10
+    done: 0
+  - type: 1
+    time: 20
+    done: 0
+  - type: 2
+    time: 30
+    done: 0
+  - type: 1
+    time: 31
+    done: 0
+  - type: 1
+    time: 31
+    done: 0
 --- !u!114 &5114686593544532770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,7 +321,7 @@ MonoBehaviour:
   - {fileID: 5114686594172289447}
   - {fileID: 5114686594957781310}
   keyForBack: 32
-  speed: 1.5
+  speed: 0.025
   visualSensitivity: 1.5
 --- !u!114 &5114686593544532771
 MonoBehaviour:
