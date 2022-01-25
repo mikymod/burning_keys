@@ -1118,6 +1118,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5114686593544532773, guid: cbcac7e16028ebd449b75afd00289565,
+        type: 3}
+      propertyPath: MaxMailCounter
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5114686593544532775, guid: cbcac7e16028ebd449b75afd00289565,
         type: 3}
       propertyPath: m_Name
