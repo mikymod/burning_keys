@@ -67,6 +67,7 @@ public class Adverter : MonoBehaviour
     {
         mailAdverter.enabled = true;
         mailCounter.enabled = true;
+        GameManager.MailCounter++;
         mailCounter.SetText($"{GameManager.MailCounter}");
     }
 

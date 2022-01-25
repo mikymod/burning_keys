@@ -219,4 +219,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mask: {fileID: 5250208958933339931}
   maxValue: 100
-  speed: 3
+  speed: 2
