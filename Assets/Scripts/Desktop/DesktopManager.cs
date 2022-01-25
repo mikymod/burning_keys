@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class DesktopManager : MonoBehaviour
@@ -11,14 +12,49 @@ public class DesktopManager : MonoBehaviour
 
     private void OnEnable()
     {
+        GameManager.DesktopTaskFocus.AddListener(ResumeTask);
+
+        InputManager.KeyCodeInput.AddListener(OnKeyCodeInput);
+
         KeySmashValidator.KeySmashCompleted.AddListener(OnKeySmashDone);
         WordValidator.WordCompleted.AddListener(OnWordDone);
     }
 
     private void OnDisable()
     {
+        GameManager.DesktopTaskFocus.RemoveListener(ResumeTask);
+
+        InputManager.KeyCodeInput.RemoveListener(OnKeyCodeInput);
+
         KeySmashValidator.KeySmashCompleted.RemoveListener(OnKeySmashDone);
         WordValidator.WordCompleted.RemoveListener(OnWordDone);
+    }
+
+
+    private void ResumeTask()
+    {
+        GameManager.DesktopTaskFocus.RemoveListener(ResumeTask);
+        GameManager.DesktopTaskUnfocus.AddListener(PauseTask);
+
+        keyPrefab.SetActive(true);
+        wordPrefab.SetActive(false);
+    }
+
+    private void PauseTask()
+    {
+        GameManager.DesktopTaskFocus.AddListener(ResumeTask);
+        GameManager.DesktopTaskUnfocus.RemoveListener(PauseTask);
+
+        keyPrefab.SetActive(false);
+        wordPrefab.SetActive(false);         
+    }
+
+    private void OnKeyCodeInput(KeyCode keyCode)
+    {
+        if (keyCode == KeyCode.Space)
+        {
+            GameManager.DesktopTaskUnfocus.Invoke();
+        }
     }
 
     private void OnKeySmashDone()

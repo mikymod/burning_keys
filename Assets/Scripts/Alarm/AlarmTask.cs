@@ -3,7 +3,13 @@ using UnityEngine;
 public class AlarmTask : MonoBehaviour
 {
     [SerializeField] private bool isActive;
+    private Collider coll;
 
+    private void Awake()
+    {
+        coll = GetComponentInChildren<Collider>();
+        coll.enabled = false;
+    }
     
     private void OnEnable()
     {
@@ -15,6 +21,7 @@ public class AlarmTask : MonoBehaviour
         GameManager.AlarmTaskStart.RemoveListener(OnTaskStartedCallback);
         GameManager.AlarmTaskFinished.RemoveListener(OnTaskFinishCallback);
     }
+
     private void Update()
     {
         if (isActive)
@@ -41,20 +48,18 @@ public class AlarmTask : MonoBehaviour
     {
         if (isActive)
         {
-            print("Alarm was alredy active");
             return;
         }
-        print("Alarm Task iniziata");
+        coll.enabled = true;
         isActive = true;
     }
     private void OnTaskFinishCallback()
     {
         if (!isActive)
         {
-            print("Alarm was alredy InActive");
             return;
         }
-        print("Alarm Task finita");
+        coll.enabled = false;
         isActive = false;
         GameManager.AlarmAdverterEnd.Invoke();
     }

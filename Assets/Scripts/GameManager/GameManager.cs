@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
         {
             alarmTimer = 0;
             AlarmAdverterStart.Invoke();
+            AlarmTaskStart.Invoke();
             print("Alarm Adverter");
         }
         if (mailTimer >= MaxMailCounter)
@@ -59,21 +60,14 @@ public class GameManager : MonoBehaviour
             print("Phone Adverter");
         }
 
-
         if (Input.GetMouseButtonDown(0))
         {
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit, mask))
             {
-                // TODO: Select Game object with task
-                //Camera in
-
                 //Task switch
                 switch (hit.collider.gameObject.tag)
                 {
-                    case "Alarm":
-                        AlarmTaskStart.Invoke();
-                        break;
                     case "Mail":
                         MailTaskStart.Invoke();
                         break;

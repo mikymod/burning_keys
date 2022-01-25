@@ -12,7 +12,7 @@ public class Call : MonoBehaviour
     [Header("Customization")]
     [SerializeField] private GameObject prefab;
     [SerializeField] private GameObject bar;
-    [SerializeField] private KeyCode keycode = KeyCode.G;
+    [SerializeField] private KeyCode keyCode = KeyCode.G;
     [SerializeField] private int numIterations = 1;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float minRange = 0.35f;
@@ -29,14 +29,46 @@ public class Call : MonoBehaviour
 
     private void OnEnable()
     {
+        InputManager.KeyCodeInput.AddListener(OnKeyCodeInput);
+
         GameManager.PhoneTaskStart.AddListener(OnTaskStartedCallback);
         GameManager.PhoneTaskFinished.AddListener(OnTaskFinishedCallback);
     }
 
     private void OnDisable()
     {
+        InputManager.KeyCodeInput.RemoveListener(OnKeyCodeInput);
+        
         GameManager.PhoneTaskStart.RemoveListener(OnTaskStartedCallback);
         GameManager.PhoneTaskFinished.RemoveListener(OnTaskFinishedCallback);
+    }
+
+    private void OnKeyCodeInput(KeyCode keyCode)
+    {
+        if (this.keyCode == keyCode)
+        {
+            if (value >= minRange && value <= maxRange)
+            {
+                CallStepCompleted.Invoke();
+
+                // TODO: add animation
+                Destroy(pointer.gameObject);
+                pointerIndex++;
+                if (pointerIndex >= numIterations)
+                {
+                    GameManager.PhoneTaskFinished.Invoke();
+                }
+                else
+                {
+                    pointer = pointerList[pointerIndex];
+                    value = 0f;
+                }
+            }
+            else
+            {
+                CallStepFailed.Invoke();
+            }
+        }
     }
 
     private void OnTaskStartedCallback()
@@ -76,30 +108,5 @@ public class Call : MonoBehaviour
         }
         value = Mathf.Clamp(value, 0, 1f - pointer.localScale.x);
         pointer.anchoredPosition = new Vector2(value, 0f);
-
-        if (Input.GetKeyDown(keycode))
-        {
-            if (value >= minRange && value <= maxRange)
-            {
-                CallStepCompleted.Invoke();
-
-                // TODO: add animation
-                Destroy(pointer.gameObject);
-                pointerIndex++;
-                if (pointerIndex >= numIterations)
-                {
-                    GameManager.PhoneTaskFinished.Invoke();
-                }
-                else
-                {
-                    pointer = pointerList[pointerIndex];
-                    value = 0f;
-                }
-            }
-            else
-            {
-                CallStepFailed.Invoke();
-            }
-        }
     }
 }

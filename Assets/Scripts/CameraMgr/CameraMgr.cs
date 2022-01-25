@@ -18,7 +18,7 @@ public class CameraMgr : MonoBehaviour
     private float yaw, pitch;
 
     private bool freeCamMove = true;
-    private bool moving = false;
+    public static bool moving = false;
 
 
     private void OnEnable()

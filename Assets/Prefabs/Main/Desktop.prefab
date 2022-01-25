@@ -64,7 +64,7 @@ GameObject:
   - component: {fileID: 6590716360298488719}
   m_Layer: 6
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Desktop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -365,6 +365,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6590716361026857771}
     m_Modifications:
+    - target: {fileID: 498479234432901904, guid: 98c056a017fd58c49b5d27252a0b6faa,
+        type: 3}
+      propertyPath: m_text
+      value: test
+      objectReference: {fileID: 0}
     - target: {fileID: 498479234432901906, guid: 98c056a017fd58c49b5d27252a0b6faa,
         type: 3}
       propertyPath: m_Name
@@ -374,6 +379,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 498479234432901906, guid: 98c056a017fd58c49b5d27252a0b6faa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 498479234432901907, guid: 98c056a017fd58c49b5d27252a0b6faa,
         type: 3}
@@ -511,6 +521,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 850502370064735357, guid: c88f2142bf3c7fd4a8111eb6eaa8f1fa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 850502370064735358, guid: c88f2142bf3c7fd4a8111eb6eaa8f1fa,
         type: 3}
       propertyPath: m_Pivot.x
@@ -615,6 +630,13 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 850502370064735360, guid: c88f2142bf3c7fd4a8111eb6eaa8f1fa,
+        type: 3}
+      propertyPath: m_text
+      value: '
+
+'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c88f2142bf3c7fd4a8111eb6eaa8f1fa, type: 3}

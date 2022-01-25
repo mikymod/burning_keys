@@ -24,10 +24,21 @@ public class KeySmashValidator : MonoBehaviour
         key = textGO.text = GenerateKey();
     }
 
-    private void Update()
+    private void OnEnable()
+    {
+        InputManager.KeyCodeInput.AddListener(OnKeyCodeInput);
+        Reset();
+    }
+
+    private void OnDisable()
+    {
+        InputManager.KeyCodeInput.RemoveListener(OnKeyCodeInput);
+    }
+
+    private void OnKeyCodeInput(KeyCode keyCode)
     {
         KeyCode currentKeyCode = (KeyCode) System.Enum.Parse(typeof(KeyCode), key.ToUpper().ToString());
-        if (Input.GetKeyDown(currentKeyCode) && canSmash)
+        if (keyCode == currentKeyCode && canSmash)
         {
             canSmash = false;
             StartCoroutine(EnableSmash());
@@ -35,7 +46,6 @@ public class KeySmashValidator : MonoBehaviour
             // TODO: start animation
 
             currentIterations++;
-            Debug.Log($"Smash! iter: {currentIterations}");
 
             if (currentIterations == numIterations)
             {
@@ -45,6 +55,27 @@ public class KeySmashValidator : MonoBehaviour
             }
         }
     }
+
+    // private void Update()
+    // {
+    //     if (Input.GetKeyDown(currentKeyCode) && canSmash)
+    //     {
+    //         canSmash = false;
+    //         StartCoroutine(EnableSmash());
+
+    //         // TODO: start animation
+
+    //         currentIterations++;
+    //         Debug.Log($"Smash! iter: {currentIterations}");
+
+    //         if (currentIterations == numIterations)
+    //         {
+    //             key = textGO.text = GenerateKey();
+    //             currentIterations = 0;
+    //             KeySmashCompleted.Invoke();
+    //         }
+    //     }
+    // }
 
     private string GenerateKey() 
     {
