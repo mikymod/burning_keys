@@ -23,7 +23,6 @@ public class CallsAdverter : MonoBehaviour
             IsActive = true;
             print("Phone Adverter");
             //Animation play
-            //Audio play
         }
     }
 
@@ -34,7 +33,6 @@ public class CallsAdverter : MonoBehaviour
             IsActive = false;
             print("Phone Adverter End");
             //Animation stop
-            //Audio stop
         }
     }
 }

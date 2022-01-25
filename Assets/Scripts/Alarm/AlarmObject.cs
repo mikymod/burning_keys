@@ -7,13 +7,6 @@ public class AlarmObject : MonoBehaviour
 {
     public bool IsActive;
 
-    private AudioSource audiosource;
-
-    private void Awake()
-    {
-        audiosource = GetComponent<AudioSource>();
-    }
-
     private void OnEnable()
     {
         GameManager.AlarmAdverterStart.AddListener(ActiveObject);
@@ -31,7 +24,6 @@ public class AlarmObject : MonoBehaviour
             IsActive = true;
             print("Alarm Activation");
             //Animation play
-            //Audio play
         }
     }
 
@@ -41,7 +33,6 @@ public class AlarmObject : MonoBehaviour
         {
             IsActive = false;
             //Animation stop
-            //Audio stop
         }
     }
 
