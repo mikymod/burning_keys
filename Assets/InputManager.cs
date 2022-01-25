@@ -12,6 +12,7 @@ public class InputManager : MonoBehaviour
         // FIXME: workaround with camera
         if (CameraMgr.moving)
         {
+            print("Microphone muovo");
             return;
         }
         
