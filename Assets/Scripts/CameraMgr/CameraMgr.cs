@@ -10,7 +10,7 @@ public class CameraMgr : MonoBehaviour
     [SerializeField] private List<Transform> cameraPos;
     [SerializeField] private KeyCode keyForBack;
     //vengono utilizzati come time/value per incrementare il tempo di lerp
-    [SerializeField] private float speed;
+    [SerializeField][Range(0f, 1f)] private float speed;
     [SerializeField] private float visualSensitivity;
 
     //prendo il valore poco prima di applicare il lerp della camera, avviene durante LerpMyCamToMail()/LerpMyCamToPhone()
@@ -100,8 +100,8 @@ public class CameraMgr : MonoBehaviour
         moving = true;
         while (Vector3.Distance(Camera.main.transform.position, position) > 0.01f)
         {
-            Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, position, Time.deltaTime * speed);
-            Camera.main.transform.rotation = Quaternion.Slerp(Camera.main.transform.rotation, rotation, Time.deltaTime * speed);
+            Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, position, speed);
+            Camera.main.transform.rotation = Quaternion.Slerp(Camera.main.transform.rotation, rotation, speed);
             yield return null;
         }
 
