@@ -97,11 +97,17 @@ public class MailManager : MonoBehaviour
             return;
         }
         isActive = true;
+
+        firstGO.gameObject.SetActive(true);
+        secondGO.gameObject.SetActive(true);
     }
 
     private void OnTaskFinishedCallback()
     {
         isActive = false;
+
+        firstGO.gameObject.SetActive(false);
+        secondGO.gameObject.SetActive(false);
     }
 
     private void Start()
