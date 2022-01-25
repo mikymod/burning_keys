@@ -8,7 +8,6 @@ public class KeySmashDone : UnityEvent { }
 public class KeySmashValidator : MonoBehaviour
 {
     [SerializeField] public int numIterations = 6;
-    [SerializeField] public float timeBetweenSmash = 0.3f;
 
     private TMP_Text textGO;
     private string key;
@@ -27,7 +26,6 @@ public class KeySmashValidator : MonoBehaviour
     private void OnEnable()
     {
         InputManager.KeyCodeInput.AddListener(OnKeyCodeInput);
-        Reset();
     }
 
     private void OnDisable()
@@ -38,11 +36,8 @@ public class KeySmashValidator : MonoBehaviour
     private void OnKeyCodeInput(KeyCode keyCode)
     {
         KeyCode currentKeyCode = (KeyCode) System.Enum.Parse(typeof(KeyCode), key.ToUpper().ToString());
-        if (keyCode == currentKeyCode && canSmash)
+        if (keyCode == currentKeyCode )
         {
-            canSmash = false;
-            StartCoroutine(EnableSmash());
-
             // TODO: start animation
 
             currentIterations++;
@@ -56,37 +51,8 @@ public class KeySmashValidator : MonoBehaviour
         }
     }
 
-    // private void Update()
-    // {
-    //     if (Input.GetKeyDown(currentKeyCode) && canSmash)
-    //     {
-    //         canSmash = false;
-    //         StartCoroutine(EnableSmash());
-
-    //         // TODO: start animation
-
-    //         currentIterations++;
-    //         Debug.Log($"Smash! iter: {currentIterations}");
-
-    //         if (currentIterations == numIterations)
-    //         {
-    //             key = textGO.text = GenerateKey();
-    //             currentIterations = 0;
-    //             KeySmashCompleted.Invoke();
-    //         }
-    //     }
-    // }
-
     private string GenerateKey() 
     {
         return ((char)Random.Range(65, 91)).ToString();
     } 
-
-    private IEnumerator EnableSmash()
-    {
-        yield return new WaitForSeconds(timeBetweenSmash);
-        canSmash = true;
-    }
-
-    public void Reset() => canSmash = true;
 }
