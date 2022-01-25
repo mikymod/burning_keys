@@ -13,7 +13,7 @@ public class MailAdverter : MonoBehaviour
     {
         //Need a Fix: per il momento prende due obj (ovvero il text e l'image della notifica)
         mailPopUp = gameObject.transform.GetChild(0).gameObject;
-        textMailNumber = gameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        textMailNumber = gameObject.GetComponentInChildren<TextMeshProUGUI>();
     }
     private void OnEnable()
     {
@@ -28,17 +28,17 @@ public class MailAdverter : MonoBehaviour
     private void ActivePopUp()
     {
         Debug.Log("Arrivata Mail");
-        if (!mailPopUp.activeInHierarchy)
-        {
-            mailPopUp.SetActive(true);
-        }
+        // if (!mailPopUp.activeInHierarchy)
+        // {
+        //     mailPopUp.SetActive(true);
+        // }
         textMailNumber.SetText($"{GameManager.MailCounter}");
     }
     private void DisactivePopUp()
     {
         if (GameManager.MailCounter == 0 && mailPopUp.activeInHierarchy)
         {
-            mailPopUp.SetActive(false);
+            // mailPopUp.SetActive(false);
             textMailNumber.SetText($"");
         }
         else

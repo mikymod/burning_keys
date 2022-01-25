@@ -12,85 +12,40 @@ public class Call : MonoBehaviour
     [Header("Customization")]
     [SerializeField] private GameObject prefab;
     [SerializeField] private GameObject bar;
-    [SerializeField] private KeyCode keycode = KeyCode.G;
+    [SerializeField] private KeyCode keyCode = KeyCode.G;
     [SerializeField] private int numIterations = 1;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float minRange = 0.35f;
     [SerializeField] private float maxRange = 0.65f;
-    [SerializeField] private AudioClip[] strangerVoices;
 
     private float value = 0f;
     private float orientation = 1f;
     private List<RectTransform> pointerList = new List<RectTransform>();
     private RectTransform pointer;
     private int pointerIndex;
-    private AudioSource audiosource;
 
     public static UnityEvent CallStepCompleted = new UnityEvent();
     public static UnityEvent CallStepFailed = new UnityEvent();
 
-    private void Awake()
-    {
-        audiosource = GetComponent<AudioSource>();
-        for (int i = 0; i < numIterations; i++)
-        {
-            var go = Instantiate(prefab, bar.transform);
-            var rt = go.GetComponent<Image>().rectTransform;
-            rt.anchoredPosition = new Vector2(0f, 0f);
-            pointerList.Add(rt);
-        }
-
-        pointer = pointerList[0];
-    }
-
     private void OnEnable()
     {
+        InputManager.KeyCodeInput.AddListener(OnKeyCodeInput);
+
         GameManager.PhoneTaskStart.AddListener(OnTaskStartedCallback);
         GameManager.PhoneTaskFinished.AddListener(OnTaskFinishedCallback);
     }
 
-    private void OnTaskStartedCallback()
-    {
-        isActive = true;
-        GameManager.PhoneAdverterEnd.Invoke();
-    }
-
-    private void OnTaskFinishedCallback()
-    {
-        isActive = false;
-        audiosource.Stop();
-    }
-
     private void OnDisable()
     {
+        InputManager.KeyCodeInput.RemoveListener(OnKeyCodeInput);
+        
         GameManager.PhoneTaskStart.RemoveListener(OnTaskStartedCallback);
         GameManager.PhoneTaskFinished.RemoveListener(OnTaskFinishedCallback);
     }
 
-    private void Update()
+    private void OnKeyCodeInput(KeyCode keyCode)
     {
-        if (!isActive)
-        {
-            value = 0f;
-            return;
-        }
-
-        if (!audiosource.isPlaying)
-        {
-            int random = UnityEngine.Random.Range(0, 2);
-            audiosource.clip = strangerVoices[1];
-            audiosource.Play();
-        }
-
-        value += (Time.deltaTime * speed * orientation);
-        if (value <= 0f || value >= 1f - pointer.localScale.x)
-        {
-            orientation *= -1f;
-        }
-        value = Mathf.Clamp(value, 0, 1f - pointer.localScale.x);
-        pointer.anchoredPosition = new Vector2(value, 0f);
-
-        if (Input.GetKeyDown(keycode))
+        if (this.keyCode == keyCode)
         {
             if (value >= minRange && value <= maxRange)
             {
@@ -114,5 +69,44 @@ public class Call : MonoBehaviour
                 CallStepFailed.Invoke();
             }
         }
+    }
+
+    private void OnTaskStartedCallback()
+    {
+        isActive = true;
+        GameManager.PhoneAdverterEnd.Invoke();
+
+        for (int i = 0; i < numIterations; i++)
+        {
+            var go = Instantiate(prefab, bar.transform);
+            var rt = go.GetComponent<Image>().rectTransform;
+            rt.anchoredPosition = new Vector2(0f, 0f);
+            pointerList.Add(rt);
+        }
+
+        pointer = pointerList[0];
+    }
+
+    private void OnTaskFinishedCallback()
+    {
+        isActive = false;
+        pointerList.Clear();
+    }
+
+    private void Update()
+    {
+        if (!isActive)
+        {
+            value = 0f;
+            return;
+        }
+
+        value += (Time.deltaTime * speed * orientation);
+        if (value <= 0f || value >= 1f - pointer.localScale.x)
+        {
+            orientation *= -1f;
+        }
+        value = Mathf.Clamp(value, 0, 1f - pointer.localScale.x);
+        pointer.anchoredPosition = new Vector2(value, 0f);
     }
 }

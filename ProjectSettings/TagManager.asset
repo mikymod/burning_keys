@@ -7,6 +7,7 @@ TagManager:
   - Alarm
   - Mail
   - Phone
+  - Desktop
   layers:
   - Default
   - TransparentFX
