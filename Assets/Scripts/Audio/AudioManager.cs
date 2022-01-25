@@ -4,10 +4,21 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    [Header("Music")]
     [SerializeField] private AudioSource relaxMusicSource;
     [SerializeField] private AudioSource metalMusicSource;
     [SerializeField] private AudioSource stingerForRelaxMusicSource;
     [SerializeField] private AudioSource stingerForMetalMusicSource;
+
+    [Header("Alarm")]
+    [SerializeField] private AudioSource alarmSource;
+    [SerializeField] private AudioClip alarmPlay;
+    [SerializeField] private AudioClip alarmStop;
+
+    [Header("Phone")]
+    [SerializeField] private AudioSource phoneSource;
+    [SerializeField] private AudioClip phonePlay;
+    [SerializeField] private AudioClip[] voices;
 
     IEnumerator FadeIn(AudioSource audioSource, float fadeTime)
     {
@@ -38,11 +49,64 @@ public class AudioManager : MonoBehaviour
     [Range(0, 1)]
     public float stressValue;
 
-    private void Update()
+    private void OnEnable()
     {
-        MusicMix();
+        GameManager.AlarmAdverterStart.AddListener(OnAlarmAdverterStartedCallback);
+        GameManager.AlarmTaskFinished.AddListener(OnAlarmTaskFinishedCallback);
+        GameManager.PhoneAdverterStart.AddListener(OnPhoneAdverterStartedCallback);
+        GameManager.PhoneTaskStart.AddListener(OnPhoneTaskStartedCallback);
+        GameManager.PhoneTaskFinished.AddListener(OnPhoneTaskFinishedCallback);
+
+    }
+    private void OnDisable()
+    {
+        GameManager.AlarmAdverterStart.RemoveListener(OnAlarmAdverterStartedCallback);
+        GameManager.AlarmTaskFinished.RemoveListener(OnAlarmTaskFinishedCallback);
+        GameManager.PhoneAdverterStart.RemoveListener(OnPhoneAdverterStartedCallback);
+        GameManager.PhoneTaskStart.RemoveListener(OnPhoneTaskStartedCallback);
+        GameManager.PhoneTaskFinished.RemoveListener(OnPhoneTaskFinishedCallback);
     }
 
+    private void OnAlarmAdverterStartedCallback()
+    {
+        if (!alarmSource.isPlaying)
+        {
+            alarmSource.loop = true;
+            alarmSource.clip = alarmPlay;
+            alarmSource.Play();
+        }
+    }
+    private void OnAlarmTaskFinishedCallback()
+    {
+        if (alarmSource.isPlaying)
+        {
+            alarmSource.loop = false;
+            alarmSource.clip = alarmStop;
+            alarmSource.Play();
+        }
+    }
+    private void OnPhoneAdverterStartedCallback()
+    {
+        if (!phoneSource.isPlaying)
+        {
+            phoneSource.clip = phonePlay;
+            phoneSource.Play();
+        }
+    }
+    private void OnPhoneTaskStartedCallback()
+    {
+            phoneSource.Stop();
+            int random = Random.Range(0, 2);
+            phoneSource.clip = voices[random];
+            phoneSource.Play();
+    }
+    private void OnPhoneTaskFinishedCallback()
+    {
+        if (phoneSource.isPlaying)
+        {
+            phoneSource.Stop();
+        }
+    }
     void MusicMix()
     {
         //TODO change music on stress value change
@@ -73,4 +137,11 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
+    
+    
+    private void Update()
+    {
+        MusicMix();
+    }
+
 }

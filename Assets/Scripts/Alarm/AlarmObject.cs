@@ -7,15 +7,6 @@ public class AlarmObject : MonoBehaviour
 {
     public bool IsActive;
 
-    [SerializeField] private AudioClip alarmPlay;
-    [SerializeField] private AudioClip alarmStop;
-    private AudioSource audiosource;
-
-    private void Awake()
-    {
-        audiosource = GetComponent<AudioSource>();
-    }
-
     private void OnEnable()
     {
         GameManager.AlarmAdverterStart.AddListener(ActiveObject);
@@ -31,9 +22,6 @@ public class AlarmObject : MonoBehaviour
         if (!IsActive)
         {
             IsActive = true;
-            audiosource.loop = true;
-            audiosource.clip = alarmPlay;
-            audiosource.Play();
             print("Alarm Activation");
             //Animation play
         }
@@ -44,9 +32,6 @@ public class AlarmObject : MonoBehaviour
         if (IsActive)
         {
             IsActive = false;
-            audiosource.loop = false;
-            audiosource.clip = alarmStop;
-            audiosource.Play();
             //Animation stop
         }
     }

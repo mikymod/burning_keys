@@ -5,12 +5,7 @@ using UnityEngine;
 public class CallsAdverter : MonoBehaviour
 {
     public bool IsActive;
-    private AudioSource audiosource;
 
-    private void Awake()
-    {
-        audiosource = GetComponent<AudioSource>();
-    }
     private void OnEnable()
     {
         GameManager.PhoneAdverterStart.AddListener(ActiveObject);
@@ -26,7 +21,6 @@ public class CallsAdverter : MonoBehaviour
         if (!IsActive)
         {
             IsActive = true;
-            audiosource.Play();
             print("Phone Adverter");
             //Animation play
         }
@@ -37,7 +31,6 @@ public class CallsAdverter : MonoBehaviour
         if (IsActive)
         {
             IsActive = false;
-            audiosource.Stop();
             print("Phone Adverter End");
             //Animation stop
         }
