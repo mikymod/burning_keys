@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1739486139910579934}
   - component: {fileID: 1553579887025129545}
   - component: {fileID: 4490615946317573939}
+  - component: {fileID: 7528030206277957817}
+  - component: {fileID: 4751422461779619314}
   m_Layer: 6
   m_Name: Alarm_Prefab
   m_TagString: Untagged
@@ -60,6 +62,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+--- !u!95 &7528030206277957817
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398426787606019172}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 871405ff1d133dc46bacf2d39f17912d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4751422461779619314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398426787606019172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e4508e463f852d4c9458d2887f25b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2139587277798707256
 GameObject:
   m_ObjectHideFlags: 0
