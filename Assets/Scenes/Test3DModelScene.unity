@@ -99,7 +99,8 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 94d1c5ee9e3c3c042ac561bdae6016a7,
     type: 2}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 6592ba8112936c946b78a4c8673d75bb,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -595,7 +596,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -679,7 +680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 0
-  dayLength: 15
+  dayLength: 30
   startTime: 0.4
   noon: {x: 90, y: 0, z: 0}
   sun: {fileID: 1152145655}
@@ -717,7 +718,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.2
       inSlope: 0.17819116
       outSlope: 0.17819116
       tangentMode: 0
@@ -725,8 +726,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.0661275
     - serializedVersion: 3
-      time: 0.5006789
-      value: 1.0135877
+      time: 0.5
+      value: 1
       inSlope: -0.10694999
       outSlope: -0.10694999
       tangentMode: 0
@@ -734,14 +735,14 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1.0002856
-      value: -0.0016162079
-      inSlope: 0.17213358
-      outSlope: 0.17213358
+      time: 1
+      value: 0.2
+      inSlope: 0.08999642
+      outSlope: 0.08999642
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.06948426
-      outWeight: 0
+      inWeight: 0.222583
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -788,26 +789,26 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.29994377
-      value: -1.0103644
-      inSlope: -0.16477771
-      outSlope: -0.16477771
+      time: 0.3
+      value: 0.1
+      inSlope: 0.02718029
+      outSlope: 0.02718029
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.25712532
+      inWeight: 0.14749214
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.69950277
-      value: -1.0026984
-      inSlope: 0.1693142
-      outSlope: 0.1693142
+      time: 0.7
+      value: 0.1
+      inSlope: -0.0004250139
+      outSlope: -0.0004250139
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.28541628
+      outWeight: 0.13954043
     - serializedVersion: 3
       time: 1
-      value: 0.5011673
+      value: 0.5
       inSlope: 0.11188855
       outSlope: 0.11188855
       tangentMode: 0
@@ -821,8 +822,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -0.016950589
-      value: 0
+      time: 0
+      value: 0.1
       inSlope: -0
       outSlope: -0
       tangentMode: 0
@@ -848,8 +849,8 @@ MonoBehaviour:
       inWeight: 0.2562091
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1.0025635
-      value: 0.00023269653
+      time: 1
+      value: 0.1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1512,7 +1513,7 @@ PrefabInstance:
     - target: {fileID: 5114686593544532772, guid: cbcac7e16028ebd449b75afd00289565,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5114686593544532772, guid: cbcac7e16028ebd449b75afd00289565,
         type: 3}
