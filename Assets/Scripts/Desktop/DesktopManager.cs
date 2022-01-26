@@ -77,7 +77,6 @@ public class DesktopManager : MonoBehaviour
         {
             wordPrefab.SetActive(false);
             keyPrefab.SetActive(true);
-            keyPrefab.GetComponent<KeySmashValidator>().Reset();
 
             numWordsTypedCompleted = 0;
         }
