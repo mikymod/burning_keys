@@ -46,20 +46,19 @@ public class CameraMgr : MonoBehaviour
         GameManager.DesktopTaskUnfocus.RemoveListener(LerpMyCamToSit);
     }
 
+    Vector2 rotation;
     private void Update()
     {
-        if (Input.GetKeyDown(keyForBack))
+        if (!freeCamMove)
         {
-            LerpMyCamToSit();
+            return;
         }
-        
-        //bozza camera move
-        if (freeCamMove)
-        {
-            yaw += visualSensitivity * Input.GetAxis("Mouse X");
-            pitch -= visualSensitivity * Input.GetAxis("Mouse Y");
-            Camera.main.transform.eulerAngles = new Vector3(pitch, yaw, 0);
-        }
+
+        rotation.x += visualSensitivity * Input.GetAxis("Mouse X");
+        rotation.y += visualSensitivity * Input.GetAxis("Mouse Y");
+        var xQuat = Quaternion.AngleAxis(rotation.x, Vector3.up);
+        var yQuat = Quaternion.AngleAxis(rotation.y, Vector3.left);
+        Camera.main.transform.localRotation = xQuat * yQuat;
     }
 
     //Darei un ritocchino a questa cosa non amo dover mettere due metodi per fare praticamente la stessa cosa
