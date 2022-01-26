@@ -14,7 +14,6 @@ public class DesktopManager : MonoBehaviour
     {
         GameManager.DesktopTaskFocus.AddListener(ResumeTask);
 
-        InputManager.KeyCodeInput.AddListener(OnKeyCodeInput);
 
         KeySmashValidator.KeySmashCompleted.AddListener(OnKeySmashDone);
         WordValidator.WordCompleted.AddListener(OnWordDone);
@@ -24,7 +23,6 @@ public class DesktopManager : MonoBehaviour
     {
         GameManager.DesktopTaskFocus.RemoveListener(ResumeTask);
 
-        InputManager.KeyCodeInput.RemoveListener(OnKeyCodeInput);
 
         KeySmashValidator.KeySmashCompleted.RemoveListener(OnKeySmashDone);
         WordValidator.WordCompleted.RemoveListener(OnWordDone);
@@ -33,6 +31,8 @@ public class DesktopManager : MonoBehaviour
 
     private void ResumeTask()
     {
+        InputManager.KeyCodeInput.AddListener(OnKeyCodeInput);
+
         GameManager.DesktopTaskFocus.RemoveListener(ResumeTask);
         GameManager.DesktopTaskUnfocus.AddListener(PauseTask);
 
@@ -42,6 +42,8 @@ public class DesktopManager : MonoBehaviour
 
     private void PauseTask()
     {
+        InputManager.KeyCodeInput.RemoveListener(OnKeyCodeInput);
+        
         GameManager.DesktopTaskFocus.AddListener(ResumeTask);
         GameManager.DesktopTaskUnfocus.RemoveListener(PauseTask);
 

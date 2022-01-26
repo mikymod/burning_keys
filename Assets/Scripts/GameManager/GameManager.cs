@@ -110,6 +110,12 @@ public class GameManager : MonoBehaviour
         mailIsFocusable = false;
     }
 
+    private void Start()
+    {
+    	Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;  
+    }
+
     private void Update()
     {
         timer += Time.deltaTime;
@@ -143,7 +149,9 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            // var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            var ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+            Debug.DrawLine(Camera.main.transform.position, Camera.main.transform.position + Camera.main.transform.forward * 1000f, Color.red);
             if (Physics.Raycast(ray, out RaycastHit hit, mask))
             {
                 //Task switch

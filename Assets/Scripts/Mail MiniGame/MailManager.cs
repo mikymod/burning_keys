@@ -19,16 +19,12 @@ public class MailManager : MonoBehaviour
 
     private void OnEnable()
     {
-        InputManager.KeyCodeInput.AddListener(OnKeyCodeInput);
-
         GameManager.MailAdverterEnd.AddListener(OnCompleteAllMail);
         GameManager.MailTaskStart.AddListener(OnTaskStartedCallback);
         GameManager.MailTaskFinished.AddListener(OnTaskFinishedCallback);
     }
     private void OnDisable()
     {
-        InputManager.KeyCodeInput.RemoveListener(OnKeyCodeInput);
-
         GameManager.MailAdverterEnd.RemoveListener(OnCompleteAllMail);
         GameManager.MailTaskStart.RemoveListener(OnTaskStartedCallback);
         GameManager.MailTaskFinished.RemoveListener(OnTaskFinishedCallback);
@@ -49,6 +45,13 @@ public class MailManager : MonoBehaviour
         {
             return;
         }
+
+        if (arg0 == KeyCode.Space)
+        {
+            // TODO: rethink event invoking
+            GameManager.MailTaskFinished.Invoke();
+        }
+
         if (!isCurrentKeyCodeSet)
         {
             if (Input.GetKeyDown(firstKey) || Input.GetKeyDown(secondKey))
@@ -90,16 +93,17 @@ public class MailManager : MonoBehaviour
 
     private void OnTaskStartedCallback()
     {
-        // TODO: manage multiple email task started
-        // sum new iterations to the old ones
         if (isActive)
         {
             return;
         }
+
         isActive = true;
 
         firstGO.gameObject.SetActive(true);
         secondGO.gameObject.SetActive(true);
+
+        InputManager.KeyCodeInput.AddListener(OnKeyCodeInput);
     }
 
     private void OnTaskFinishedCallback()
@@ -108,6 +112,8 @@ public class MailManager : MonoBehaviour
 
         firstGO.gameObject.SetActive(false);
         secondGO.gameObject.SetActive(false);
+
+        InputManager.KeyCodeInput.RemoveListener(OnKeyCodeInput);
     }
 
     private void Start()

@@ -29,16 +29,12 @@ public class Call : MonoBehaviour
 
     private void OnEnable()
     {
-        InputManager.KeyCodeInput.AddListener(OnKeyCodeInput);
-
         GameManager.PhoneTaskStart.AddListener(OnTaskStartedCallback);
         GameManager.PhoneTaskFinished.AddListener(OnTaskFinishedCallback);
     }
 
     private void OnDisable()
-    {
-        InputManager.KeyCodeInput.RemoveListener(OnKeyCodeInput);
-        
+    {        
         GameManager.PhoneTaskStart.RemoveListener(OnTaskStartedCallback);
         GameManager.PhoneTaskFinished.RemoveListener(OnTaskFinishedCallback);
     }
@@ -73,6 +69,8 @@ public class Call : MonoBehaviour
 
     private void OnTaskStartedCallback()
     {
+        InputManager.KeyCodeInput.AddListener(OnKeyCodeInput);
+
         isActive = true;
         GameManager.PhoneAdverterEnd.Invoke();
 
@@ -89,6 +87,8 @@ public class Call : MonoBehaviour
 
     private void OnTaskFinishedCallback()
     {
+        InputManager.KeyCodeInput.RemoveListener(OnKeyCodeInput);
+
         isActive = false;
         pointerList.Clear();
     }
