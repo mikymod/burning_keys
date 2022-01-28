@@ -57,7 +57,10 @@ public class AudioManager : MonoBehaviour
         GameManager.PhoneTaskStart.AddListener(OnPhoneTaskStartedCallback);
         GameManager.PhoneTaskFinished.AddListener(OnPhoneTaskFinishedCallback);
 
+        GameManager.DesktopTaskFinished.AddListener(StopSounds);
+        GameManager.StressBarFilled.AddListener(StopSounds);
     }
+
     private void OnDisable()
     {
         GameManager.AlarmAdverterStart.RemoveListener(OnAlarmAdverterStartedCallback);
@@ -65,6 +68,16 @@ public class AudioManager : MonoBehaviour
         GameManager.PhoneAdverterStart.RemoveListener(OnPhoneAdverterStartedCallback);
         GameManager.PhoneTaskStart.RemoveListener(OnPhoneTaskStartedCallback);
         GameManager.PhoneTaskFinished.RemoveListener(OnPhoneTaskFinishedCallback);
+
+        GameManager.DesktopTaskFinished.RemoveListener(StopSounds);
+        GameManager.StressBarFilled.RemoveListener(StopSounds);
+    }
+
+    private void StopSounds()
+    {
+        alarmSource.Stop();
+        phoneSource.Stop();
+        // emailSource.Stop();
     }
 
     private void OnAlarmAdverterStartedCallback()

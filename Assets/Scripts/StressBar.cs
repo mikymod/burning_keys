@@ -16,6 +16,8 @@ public class StressBar : MonoBehaviour
 
     public bool StressActive { get => alarmActive || emailEventCounter > 0 || callActive; }
 
+    private bool Filled { get => currentValue >= 100f; }
+
     private void OnEnable()
     {
         GameManager.AlarmAdverterStart.AddListener(OnAlarmStart);
@@ -36,6 +38,11 @@ public class StressBar : MonoBehaviour
         GameManager.AlarmAdverterEnd.RemoveListener(OnAlarmEnd);
         GameManager.MailAdverterEnd.RemoveListener(OnMailEnd);
         GameManager.PhoneAdverterEnd.RemoveListener(OnPhoneEnd);
+    }
+
+    private void Start()
+    {
+        currentValue = 0f;    
     }
 
     private void OnAlarmStart()
@@ -74,6 +81,11 @@ public class StressBar : MonoBehaviour
 
     private void Update()
     {
+        if (Filled)
+        {
+            return;
+        }
+
         if (StressActive)
         {
             currentValue += speed * Time.deltaTime * GetCurrentMultiplier();

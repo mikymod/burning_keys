@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class EndGameMgr : MonoBehaviour
 {
@@ -12,9 +13,9 @@ public class EndGameMgr : MonoBehaviour
     [SerializeField] private string retryTextWin;
     [SerializeField] private string retryTextLose;
 
-    [SerializeField] private string backToMenùText;
-    [SerializeField] private string backToMenùTextWin;
-    [SerializeField] private string backToMenùTextLose;
+    [SerializeField] private string backToMenuText;
+    [SerializeField] private string backToMenuTextWin;
+    [SerializeField] private string backToMenuTextLose;
 
     [Header("Where i'll Write")]
     [SerializeField] private TMP_Text title;
@@ -24,43 +25,54 @@ public class EndGameMgr : MonoBehaviour
     [SerializeField] private GameObject allItems;
     private void OnEnable()
     {
-        GameManager.FinishedAllTheTasks.AddListener(OnAllTaskEnd);
-        GameManager.LoseForTheStress.AddListener(OnLoseForStress);
+        GameManager.DesktopTaskFinished.AddListener(OnDesktopTaskFinished);
+        GameManager.StressBarFilled.AddListener(OnStressBarFilled);
     }
     private void OnDisable()
     {
-        GameManager.FinishedAllTheTasks.RemoveListener(OnAllTaskEnd);
-        GameManager.LoseForTheStress.RemoveListener(OnLoseForStress);
+        GameManager.DesktopTaskFinished.RemoveListener(OnDesktopTaskFinished);
+        GameManager.StressBarFilled.RemoveListener(OnStressBarFilled);
     }
 
     private void Start()
     {
-        if (backToMenùTextLose == null) backToMenùTextLose = backToMenùText;
-        if (backToMenùTextWin == null) backToMenùTextWin = backToMenùText;
+        if (string.IsNullOrEmpty(backToMenuTextLose)) backToMenuTextLose = backToMenuText;
+        if (string.IsNullOrEmpty(backToMenuTextWin)) backToMenuTextWin = backToMenuText;
 
-        if (retryTextLose == null) retryTextLose = retryText;
-        if (retryTextWin == null) retryTextWin = retryText;
+        if (string.IsNullOrEmpty(retryTextLose)) retryTextLose = retryText;
+        if (string.IsNullOrEmpty(retryTextWin)) retryTextWin = retryText;
     }
-    private void OnAllTaskEnd()
+    private void OnDesktopTaskFinished()
     {
-        if (!allItems.activeInHierarchy)
-        {
-            gameObject.SetActive(true);
-        }
+        allItems.SetActive(true);
+
         title.text = winTitleText;
         retryButton.text = retryTextWin;
-        menuButton.text = backToMenùTextWin;
+        menuButton.text = backToMenuTextWin;
+
+        Cursor.lockState = CursorLockMode.None;
     }
-    private void OnLoseForStress()
+    private void OnStressBarFilled()
     {
-        if (!allItems.activeInHierarchy)
-        {
-            gameObject.SetActive(true);
-        }
-        print("C'è UN PROBLEMA");
+        allItems.SetActive(true);
+
         title.text = loseTitleText;
-        menuButton.text = backToMenùTextLose;
+        menuButton.text = backToMenuTextLose;
         retryButton.text = retryTextLose;
+
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void BackToMainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("StartScene");
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("FinalGameScene");
     }
 
 }

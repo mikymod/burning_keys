@@ -10,6 +10,7 @@ public class Progressbar : MonoBehaviour
     [SerializeField] private float maxValue;
 
     public float currentValue = 0f;
+    private bool Filled { get => currentValue >= 100f; }
 
     private void OnEnable()
     {
@@ -35,6 +36,11 @@ public class Progressbar : MonoBehaviour
 
     private void Update()
     {
+        if (Filled)
+        {
+            return;
+        }
+
         mask.fillAmount = currentValue / maxValue;   
 
         if (currentValue >= maxValue)

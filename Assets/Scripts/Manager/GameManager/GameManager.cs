@@ -135,6 +135,12 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        // FIXME: Hack
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
+
         timer += Time.deltaTime;
 
         foreach (var timedEvent in timedEvents)

@@ -49,6 +49,12 @@ public class CameraMgr : MonoBehaviour
     Vector2 rotation;
     private void Update()
     {
+        // FIXME: Hack
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
+
         if (!freeCamMove)
         {
             return;
