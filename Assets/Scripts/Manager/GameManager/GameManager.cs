@@ -16,7 +16,7 @@ public class TimedEvent
 
     public TimedEventType type;
     public float time;
-    [HideInInspector]public bool done;
+    [HideInInspector] public bool done;
 }
 
 public class GameManager : MonoBehaviour
@@ -129,8 +129,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-    	Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;  
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()
@@ -142,7 +142,7 @@ public class GameManager : MonoBehaviour
             if (timer >= timedEvent.time && !timedEvent.done)
             {
                 timedEvent.done = true;
-                
+
                 switch (timedEvent.type)
                 {
                     case TimedEvent.TimedEventType.Alarm:
@@ -188,5 +188,5 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-    }   
+    }
 }

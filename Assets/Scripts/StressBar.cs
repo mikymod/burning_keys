@@ -21,7 +21,7 @@ public class StressBar : MonoBehaviour
         GameManager.AlarmAdverterStart.AddListener(OnAlarmStart);
         GameManager.MailAdverterStart.AddListener(OnMailStart);
         GameManager.PhoneAdverterStart.AddListener(OnPhoneStart);
-        
+
         GameManager.AlarmAdverterEnd.AddListener(OnAlarmEnd);
         GameManager.MailAdverterEnd.AddListener(OnMailEnd);
         GameManager.PhoneAdverterEnd.AddListener(OnPhoneEnd);
