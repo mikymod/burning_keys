@@ -39,7 +39,8 @@ public class GameManager : MonoBehaviour
 
     public static UnityEvent DesktopTaskFocus = new UnityEvent();
     public static UnityEvent DesktopTaskUnfocus = new UnityEvent();
-    public static UnityEvent DesktopTaskFinished = new UnityEvent(); // end game
+    public static UnityEvent DesktopTaskFinished = new UnityEvent(); // end game: win
+    public static UnityEvent StressBarFilled = new UnityEvent(); // end game: lose
     #endregion
 
     public static int MailCounter;//needed for mail count info idk how to fix
@@ -64,6 +65,9 @@ public class GameManager : MonoBehaviour
         AlarmAdverterEnd.AddListener(OnAlarmAdverterEnd);
         PhoneAdverterEnd.AddListener(OnPhoneAdverterEnd);
         MailAdverterEnd.AddListener(OnMailAdverterEnd);
+
+        GameManager.DesktopTaskFinished.AddListener(GameWon);
+        GameManager.StressBarFilled.AddListener(GameLost);
     }
 
     private void OnDisable()
@@ -75,6 +79,9 @@ public class GameManager : MonoBehaviour
         AlarmAdverterEnd.RemoveListener(OnAlarmAdverterEnd);
         PhoneAdverterEnd.RemoveListener(OnPhoneAdverterEnd);
         MailAdverterEnd.RemoveListener(OnMailAdverterEnd);
+        
+        GameManager.DesktopTaskFinished.RemoveListener(GameWon);
+        GameManager.StressBarFilled.RemoveListener(GameLost);
     }
 
     private void OnAlarmAdverterStart()
@@ -108,6 +115,16 @@ public class GameManager : MonoBehaviour
     {
         // mailTimer = 0;
         mailIsFocusable = false;
+    }
+
+    private void GameWon()
+    {
+        Time.timeScale = 0f;
+    }
+
+    private void GameLost()
+    {
+        Time.timeScale = 0f;
     }
 
     private void Start()

@@ -78,6 +78,11 @@ public class StressBar : MonoBehaviour
         {
             currentValue += speed * Time.deltaTime * GetCurrentMultiplier();
             mask.fillAmount = currentValue / maxValue;
+
+            if (currentValue >= maxValue)
+            {
+                GameManager.StressBarFilled.Invoke();
+            }
         }
     }
 

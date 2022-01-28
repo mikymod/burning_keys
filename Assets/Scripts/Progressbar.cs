@@ -35,6 +35,11 @@ public class Progressbar : MonoBehaviour
 
     private void Update()
     {
-        mask.fillAmount = currentValue / maxValue;        
+        mask.fillAmount = currentValue / maxValue;   
+
+        if (currentValue >= maxValue)
+        {
+            GameManager.DesktopTaskFinished.Invoke();
+        }     
     }
 }
