@@ -14,13 +14,13 @@ public class Progressbar : MonoBehaviour
     private void OnEnable()
     {
         KeySmashValidator.KeySmashCompleted.AddListener(OnKeySmashCompleted);
-        WordValidator.WordCompleted.AddListener(OnWordCompleted);    
+        WordValidator.WordCompleted.AddListener(OnWordCompleted);
     }
 
     private void OnDisable()
     {
         KeySmashValidator.KeySmashCompleted.RemoveListener(OnKeySmashCompleted);
-        WordValidator.WordCompleted.RemoveListener(OnWordCompleted);            
+        WordValidator.WordCompleted.RemoveListener(OnWordCompleted);
     }
 
     private void OnKeySmashCompleted()
@@ -35,6 +35,7 @@ public class Progressbar : MonoBehaviour
 
     private void Update()
     {
-        mask.fillAmount = currentValue / maxValue;        
+        mask.fillAmount = currentValue / maxValue;
+        if (mask.fillAmount == 1) GameManager.FinishedAllTheTasks.Invoke();
     }
 }
