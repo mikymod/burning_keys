@@ -18,7 +18,19 @@ public class AudioManager : MonoBehaviour
     [Header("Phone")]
     [SerializeField] private AudioSource phoneSource;
     [SerializeField] private AudioClip phonePlay;
+    [SerializeField] private AudioClip phoneFailed;
     [SerializeField] private AudioClip[] voices;
+
+    [Header("Email")]
+    [SerializeField] private AudioSource emailSource;
+
+    [Header("TaskCompleted")]
+    [SerializeField] private AudioSource taskFinishedSource;
+
+    [Header("GameWin/Over")]
+    [SerializeField] private AudioSource gameWinOverSource;
+    [SerializeField] private AudioClip gameWinClip;
+    [SerializeField] private AudioClip gameOverClip;
 
     IEnumerator FadeIn(AudioSource audioSource, float fadeTime)
     {
@@ -53,9 +65,12 @@ public class AudioManager : MonoBehaviour
         GameManager.PhoneAdverterStart.AddListener(OnPhoneAdverterStartedCallback);
         GameManager.PhoneTaskStart.AddListener(OnPhoneTaskStartedCallback);
         GameManager.PhoneTaskFinished.AddListener(OnPhoneTaskFinishedCallback);
-
-        GameManager.DesktopTaskFinished.AddListener(StopSounds);
-        GameManager.StressBarFilled.AddListener(StopSounds);
+        Call.CallStepFailed.AddListener(OnPhoneFailedTask);
+        GameManager.MailAdverterStart.AddListener(OnEmailAdverterStartedCallback);
+        GameManager.MailTaskFinished.AddListener(OnEmailTaskFinishedCallback);
+        
+        GameManager.DesktopTaskFinished.AddListener(OnGameCompleted);
+        GameManager.StressBarFilled.AddListener(OnGameOver);
     }
 
     private void OnDisable()
@@ -65,16 +80,33 @@ public class AudioManager : MonoBehaviour
         GameManager.PhoneAdverterStart.RemoveListener(OnPhoneAdverterStartedCallback);
         GameManager.PhoneTaskStart.RemoveListener(OnPhoneTaskStartedCallback);
         GameManager.PhoneTaskFinished.RemoveListener(OnPhoneTaskFinishedCallback);
+        Call.CallStepFailed.RemoveListener(OnPhoneFailedTask);
+        GameManager.MailAdverterStart.RemoveListener(OnEmailAdverterStartedCallback);
+        GameManager.MailTaskFinished.RemoveListener(OnEmailTaskFinishedCallback);
 
-        GameManager.DesktopTaskFinished.RemoveListener(StopSounds);
-        GameManager.StressBarFilled.RemoveListener(StopSounds);
+        GameManager.DesktopTaskFinished.RemoveListener(OnGameCompleted);
+        GameManager.StressBarFilled.RemoveListener(OnGameOver);
     }
 
     private void StopSounds()
     {
         alarmSource.Stop();
         phoneSource.Stop();
-        // emailSource.Stop();
+        emailSource.Stop();
+    }
+
+    private void OnGameCompleted()
+    {
+        StopSounds();
+        gameWinOverSource.clip = gameWinClip;
+        gameWinOverSource.Play();
+    }
+
+    private void OnGameOver()
+    {
+        StopSounds();
+        gameWinOverSource.clip = gameOverClip;
+        gameWinOverSource.Play();
     }
 
     private void OnAlarmAdverterStartedCallback()
@@ -86,8 +118,10 @@ public class AudioManager : MonoBehaviour
             alarmSource.Play();
         }
     }
+
     private void OnAlarmTaskFinishedCallback()
     {
+        OnTaskFinishedCallback();
         if (alarmSource.isPlaying)
         {
             alarmSource.loop = false;
@@ -112,11 +146,37 @@ public class AudioManager : MonoBehaviour
     }
     private void OnPhoneTaskFinishedCallback()
     {
+        OnTaskFinishedCallback();
         if (phoneSource.isPlaying)
         {
             phoneSource.Stop();
         }
     }
+
+    private void OnPhoneFailedTask()
+    {
+        phoneSource.clip = phoneFailed;
+        phoneSource.Play();
+    }
+
+    private void OnEmailAdverterStartedCallback()
+    {
+        if (!emailSource.isPlaying)
+        {
+            emailSource.Play();
+        }
+    }
+
+    private void OnEmailTaskFinishedCallback()
+    {
+        OnTaskFinishedCallback();
+    }
+
+    private void OnTaskFinishedCallback()
+    {
+        taskFinishedSource.Play();
+    }
+
     void MusicMix()
     {
         //TODO change music on stress value change
@@ -147,8 +207,7 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
-    
-    
+
     private void Update()
     {
         MusicMix();
