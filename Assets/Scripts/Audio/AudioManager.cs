@@ -46,9 +46,6 @@ public class AudioManager : MonoBehaviour
         audioSource.volume = 0f;
     }
 
-    [Range(0, 1)]
-    public float stressValue;
-
     private void OnEnable()
     {
         GameManager.AlarmAdverterStart.AddListener(OnAlarmAdverterStartedCallback);
@@ -123,7 +120,7 @@ public class AudioManager : MonoBehaviour
     void MusicMix()
     {
         //TODO change music on stress value change
-        if (stressValue <= 0.5f)
+        if (StressBar.currentValue <= 50f)
         {
             if (metalMusicSource.isPlaying)
             {
@@ -136,7 +133,7 @@ public class AudioManager : MonoBehaviour
                 relaxMusicSource.PlayDelayed(1.0f);
             }
         }
-        if (stressValue >= 0.5f)
+        if (StressBar.currentValue > 50f)
         {
             if (relaxMusicSource.isPlaying)
             {
