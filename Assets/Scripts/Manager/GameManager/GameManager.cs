@@ -43,7 +43,11 @@ public class GameManager : MonoBehaviour
     public static UnityEvent DesktopTaskFinished = new UnityEvent(); // end game: win
     public static UnityEvent StressBarFilled = new UnityEvent(); // end game: lose
 
-    //To Do = event for fidget;
+    public static UnityEvent SpinnerTaskFocus = new UnityEvent();
+    public static UnityEvent SpinnerTaskUnfocus = new UnityEvent();
+    public static UnityEvent SpinnerTaskStart = new UnityEvent();
+    public static UnityEvent SpinnerTaskFinished = new UnityEvent();
+
     #endregion
 
     public static int MailCounter;//needed for mail count info idk how to fix
@@ -193,6 +197,9 @@ public class GameManager : MonoBehaviour
                         break;
                     case "Desktop":
                         DesktopTaskFocus.Invoke();
+                        break;
+                    case "Spinner":
+                        SpinnerTaskStart.Invoke();
                         break;
                 }
             }

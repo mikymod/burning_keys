@@ -12,6 +12,7 @@ public class CameraMgr : MonoBehaviour
     [SerializeField] private Transform desktopCamera;
     [SerializeField] private Transform phoneCamera;
     [SerializeField] private Transform emailCamera;
+    [SerializeField] private Transform spinnerCamera;
 
     [SerializeField] private KeyCode keyForBack;
     //vengono utilizzati come time/value per incrementare il tempo di lerp
@@ -98,6 +99,13 @@ public class CameraMgr : MonoBehaviour
         if (moving) return;
         freeCamMove = true;
         StartCoroutine(MoveCameraCoroutine(sitCamera.position, sitCamera.rotation, speed));
+    }
+
+    private void LerpMyCamToSpinner()
+    {
+        if (moving) return;
+        freeCamMove = false;
+        StartCoroutine(MoveCameraCoroutine(spinnerCamera.position, spinnerCamera.rotation, speed));
     }
 
     private void MoveCamera(Vector3 position, Quaternion rotation, float speed)

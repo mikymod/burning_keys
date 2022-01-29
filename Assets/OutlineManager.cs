@@ -21,11 +21,13 @@ public class OutlineManager : MonoBehaviour
                 if (coll == hit.collider)
                 {
                     outline.OutlineMode = Outline.Mode.OutlineVisible;
+                    outline.OutlineColor = Color.yellow;
                     outline.OutlineWidth = 10f;
                 }
                 else
                 {
                     outline.OutlineMode = Outline.Mode.OutlineVisible;
+                    outline.OutlineColor = Color.white;
                     outline.OutlineWidth = 4f;
                 }                 
             }
