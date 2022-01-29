@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
     public static UnityEvent DesktopTaskUnfocus = new UnityEvent();
     public static UnityEvent DesktopTaskFinished = new UnityEvent(); // end game: win
     public static UnityEvent StressBarFilled = new UnityEvent(); // end game: lose
+
+    //To Do = event for fidget;
     #endregion
 
     public static int MailCounter;//needed for mail count info idk how to fix
@@ -79,7 +81,7 @@ public class GameManager : MonoBehaviour
         AlarmAdverterEnd.RemoveListener(OnAlarmAdverterEnd);
         PhoneAdverterEnd.RemoveListener(OnPhoneAdverterEnd);
         MailAdverterEnd.RemoveListener(OnMailAdverterEnd);
-        
+
         GameManager.DesktopTaskFinished.RemoveListener(GameWon);
         GameManager.StressBarFilled.RemoveListener(GameLost);
     }
