@@ -498,6 +498,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8402286854292772418, guid: b2477af0ae917bd4b8800024ddd511c5,
         type: 3}
+      propertyPath: sitCamera
+      value: 
+      objectReference: {fileID: 5114686594029759447}
+    - target: {fileID: 8402286854292772418, guid: b2477af0ae917bd4b8800024ddd511c5,
+        type: 3}
+      propertyPath: emailCamera
+      value: 
+      objectReference: {fileID: 5114686594029759450}
+    - target: {fileID: 8402286854292772418, guid: b2477af0ae917bd4b8800024ddd511c5,
+        type: 3}
+      propertyPath: phoneCamera
+      value: 
+      objectReference: {fileID: 5114686594029759449}
+    - target: {fileID: 8402286854292772418, guid: b2477af0ae917bd4b8800024ddd511c5,
+        type: 3}
+      propertyPath: desktopCamera
+      value: 
+      objectReference: {fileID: 5114686594029759448}
+    - target: {fileID: 8402286854292772418, guid: b2477af0ae917bd4b8800024ddd511c5,
+        type: 3}
       propertyPath: cameraPos.Array.data[0]
       value: 
       objectReference: {fileID: 5114686594029759450}

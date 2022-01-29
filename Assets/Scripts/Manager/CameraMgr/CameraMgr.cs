@@ -8,6 +8,11 @@ public class CameraMgr : MonoBehaviour
 {
     //lista di punti raggiungibili
     [SerializeField] private List<Transform> cameraPos;
+    [SerializeField] private Transform sitCamera;
+    [SerializeField] private Transform desktopCamera;
+    [SerializeField] private Transform phoneCamera;
+    [SerializeField] private Transform emailCamera;
+
     [SerializeField] private KeyCode keyForBack;
     //vengono utilizzati come time/value per incrementare il tempo di lerp
     [SerializeField][Range(0f, 1f)] private float speed;
@@ -72,27 +77,27 @@ public class CameraMgr : MonoBehaviour
     {
         if (moving) return;
         freeCamMove = false;
-        StartCoroutine(MoveCameraCoroutine(cameraPos[2].position, cameraPos[2].rotation, speed));
+        StartCoroutine(MoveCameraCoroutine(desktopCamera.position, desktopCamera.rotation, speed));
     }
 
     private void LerpMyCamToMail()
     {
         if (moving) return;
         freeCamMove = false;
-        StartCoroutine(MoveCameraCoroutine(cameraPos[0].position, cameraPos[0].rotation, speed));
+        StartCoroutine(MoveCameraCoroutine(emailCamera.position, emailCamera.rotation, speed));
     }
     private void LerpMyCamToPhone()
     {
         if (moving) return;
         freeCamMove = false;
-        StartCoroutine(MoveCameraCoroutine(cameraPos[1].position, cameraPos[1].rotation, speed));
+        StartCoroutine(MoveCameraCoroutine(phoneCamera.position, phoneCamera.rotation, speed));
     }
 
     private void LerpMyCamToSit()
     {
         if (moving) return;
         freeCamMove = true;
-        StartCoroutine(MoveCameraCoroutine(cameraPos[3].position, cameraPos[3].rotation, speed));
+        StartCoroutine(MoveCameraCoroutine(sitCamera.position, sitCamera.rotation, speed));
     }
 
     private void MoveCamera(Vector3 position, Quaternion rotation, float speed)
