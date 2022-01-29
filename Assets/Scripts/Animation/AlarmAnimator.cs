@@ -24,12 +24,12 @@ public class AlarmAnimator : MonoBehaviour
 
     private void AlarmIsActive()
     {
-        animator.SetBool("AlarmIsActive", true);
+        animator.SetTrigger("AlarmIsActive");
     }
 
     private void AlarmIsNotActive()
     {
-        animator.SetBool("AlarmIsActive", false);
+        animator.SetTrigger("AlarmIsNotActive");
     }
 
 }
