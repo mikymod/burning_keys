@@ -6,9 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu Scene/Start Scene.unity
+    path: Assets/Scenes/Menu Scene/StartScene.unity
     guid: d01cf195e95289349945bc2be647e9fd
   - enabled: 1
-    path: Assets/Scenes/Test3DModelScene.unity
-    guid: 3fa2a3bc290a529409633f65a9515eda
+    path: Assets/Scenes/MainTaskTutorialScene.unity
+    guid: ff25b5b3ae33bd14a95049e422952dc9
+  - enabled: 1
+    path: Assets/Scenes/AlarmTutorialScene.unity
+    guid: 24a206f49bd814d42a639bd14c5b68c6
+  - enabled: 1
+    path: Assets/Scenes/EmailTutorialScene.unity
+    guid: 87805136ce4e328408abfb7c8469c506
+  - enabled: 1
+    path: Assets/Scenes/PhoneTutorialScene.unity
+    guid: 95d71912083ddc84bb7b1931c550b7ab
+  - enabled: 1
+    path: Assets/Scenes/FinalGameScene.unity
+    guid: df55ecafd6c48e849aae51e5cddf26cf
   m_configObjects: {}
