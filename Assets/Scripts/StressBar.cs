@@ -7,6 +7,7 @@ public class StressBar : MonoBehaviour
     [SerializeField] private Image mask;
     [SerializeField] private float maxValue;
     [SerializeField] private float speed;
+    [SerializeField] private float spinnerBonusValue;
 
     public static float currentValue = 0f;
 
@@ -27,6 +28,8 @@ public class StressBar : MonoBehaviour
         GameManager.AlarmAdverterEnd.AddListener(OnAlarmEnd);
         GameManager.MailAdverterEnd.AddListener(OnMailEnd);
         GameManager.PhoneAdverterEnd.AddListener(OnPhoneEnd);
+
+        Spinner.StopRotating.AddListener(OnSpinnerStopRotating);
     }
 
     private void OnDisable()
@@ -38,32 +41,19 @@ public class StressBar : MonoBehaviour
         GameManager.AlarmAdverterEnd.RemoveListener(OnAlarmEnd);
         GameManager.MailAdverterEnd.RemoveListener(OnMailEnd);
         GameManager.PhoneAdverterEnd.RemoveListener(OnPhoneEnd);
+
+        Spinner.StopRotating.RemoveListener(OnSpinnerStopRotating);
     }
 
-    private void Start()
-    {
-        currentValue = 0f;    
-    }
+    private void Start() => currentValue = 0f;
 
-    private void OnAlarmStart()
-    {
-        alarmActive = true;
-    }
+    private void OnAlarmStart() => alarmActive = true;
 
-    private void OnMailStart()
-    {
-        emailEventCounter++;
-    }
+    private void OnMailStart() => emailEventCounter++;
 
-    private void OnPhoneStart()
-    {
-        callActive = true;
-    }
+    private void OnPhoneStart() => callActive = true;
 
-    private void OnAlarmEnd()
-    {
-        alarmActive = false;
-    }
+    private void OnAlarmEnd() => alarmActive = false;
 
     private void OnMailEnd()
     {
@@ -74,10 +64,7 @@ public class StressBar : MonoBehaviour
         }
     }
 
-    private void OnPhoneEnd()
-    {
-        callActive = false;
-    }
+    private void OnPhoneEnd() => callActive = false;
 
     private void Update()
     {
@@ -97,6 +84,9 @@ public class StressBar : MonoBehaviour
             }
         }
     }
+
+
+    private void OnSpinnerStopRotating() => currentValue -= spinnerBonusValue;
 
     private float GetCurrentMultiplier()
     {

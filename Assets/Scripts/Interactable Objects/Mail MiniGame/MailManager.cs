@@ -69,6 +69,8 @@ public class MailManager : MonoBehaviour
                 Debug.Log("Correct key");
                 if (counter == iterations)
                 {
+                    GameManager.MailSubTaskFinished.Invoke();
+                    
                     //Check the presence of other mails, take value from GameManager
                     if (GameManager.MailCounter != 0)
                     {

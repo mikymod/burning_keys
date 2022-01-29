@@ -8,6 +8,7 @@ TagManager:
   - Mail
   - Phone
   - Desktop
+  - Spinner
   layers:
   - Default
   - TransparentFX

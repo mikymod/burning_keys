@@ -19,7 +19,8 @@ public class TutorialManager : MonoBehaviour
     {
         GameManager.AlarmTaskFinished.AddListener(OnAlarmTaskFinished);        
         GameManager.PhoneTaskFinished.AddListener(OnPhoneTaskFinished);        
-        GameManager.MailTaskFinished.AddListener(OnMailTaskFinished);
+        GameManager.MailSubTaskFinished.AddListener(OnMailTaskFinished);
+
         KeySmashValidator.KeySmashCompleted.AddListener(OnDesktopTaskFinished);
         WordValidator.WordCompleted.AddListener(OnDesktopTaskFinished);
     }
@@ -28,7 +29,8 @@ public class TutorialManager : MonoBehaviour
     {
         GameManager.AlarmTaskFinished.AddListener(OnAlarmTaskFinished);        
         GameManager.PhoneTaskFinished.AddListener(OnPhoneTaskFinished);        
-        GameManager.MailTaskFinished.AddListener(OnMailTaskFinished);
+        GameManager.MailSubTaskFinished.AddListener(OnMailTaskFinished);
+
         KeySmashValidator.KeySmashCompleted.AddListener(OnDesktopTaskFinished);
         WordValidator.WordCompleted.AddListener(OnDesktopTaskFinished);        
     }
