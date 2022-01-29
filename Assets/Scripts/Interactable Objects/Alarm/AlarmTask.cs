@@ -31,7 +31,7 @@ public class AlarmTask : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, LayerMask.NameToLayer("Interactable")))
             {
-                if (Input.GetMouseButtonDown(1))
+                if (Input.GetMouseButtonDown(0))
                 {
                     Debug.Log("AlarmStopped");
                     GameManager.AlarmTaskFinished.Invoke();

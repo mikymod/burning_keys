@@ -112,5 +112,8 @@ public class Call : MonoBehaviour
         }
         value = Mathf.Clamp(value, 0, 1f - pointer.localScale.x);
         pointer.anchoredPosition = new Vector2(value, 0f);
+
+        bar.transform.rotation = Quaternion.LookRotation(Camera.main.transform.forward, Vector3.up);
+        // bar.transform.position = new Vector3(transform.position.x, 0.25f, transform.position.z);
     }
 }
