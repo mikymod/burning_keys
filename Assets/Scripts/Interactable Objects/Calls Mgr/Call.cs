@@ -83,6 +83,8 @@ public class Call : MonoBehaviour
         }
 
         pointer = pointerList[0];
+        
+        bar.SetActive(true);
     }
 
     private void OnTaskFinishedCallback()
@@ -91,6 +93,8 @@ public class Call : MonoBehaviour
 
         isActive = false;
         pointerList.Clear();
+
+        bar.SetActive(false);
     }
 
     private void Update()
