@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3285488380345547012}
   - component: {fileID: 2617826487069318680}
-  m_Layer: 0
+  - component: {fileID: 3287523371949436636}
+  - component: {fileID: 5543877767472654508}
+  m_Layer: 6
   m_Name: FidgetSpinner
-  m_TagString: Untagged
+  m_TagString: Spinner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,6 +55,35 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3287523371949436636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7974532230268331912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72841a1f77d9d9e42b5e52ff720bdf33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeedForSpin: 0
+  maxSpeedForSpin: 0
+  timeForSpin: 4
+  maxUsage: 2
+--- !u!65 &5543877767472654508
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7974532230268331912}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.23133826, y: 0.042601347, z: 0.23133826}
+  m_Center: {x: 0.00512439, y: 0.014466047, z: -0.00854063}
 --- !u!1001 &4745690443228869118
 PrefabInstance:
   m_ObjectHideFlags: 0

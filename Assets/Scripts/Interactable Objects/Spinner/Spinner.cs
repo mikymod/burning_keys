@@ -4,13 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class FidgetActivation : MonoBehaviour
+public class Spinner : MonoBehaviour
 {
     public static UnityEvent StopRotating = new UnityEvent();
 
-    [SerializeField] private float minSpeedForSpin, maxSpeedForSpin;
     [SerializeField] private float timeForSpin;
-    [SerializeField] private float FidgetOffset;
     [SerializeField] private int maxUsage;
     private int currentUsage = 0;
 
@@ -19,6 +17,12 @@ public class FidgetActivation : MonoBehaviour
     private bool isRotating = false;
     private Vector3 initialPos;
     private Quaternion initialRot;
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();    
+    }
 
     private void OnEnable()
     {
@@ -32,35 +36,26 @@ public class FidgetActivation : MonoBehaviour
         GameManager.SpinnerTaskFinished.RemoveListener(OnSpinnerTaskFinished);
     }
 
-    private void Start()
-    {
-        initialPos = transform.position;
-        initialRot = transform.rotation;
-    }
-
     private void OnSpinnerTaskStarted()
     {
         if (currentUsage >= maxUsage)
         {
-            OnSpinnerTaskFinished();
             return;
         }
 
+        animator.SetTrigger("MoveToCamera");
         isActive = true;
     }
 
     private void OnSpinnerTaskFinished()
     {
         isActive = false;
-
-        ResetTransform();
-    }
+        animator.SetTrigger("MoveToInitialPos");
+    }   
 
     void Update()
     {
         if (!isActive) return;
-        // The spinner is in focus
-        transform.position = Camera.main.transform.position + Camera.main.transform.forward * FidgetOffset;
 
         if (Input.GetMouseButtonDown(1) && !isRotating)
         {
@@ -72,21 +67,18 @@ public class FidgetActivation : MonoBehaviour
     {
         currentUsage++;
         isRotating = true;
-        
-        randomSpin = timeForSpin;
-        while (randomSpin > 0)
-        {
-            randomSpin -= Time.deltaTime;
-            yield return null;
-        }
-        isRotating = false;
-        
-        StopRotating.Invoke();
-    }
+        animator.SetTrigger("Rotate");
 
-    private void ResetTransform()
-    {
-        transform.position = initialPos;
-        transform.rotation = initialRot;
+        yield return new WaitForSeconds(timeForSpin);
+
+        animator.SetTrigger("StopRotate");
+        isRotating = false;
+
+        StopRotating.Invoke(); // TODO: Decrease stress
+
+        if (currentUsage >= maxUsage)
+        {
+            GameManager.SpinnerTaskFinished.Invoke();
+        }
     }
 }
