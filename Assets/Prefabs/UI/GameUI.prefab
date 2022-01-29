@@ -1007,8 +1007,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 997605200759226897, guid: 1e59b7eb4643ee4478d82a1e34808b11,
         type: 3}
+      propertyPath: tryAgainScene
+      value: Blockout
+      objectReference: {fileID: 0}
+    - target: {fileID: 997605200759226897, guid: 1e59b7eb4643ee4478d82a1e34808b11,
+        type: 3}
       propertyPath: backToMenuText
       value: BACK TO MENU
+      objectReference: {fileID: 0}
+    - target: {fileID: 997605200759226897, guid: 1e59b7eb4643ee4478d82a1e34808b11,
+        type: 3}
+      propertyPath: backToMenuScene
+      value: StartScene
       objectReference: {fileID: 0}
     - target: {fileID: 997605200759226897, guid: 1e59b7eb4643ee4478d82a1e34808b11,
         type: 3}

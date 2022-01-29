@@ -8,8 +8,10 @@ public class Progressbar : MonoBehaviour
 {
     [SerializeField] private Image mask;
     [SerializeField] private float maxValue;
+    [SerializeField] private float keySmashCompletedValue = 2f;
+    [SerializeField] private float wordCompletedValue = 3f;
 
-    public float currentValue = 0f;
+    private float currentValue = 0f;
     private bool Filled { get => currentValue >= 100f; }
 
     private void OnEnable()
@@ -26,20 +28,20 @@ public class Progressbar : MonoBehaviour
 
     private void OnKeySmashCompleted()
     {
-        currentValue += 1f;
+        currentValue += keySmashCompletedValue;
     }
 
     private void OnWordCompleted()
     {
-        currentValue += 2f;
+        currentValue += wordCompletedValue;
     }
 
     private void Update()
     {
-        if (Filled)
-        {
-            return;
-        }
+        // if (Filled)
+        // {
+        //     return;
+        // }
 
         mask.fillAmount = currentValue / maxValue;   
 

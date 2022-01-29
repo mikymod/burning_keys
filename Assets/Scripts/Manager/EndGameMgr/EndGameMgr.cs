@@ -21,6 +21,8 @@ public class EndGameMgr : MonoBehaviour
     [SerializeField] private TMP_Text title;
     [SerializeField] private TMP_Text retryButton;
     [SerializeField] private TMP_Text menuButton;
+    [SerializeField] private string tryAgainScene;
+    [SerializeField] private string backToMenuScene;
 
     [SerializeField] private GameObject allItems;
     private void OnEnable()
@@ -66,13 +68,13 @@ public class EndGameMgr : MonoBehaviour
     public void BackToMainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("StartScene");
+        SceneManager.LoadScene(backToMenuScene);
     }
 
     public void RestartGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("FinalGameScene");
+        SceneManager.LoadScene(tryAgainScene);
     }
 
 }
