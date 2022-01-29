@@ -135,7 +135,7 @@ public class GameManager : MonoBehaviour
                 {
                     case TimedEvent.TimedEventType.Alarm:
                         AlarmAdverterStart.Invoke();
-                        AlarmTaskStart.Invoke();
+                        // AlarmTaskStart.Invoke();
                         break;
                     case TimedEvent.TimedEventType.Email:
                         MailAdverterStart.Invoke();
@@ -162,6 +162,10 @@ public class GameManager : MonoBehaviour
                 //Task switch
                 switch (hit.collider.gameObject.tag)
                 {
+                    case "Alarm":
+                        if (alarmIsFocusable && !spinnerActive)
+                            AlarmTaskStart.Invoke();
+                        break;
                     case "Mail":
                         if (mailIsFocusable && !spinnerActive)
                             MailTaskStart.Invoke();
