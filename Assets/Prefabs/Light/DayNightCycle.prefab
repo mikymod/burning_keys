@@ -240,6 +240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6252941745974865981}
   - component: {fileID: 6252941745974865980}
+  - component: {fileID: 1746912516}
   m_Layer: 0
   m_Name: DayNightCycle
   m_TagString: Untagged
@@ -276,8 +277,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b640e6b21036e64fbf0a465964069ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0
-  dayLength: 30
+  time: 0.159
+  dayLength: 15
   startTime: 0.4
   noon: {x: 90, y: 0, z: 0}
   sun: {fileID: 6252941745651347131}
@@ -346,18 +347,18 @@ MonoBehaviour:
   moon: {fileID: 6252941745631420487}
   moonColor:
     serializedVersion: 2
-    key0: {r: 0, g: 0.2509804, b: 0.627451, a: 1}
-    key1: {r: 0, g: 0.2509804, b: 0.6313726, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 0.026788898, g: 0.042068854, b: 0.13207549, a: 1}
+    key1: {r: 0.020647923, g: 0.07240913, b: 0.1509434, a: 1}
+    key2: {r: 0.027450982, g: 0.04705883, b: 0.13725491, a: 0}
+    key3: {r: 0, g: 0.3664751, b: 0.5, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 65535
-    ctime2: 0
-    ctime3: 0
+    ctime1: 42598
+    ctime2: 65535
+    ctime3: 65535
     ctime4: 0
     ctime5: 0
     ctime6: 0
@@ -371,13 +372,13 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 2
+    m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   moonIntensity:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -0.00032563508
+      time: -0.09816499
       value: 0.50223035
       inSlope: 0
       outSlope: 0
@@ -499,3 +500,16 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1746912516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6252941745974865955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 834073e18f477634ca5b4ae79c6a3f53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Lamp_Light: {fileID: 0}

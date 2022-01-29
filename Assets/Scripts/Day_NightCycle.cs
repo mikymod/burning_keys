@@ -30,7 +30,6 @@ public class Day_NightCycle : MonoBehaviour
 
     private float timeRate;
 
-    [SerializeField] private Light LampLight;
     private void Start()
     {
         timeRate = 1.0f / dayLength;
@@ -57,7 +56,17 @@ public class Day_NightCycle : MonoBehaviour
         //Light & Reflection Intensity
         RenderSettings.ambientIntensity = lightingIntensityMultiplier.Evaluate(time);
         RenderSettings.reflectionIntensity = reflectionsIntensityMultiplier.Evaluate(time);
+        print(sun.transform.eulerAngles.x);
+        if (sun.transform.eulerAngles.x > 0 && sun.transform.eulerAngles.x < 180)
+        {
+            print("Giorno");
 
-        if (sun.transform.rotation.y < 0) NightTime.Invoke();
+            DayTime.Invoke();
+        }
+        else
+        {
+            print("notte");
+            NightTime.Invoke();
+        }
     }
 }

@@ -13971,6 +13971,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254417972}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!108 &1259626881 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 7541138615209047071, guid: 8fe5b37ebd353ad4794036454292cd7b,
+    type: 3}
+  m_PrefabInstance: {fileID: 7541138615049928463}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1266230487
 GameObject:
   m_ObjectHideFlags: 0
@@ -15365,125 +15371,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6252941745631420485, guid: 6e07a11e915cfb544882f4643ef476fc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252941745651347129, guid: 6e07a11e915cfb544882f4643ef476fc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252941745651347131, guid: 6e07a11e915cfb544882f4643ef476fc,
-        type: 3}
-      propertyPath: m_Shadows.m_Type
-      value: 2
-      objectReference: {fileID: 0}
+    - target: {fileID: 1746912516, guid: 6e07a11e915cfb544882f4643ef476fc, type: 3}
+      propertyPath: Lamp_Light
+      value: 
+      objectReference: {fileID: 1259626881}
     - target: {fileID: 6252941745974865955, guid: 6e07a11e915cfb544882f4643ef476fc,
         type: 3}
       propertyPath: m_Name
       value: DayNightCycle
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252941745974865955, guid: 6e07a11e915cfb544882f4643ef476fc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252941745974865980, guid: 6e07a11e915cfb544882f4643ef476fc,
-        type: 3}
-      propertyPath: time
-      value: 0.159
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252941745974865980, guid: 6e07a11e915cfb544882f4643ef476fc,
-        type: 3}
-      propertyPath: dayLength
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252941745974865980, guid: 6e07a11e915cfb544882f4643ef476fc,
-        type: 3}
-      propertyPath: moonColor.ctime1
-      value: 42598
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252941745974865980, guid: 6e07a11e915cfb544882f4643ef476fc,
-        type: 3}
-      propertyPath: moonColor.ctime2
-      value: 65535
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252941745974865980, guid: 6e07a11e915cfb544882f4643ef476fc,
-        type: 3}
-      propertyPath: moonColor.ctime3
-      value: 65535
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252941745974865980, guid: 6e07a11e915cfb544882f4643ef476fc,
-        type: 3}
-      propertyPath: moonColor.key0.b
-      value: 0.13207549
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252941745974865980, guid: 6e07a11e915cfb544882f4643ef476fc,
-        type: 3}
-      propertyPath: moonColor.key0.g
-      value: 0.042068854
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252941745974865980, guid: 6e07a11e915cfb544882f4643ef476fc,
-        type: 3}
-      propertyPath: moonColor.key0.r
-      value: 0.026788898
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252941745974865980, guid: 6e07a11e915cfb544882f4643ef476fc,
-        type: 3}
-      propertyPath: moonColor.key1.b
-      value: 0.1509434
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252941745974865980, guid: 6e07a11e915cfb544882f4643ef476fc,
-        type: 3}
-      propertyPath: moonColor.key1.g
-      value: 0.07240913
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252941745974865980, guid: 6e07a11e915cfb544882f4643ef476fc,
-        type: 3}
-      propertyPath: moonColor.key1.r
-      value: 0.020647923
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252941745974865980, guid: 6e07a11e915cfb544882f4643ef476fc,
-        type: 3}
-      propertyPath: moonColor.key2.b
-      value: 0.13725491
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252941745974865980, guid: 6e07a11e915cfb544882f4643ef476fc,
-        type: 3}
-      propertyPath: moonColor.key2.g
-      value: 0.04705883
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252941745974865980, guid: 6e07a11e915cfb544882f4643ef476fc,
-        type: 3}
-      propertyPath: moonColor.key2.r
-      value: 0.027450982
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252941745974865980, guid: 6e07a11e915cfb544882f4643ef476fc,
-        type: 3}
-      propertyPath: moonColor.key3.b
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252941745974865980, guid: 6e07a11e915cfb544882f4643ef476fc,
-        type: 3}
-      propertyPath: moonColor.key3.g
-      value: 0.3664751
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252941745974865980, guid: 6e07a11e915cfb544882f4643ef476fc,
-        type: 3}
-      propertyPath: moonColor.m_NumColorKeys
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252941745974865980, guid: 6e07a11e915cfb544882f4643ef476fc,
-        type: 3}
-      propertyPath: moonIntensity.m_Curve.Array.data[0].time
-      value: -0.09816499
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252941745974865980, guid: 6e07a11e915cfb544882f4643ef476fc,
-        type: 3}
-      propertyPath: moonIntensity.m_Curve.Array.data[0].value
-      value: 0.50223035
       objectReference: {fileID: 0}
     - target: {fileID: 6252941745974865981, guid: 6e07a11e915cfb544882f4643ef476fc,
         type: 3}

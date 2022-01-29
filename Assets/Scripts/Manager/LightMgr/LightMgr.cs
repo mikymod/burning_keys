@@ -9,10 +9,12 @@ public class LightMgr : MonoBehaviour
     private void OnEnable()
     {
         Day_NightCycle.NightTime.AddListener(OnNightArrive);
+        Day_NightCycle.DayTime.AddListener(OnDayArrive);
     }
     private void OnDisable()
     {
         Day_NightCycle.NightTime.RemoveListener(OnNightArrive);
+        Day_NightCycle.DayTime.AddListener(OnDayArrive);
     }
     private void OnNightArrive()
     {
