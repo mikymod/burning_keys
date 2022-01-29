@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public static UnityEvent MailAdverterEnd = new UnityEvent();
     public static UnityEvent MailTaskStart = new UnityEvent();
     public static UnityEvent MailTaskFinished = new UnityEvent();
+    public static UnityEvent MailSubTaskFinished = new UnityEvent();
 
     public static UnityEvent PhoneAdverterStart = new UnityEvent();
     public static UnityEvent PhoneAdverterEnd = new UnityEvent();
