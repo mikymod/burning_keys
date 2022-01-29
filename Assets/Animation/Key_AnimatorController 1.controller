@@ -31,7 +31,7 @@ AnimatorState:
   m_PrefabAsset: {fileID: 0}
   m_Name: Key_Clip
   m_Speed: 1
-  m_CycleOffset: 0.05
+  m_CycleOffset: 0.5
   m_Transitions: []
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
