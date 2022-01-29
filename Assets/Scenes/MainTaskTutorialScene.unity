@@ -569,6 +569,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8402286854292772418, guid: b2477af0ae917bd4b8800024ddd511c5,
         type: 3}
+      propertyPath: zoomOut
+      value: 
+      objectReference: {fileID: 1149410510}
+    - target: {fileID: 8402286854292772418, guid: b2477af0ae917bd4b8800024ddd511c5,
+        type: 3}
       propertyPath: sitCamera
       value: 
       objectReference: {fileID: 1805537552}
@@ -1103,6 +1108,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f12275614fa0c644eb341e250b934050, type: 3}
+--- !u!1 &1149410510 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 762088034804118192, guid: 61a8fed7d611a4648893420174b708b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1149410509}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1329628656
 PrefabInstance:
   m_ObjectHideFlags: 0
