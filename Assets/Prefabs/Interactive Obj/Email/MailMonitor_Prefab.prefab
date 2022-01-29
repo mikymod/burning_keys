@@ -124,7 +124,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2444834218725387301}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3807667790813160858
 MeshFilter:
@@ -219,8 +219,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5762639973451824535}
-  - {fileID: 9078177141336173845}
   - {fileID: 3083756844932831718}
+  - {fileID: 9078177141336173845}
   - {fileID: 5578946477790562672}
   - {fileID: 5825799682663638599}
   - {fileID: 4306529640712370917}
@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 5154246618757601204}
   - component: {fileID: 7712820944358712375}
   - component: {fileID: 2824355354576089310}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -479,7 +479,7 @@ MeshCollider:
   m_GameObject: {fileID: 3138736718392220186}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 7761036959029755785}
   - component: {fileID: 8938350113641286651}
   - component: {fileID: 7438917979944331812}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Key_Animation_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -593,7 +593,7 @@ GameObject:
   - component: {fileID: 4265705276386600061}
   - component: {fileID: 257846926058088416}
   - component: {fileID: 8044541530987874787}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Key_Animation_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -689,7 +689,7 @@ GameObject:
   - component: {fileID: 5077154004364605496}
   - component: {fileID: 1150153041864436420}
   - component: {fileID: 7120692007854106813}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Word (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -825,7 +825,7 @@ GameObject:
   - component: {fileID: 8766200220843318702}
   - component: {fileID: 402825513907865543}
   - component: {fileID: 7598808743233562791}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Word (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -962,7 +962,7 @@ GameObject:
   - component: {fileID: 386989613002286151}
   - component: {fileID: 7567588123224635970}
   - component: {fileID: 5765036297629087212}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Canvas (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1085,7 +1085,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2444834218725387301}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3991809760792975492
 MeshFilter:
@@ -1146,7 +1146,7 @@ MeshCollider:
   m_GameObject: {fileID: 6207506019460955285}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -1245,8 +1245,7 @@ GameObject:
   - component: {fileID: 5578946477790562672}
   - component: {fileID: 2492645277601034870}
   - component: {fileID: 1018512796702945725}
-  - component: {fileID: 777955103746852684}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Monitor:MonitorSchermo1
   m_TagString: Mail
   m_Icon: {fileID: 0}
@@ -1319,17 +1318,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &777955103746852684
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7368829267518816757}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1471034747062634436, guid: c0a05c1e7a8a1dd44b6056268c6f6af0, type: 3}

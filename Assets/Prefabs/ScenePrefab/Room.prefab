@@ -1343,7 +1343,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainDesktop_Prefab
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7445290266360177553, guid: 5768eba3bcda3c141bcca47a3ae67ec6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5768eba3bcda3c141bcca47a3ae67ec6, type: 3}
 --- !u!4 &3472145165684635611 stripped
 Transform:

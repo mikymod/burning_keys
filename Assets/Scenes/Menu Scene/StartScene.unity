@@ -947,7 +947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ed9f58e3cf21c4a8a3c5236169b9bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScenestring: Test3DModelScene
+  nextScenestring: AlarmTutorialScene
 --- !u!4 &1661319985
 Transform:
   m_ObjectHideFlags: 0
