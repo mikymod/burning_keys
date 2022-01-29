@@ -816,7 +816,7 @@ PrefabInstance:
     - target: {fileID: 1364338863721938579, guid: a8e626ac6ea90854ba9f21753af66043,
         type: 3}
       propertyPath: m_ApplyRootMotion
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3931047621331621152, guid: a8e626ac6ea90854ba9f21753af66043,
         type: 3}
@@ -1309,7 +1309,7 @@ PrefabInstance:
     - target: {fileID: 440383625421936931, guid: 811da5fac28f5ca46b753ba240c90251,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3403707761567375775, guid: 811da5fac28f5ca46b753ba240c90251,
         type: 3}
