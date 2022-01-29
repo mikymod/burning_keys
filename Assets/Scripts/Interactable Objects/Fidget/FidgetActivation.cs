@@ -47,27 +47,20 @@ public class FidgetActivation : MonoBehaviour
         }
 
         isActive = true;
-        InputManager.KeyCodeInput.AddListener(OnKeyCodeInput);
     }
 
     private void OnSpinnerTaskFinished()
     {
         isActive = false;
-        InputManager.KeyCodeInput.RemoveListener(OnKeyCodeInput);
 
         ResetTransform();
-    }
-
-    private void OnKeyCodeInput(KeyCode keyCode)
-    {
-        throw new NotImplementedException();
     }
 
     void Update()
     {
         if (!isActive) return;
         // The spinner is in focus
-        gameObject.transform.position = Camera.main.transform.position + Camera.main.transform.forward * FidgetOffset;
+        transform.position = Camera.main.transform.position + Camera.main.transform.forward * FidgetOffset;
 
         if (Input.GetMouseButtonDown(1) && !isRotating)
         {
