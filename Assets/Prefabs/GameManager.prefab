@@ -1,0 +1,152 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7492084502409884626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6078198593297491691}
+  - component: {fileID: 1569753824560878721}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6078198593297491691
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7492084502409884626}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1569753824560878721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7492084502409884626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed9573e938f553b4c9f3c6e9050f9965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mask:
+    serializedVersion: 2
+    m_Bits: 64
+  timedEvents:
+  - type: 0
+    time: 10
+    done: 0
+  - type: 1
+    time: 20
+    done: 0
+  - type: 2
+    time: 30
+    done: 0
+  - type: 1
+    time: 31
+    done: 0
+  - type: 1
+    time: 40
+    done: 0
+  - type: 0
+    time: 60
+    done: 0
+  - type: 1
+    time: 70
+    done: 0
+  - type: 2
+    time: 75
+    done: 0
+  - type: 1
+    time: 75
+    done: 0
+  - type: 1
+    time: 75
+    done: 0
+  - type: 0
+    time: 90
+    done: 0
+  - type: 2
+    time: 95
+    done: 0
+  - type: 1
+    time: 95
+    done: 0
+  - type: 1
+    time: 97
+    done: 0
+  - type: 0
+    time: 98
+    done: 0
+  - type: 1
+    time: 99
+    done: 0
+  - type: 1
+    time: 100
+    done: 0
+  - type: 2
+    time: 120
+    done: 0
+  - type: 0
+    time: 115
+    done: 0
+  - type: 1
+    time: 123
+    done: 0
+  - type: 1
+    time: 124
+    done: 0
+  - type: 2
+    time: 130
+    done: 0
+  - type: 2
+    time: 135
+    done: 0
+  - type: 0
+    time: 140
+    done: 0
+  - type: 2
+    time: 145
+    done: 0
+  - type: 1
+    time: 160
+    done: 0
+  - type: 1
+    time: 163
+    done: 0
+  - type: 1
+    time: 164
+    done: 0
+  - type: 2
+    time: 170
+    done: 0
+  - type: 0
+    time: 180
+    done: 0
+  - type: 1
+    time: 185
+    done: 0
+  - type: 1
+    time: 190
+    done: 0
+  - type: 1
+    time: 190
+    done: 0
+  - type: 0
+    time: 200
+    done: 0
