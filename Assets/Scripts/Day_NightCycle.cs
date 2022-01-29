@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Day_NightCycle : MonoBehaviour
 {
+    public static UnityEvent NightTime = new UnityEvent();
+    public static UnityEvent DayTime = new UnityEvent();
+
     [Range(0.0f, 1.0f)]
     [SerializeField] private float time; //da 0-1 (giorn0, notte)
     [Tooltip("Day Duration")] [SerializeField] private float dayLength;
@@ -15,7 +19,6 @@ public class Day_NightCycle : MonoBehaviour
     [SerializeField] private Gradient sunColor;
     [SerializeField] private AnimationCurve sunIntensity;
 
-
     [Header("Moon")]
     [SerializeField] private Light moon;
     [SerializeField] private Gradient moonColor;
@@ -26,6 +29,8 @@ public class Day_NightCycle : MonoBehaviour
     [SerializeField] private AnimationCurve reflectionsIntensityMultiplier;
 
     private float timeRate;
+
+    [SerializeField] private Light LampLight;
     private void Start()
     {
         timeRate = 1.0f / dayLength;
@@ -49,10 +54,10 @@ public class Day_NightCycle : MonoBehaviour
         sun.color = sunColor.Evaluate(time);
         moon.color = moonColor.Evaluate(time);
 
-
         //Light & Reflection Intensity
         RenderSettings.ambientIntensity = lightingIntensityMultiplier.Evaluate(time);
         RenderSettings.reflectionIntensity = reflectionsIntensityMultiplier.Evaluate(time);
 
+        if (sun.transform.rotation.y < 0) NightTime.Invoke();
     }
 }
