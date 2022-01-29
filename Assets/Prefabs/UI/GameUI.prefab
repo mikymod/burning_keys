@@ -750,6 +750,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5250208959199408967, guid: b242ae5dbac896f4aad42847b902fc72,
+        type: 3}
+      propertyPath: spinnerBonusValue
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b242ae5dbac896f4aad42847b902fc72, type: 3}
 --- !u!224 &8880446249777644284 stripped
@@ -1028,7 +1033,7 @@ PrefabInstance:
     - target: {fileID: 997605200759226897, guid: 1e59b7eb4643ee4478d82a1e34808b11,
         type: 3}
       propertyPath: backToMenuTextLose
-      value: TRY AGAIN
+      value: BACK
       objectReference: {fileID: 0}
     - target: {fileID: 997605201401410527, guid: 1e59b7eb4643ee4478d82a1e34808b11,
         type: 3}
