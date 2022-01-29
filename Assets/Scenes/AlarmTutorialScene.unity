@@ -200,14 +200,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 81921659}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.12278779, y: 0.6963643, z: -0.12278779, w: 0.6963643}
   m_LocalPosition: {x: -1.03, y: 1.39, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 20, y: 90, z: 0}
 --- !u!114 &81921663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,6 +626,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 828248448505130045, guid: 14dec2b0ceb281040aa41ba706ffe79d,
+        type: 3}
+      propertyPath: outlineMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1398426787606019172, guid: 14dec2b0ceb281040aa41ba706ffe79d,
         type: 3}
       propertyPath: m_Name
@@ -1154,7 +1159,7 @@ PrefabInstance:
     - target: {fileID: 8402286854292772418, guid: b2477af0ae917bd4b8800024ddd511c5,
         type: 3}
       propertyPath: visualSensitivity
-      value: 10
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2477af0ae917bd4b8800024ddd511c5, type: 3}
