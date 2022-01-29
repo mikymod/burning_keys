@@ -15,8 +15,11 @@ public class CameraMgr : MonoBehaviour
 
     [SerializeField] private KeyCode keyForBack;
     //vengono utilizzati come time/value per incrementare il tempo di lerp
-    [SerializeField][Range(0f, 1f)] private float speed;
+    [SerializeField] [Range(0f, 1f)] private float speed;
     [SerializeField] private float visualSensitivity;
+
+
+    [SerializeField] private GameObject zoomOut;
 
     //prendo il valore poco prima di applicare il lerp della camera, avviene durante LerpMyCamToMail()/LerpMyCamToPhone()
     //private Transform LateCameraPos; Non funziona!
@@ -30,7 +33,7 @@ public class CameraMgr : MonoBehaviour
     {
         GameManager.PhoneTaskStart.AddListener(LerpMyCamToPhone);
         GameManager.PhoneTaskFinished.AddListener(LerpMyCamToSit);
-        
+
         GameManager.MailTaskStart.AddListener(LerpMyCamToMail);
         GameManager.MailTaskFinished.AddListener(LerpMyCamToSit);
 
@@ -60,10 +63,13 @@ public class CameraMgr : MonoBehaviour
             return;
         }
 
+
         if (!freeCamMove)
         {
             return;
         }
+
+        if (zoomOut != null && zoomOut.activeInHierarchy) zoomOut.SetActive(false);
 
         rotation.x += visualSensitivity * Input.GetAxis("Mouse X");
         rotation.y += visualSensitivity * Input.GetAxis("Mouse Y");
@@ -77,6 +83,7 @@ public class CameraMgr : MonoBehaviour
     {
         if (moving) return;
         freeCamMove = false;
+        if (zoomOut != null) zoomOut.SetActive(true);
         StartCoroutine(MoveCameraCoroutine(desktopCamera.position, desktopCamera.rotation, speed));
     }
 
@@ -84,6 +91,7 @@ public class CameraMgr : MonoBehaviour
     {
         if (moving) return;
         freeCamMove = false;
+        if (zoomOut != null) zoomOut.SetActive(true);
         StartCoroutine(MoveCameraCoroutine(emailCamera.position, emailCamera.rotation, speed));
     }
     private void LerpMyCamToPhone()

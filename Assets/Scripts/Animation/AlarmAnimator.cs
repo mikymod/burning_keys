@@ -30,6 +30,7 @@ public class AlarmAnimator : MonoBehaviour
     private void AlarmIsNotActive()
     {
         animator.SetTrigger("AlarmIsNotActive");
+        animator.SetBool("AlarmIsActive", false);
     }
 
 }

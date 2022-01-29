@@ -926,6 +926,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 762088034804118192, guid: 61a8fed7d611a4648893420174b708b7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8880446248705614416, guid: 61a8fed7d611a4648893420174b708b7,
         type: 3}
       propertyPath: m_Name
@@ -1078,6 +1083,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61a8fed7d611a4648893420174b708b7, type: 3}
+--- !u!1 &1145506690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 762088034804118192, guid: 61a8fed7d611a4648893420174b708b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1145506689}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1146952824
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,6 +1302,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8402286854292772418, guid: b2477af0ae917bd4b8800024ddd511c5,
+        type: 3}
+      propertyPath: zoomOut
+      value: 
+      objectReference: {fileID: 1145506690}
     - target: {fileID: 8402286854292772418, guid: b2477af0ae917bd4b8800024ddd511c5,
         type: 3}
       propertyPath: sitCamera
