@@ -76,7 +76,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 871405ff1d133dc46bacf2d39f17912d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -213,7 +213,7 @@ GameObject:
   m_TagString: Alarm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8326911571071271527
 Transform:

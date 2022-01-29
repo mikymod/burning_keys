@@ -10,7 +10,6 @@ public class AlarmTask : MonoBehaviour
         coll = GetComponentInChildren<Collider>();
         coll.enabled = false;
     }
-    
     private void OnEnable()
     {
         GameManager.AlarmTaskStart.AddListener(OnTaskStartedCallback);
