@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FinalGameScene.unity
     guid: df55ecafd6c48e849aae51e5cddf26cf
+  - enabled: 1
+    path: Assets/Scenes/Blockout.unity
+    guid: 16d1c90356f6c1d4780e270cb3570797
   m_configObjects: {}

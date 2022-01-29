@@ -1028,7 +1028,7 @@ PrefabInstance:
     - target: {fileID: 303201459162785712, guid: 811da5fac28f5ca46b753ba240c90251,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 303201459162785713, guid: 811da5fac28f5ca46b753ba240c90251,
         type: 3}
@@ -1090,25 +1090,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 303201459162785716, guid: 811da5fac28f5ca46b753ba240c90251,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 303201459162785717, guid: 811da5fac28f5ca46b753ba240c90251,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 303201459162785718, guid: 811da5fac28f5ca46b753ba240c90251,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 303201459162785719, guid: 811da5fac28f5ca46b753ba240c90251,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 303201459162785723, guid: 811da5fac28f5ca46b753ba240c90251,
         type: 3}
       propertyPath: m_Name
       value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403707761567375775, guid: 811da5fac28f5ca46b753ba240c90251,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377872930382042117, guid: 811da5fac28f5ca46b753ba240c90251,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 811da5fac28f5ca46b753ba240c90251, type: 3}
@@ -1213,7 +1228,7 @@ PrefabInstance:
     - target: {fileID: 1684313475356559832, guid: d9501587d3cbf024e81650f5efab39fb,
         type: 3}
       propertyPath: nextScene
-      value: FinalGameScene
+      value: Blockout
       objectReference: {fileID: 0}
     - target: {fileID: 1684313475356559832, guid: d9501587d3cbf024e81650f5efab39fb,
         type: 3}

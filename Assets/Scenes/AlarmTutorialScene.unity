@@ -694,7 +694,7 @@ PrefabInstance:
     - target: {fileID: 7528030206277957817, guid: 14dec2b0ceb281040aa41ba706ffe79d,
         type: 3}
       propertyPath: m_ApplyRootMotion
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14dec2b0ceb281040aa41ba706ffe79d, type: 3}
@@ -708,7 +708,7 @@ PrefabInstance:
     - target: {fileID: 303201459162785712, guid: 811da5fac28f5ca46b753ba240c90251,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 303201459162785713, guid: 811da5fac28f5ca46b753ba240c90251,
         type: 3}
@@ -770,6 +770,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 303201459162785716, guid: 811da5fac28f5ca46b753ba240c90251,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 303201459162785717, guid: 811da5fac28f5ca46b753ba240c90251,
         type: 3}
       propertyPath: m_Enabled
@@ -778,17 +783,32 @@ PrefabInstance:
     - target: {fileID: 303201459162785718, guid: 811da5fac28f5ca46b753ba240c90251,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 303201459162785719, guid: 811da5fac28f5ca46b753ba240c90251,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 303201459162785723, guid: 811da5fac28f5ca46b753ba240c90251,
         type: 3}
       propertyPath: m_Name
       value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 440383625421936931, guid: 811da5fac28f5ca46b753ba240c90251,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403707761567375775, guid: 811da5fac28f5ca46b753ba240c90251,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377872930382042117, guid: 811da5fac28f5ca46b753ba240c90251,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 811da5fac28f5ca46b753ba240c90251, type: 3}
