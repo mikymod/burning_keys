@@ -14,10 +14,12 @@ public class Adverter : MonoBehaviour
 
     private void Start()
     {
-        phoneAdverter.enabled = false;
-        alarmAdverter.enabled = false;
-        mailAdverter.enabled = false;
-        mailCounter.enabled = false;
+        //phoneAdverter.enabled = false;
+        //alarmAdverter.enabled = false;
+        phoneAdverter.color = new Color(phoneAdverter.color.r, phoneAdverter.color.g, phoneAdverter.color.b, 0);
+        alarmAdverter.color = new Color(alarmAdverter.color.r, alarmAdverter.color.g, alarmAdverter.color.b, 0);
+        mailAdverter.enabled = true;
+        mailCounter.enabled = true;
     }
 
     private void OnEnable()
@@ -35,51 +37,48 @@ public class Adverter : MonoBehaviour
     {
         GameManager.PhoneAdverterStart.RemoveListener(OnPhoneStart);
         GameManager.PhoneAdverterEnd.RemoveListener(OnPhoneEnd);
-        
+
         GameManager.AlarmAdverterStart.RemoveListener(OnAlarmStart);
         GameManager.AlarmAdverterEnd.RemoveListener(OnAlarmEnd);
-        
+
         GameManager.MailAdverterStart.RemoveListener(OnMailArrived);
         GameManager.MailAdverterEnd.RemoveListener(OnMailDismissed);
     }
 
     private void OnPhoneStart()
     {
-        phoneAdverter.enabled = true;
+        //phoneAdverter.enabled = true;
+        phoneAdverter.color = new Color(phoneAdverter.color.r, phoneAdverter.color.g, phoneAdverter.color.b, 255);
     }
 
     private void OnPhoneEnd()
     {
-        phoneAdverter.enabled = false;
+        //phoneAdverter.enabled = false;
+        phoneAdverter.color = new Color(phoneAdverter.color.r, phoneAdverter.color.g, phoneAdverter.color.b, 0);
     }
 
     private void OnAlarmStart()
     {
-        alarmAdverter.enabled = true;
+        //alarmAdverter.enabled = true;
+        alarmAdverter.color = new Color(alarmAdverter.color.r, alarmAdverter.color.g, alarmAdverter.color.b, 255);
     }
 
     private void OnAlarmEnd()
     {
-        alarmAdverter.enabled = false;
+        //alarmAdverter.enabled = false;
+        alarmAdverter.color = new Color(alarmAdverter.color.r, alarmAdverter.color.g, alarmAdverter.color.b, 0);
     }
 
     private void OnMailArrived()
     {
-        mailAdverter.enabled = true;
-        mailCounter.enabled = true;
+        //mailAdverter.enabled = true;
+        //mailCounter.enabled = true;
         GameManager.MailCounter++;
         mailCounter.SetText($"{GameManager.MailCounter}");
     }
 
     private void OnMailDismissed()
     {
-        if (GameManager.MailCounter == 0)
-        {
-            mailAdverter.enabled = false;
-            mailCounter.enabled = false;
-            mailCounter.SetText($"");
-        }
-        else
-            mailCounter.SetText($"{ GameManager.MailCounter}");
+        mailCounter.SetText($"{ GameManager.MailCounter}");
     }
 }

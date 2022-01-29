@@ -2278,6 +2278,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 862481653175115262, guid: cbcac7e16028ebd449b75afd00289565,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2155106143086100442, guid: cbcac7e16028ebd449b75afd00289565,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2333,6 +2338,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 330585545}
+    - target: {fileID: 4925340997153260665, guid: cbcac7e16028ebd449b75afd00289565,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1044
+      objectReference: {fileID: 0}
     - target: {fileID: 5114686593544532770, guid: cbcac7e16028ebd449b75afd00289565,
         type: 3}
       propertyPath: speed
@@ -2816,6 +2826,11 @@ PrefabInstance:
     - target: {fileID: 7404726624656045055, guid: cbcac7e16028ebd449b75afd00289565,
         type: 3}
       propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319504574359342029, guid: cbcac7e16028ebd449b75afd00289565,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
