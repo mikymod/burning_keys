@@ -9,8 +9,9 @@ public class TutorialManager : MonoBehaviour
 {
     [SerializeField] private string nextScene;
     [SerializeField] private float transitionTime;
+    [SerializeField] private Light lightToFade;
+    [SerializeField] private float fadeStep = 0.025f;
 
-    private float timer = 0f;
     private int mailTasksCompleted = 0;
     private int desktopTasksCompleted = 0;
 
@@ -34,9 +35,14 @@ public class TutorialManager : MonoBehaviour
 
     private IEnumerator GoToNextScene()
     {
-        timer += Time.deltaTime;
+        float timer = 0f;
 
-        yield return new WaitForSeconds(transitionTime);
+        while (timer <= transitionTime)
+        {
+            timer += Time.deltaTime;
+            lightToFade.intensity = Mathf.Lerp(lightToFade.intensity, 0f, fadeStep);
+            yield return null;
+        }
 
         SceneManager.LoadScene(nextScene);
     }
