@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
     [Header("Music")]
     [SerializeField] private AudioSource relaxMusicSource;
     [SerializeField] private AudioSource metalMusicSource;
+    [SerializeField] private AudioSource spinnerMusicSource;
     [SerializeField] private AudioSource stingerForRelaxMusicSource;
     [SerializeField] private AudioSource stingerForMetalMusicSource;
 
@@ -68,10 +69,13 @@ public class AudioManager : MonoBehaviour
         Call.CallStepFailed.AddListener(OnPhoneFailedTask);
         GameManager.MailAdverterStart.AddListener(OnEmailAdverterStartedCallback);
         GameManager.MailTaskFinished.AddListener(OnEmailTaskFinishedCallback);
-        
+        Spinner.StartRotating.AddListener(OnSpinnerTaskStarted);
+        GameManager.SpinnerTaskFinished.AddListener(OnSpinnerTaskFinished);
+
         GameManager.DesktopTaskFinished.AddListener(OnGameCompleted);
         GameManager.StressBarFilled.AddListener(OnGameOver);
     }
+
 
     private void OnDisable()
     {
@@ -83,6 +87,8 @@ public class AudioManager : MonoBehaviour
         Call.CallStepFailed.RemoveListener(OnPhoneFailedTask);
         GameManager.MailAdverterStart.RemoveListener(OnEmailAdverterStartedCallback);
         GameManager.MailTaskFinished.RemoveListener(OnEmailTaskFinishedCallback);
+        Spinner.StartRotating.RemoveListener(OnSpinnerTaskStarted);
+        GameManager.SpinnerTaskFinished.RemoveListener(OnSpinnerTaskFinished);
 
         GameManager.DesktopTaskFinished.RemoveListener(OnGameCompleted);
         GameManager.StressBarFilled.RemoveListener(OnGameOver);
@@ -93,6 +99,7 @@ public class AudioManager : MonoBehaviour
         alarmSource.Stop();
         phoneSource.Stop();
         emailSource.Stop();
+        spinnerMusicSource.Stop();
     }
 
     private void OnGameCompleted()
@@ -177,8 +184,34 @@ public class AudioManager : MonoBehaviour
         taskFinishedSource.Play();
     }
 
+    private void OnSpinnerTaskStarted()
+    {
+        if (spinnerMusicSource.isPlaying)
+        {
+            return;
+        }
+        relaxMusicSource.Stop();
+        metalMusicSource.Stop();
+        spinnerMusicSource.Stop();
+        stingerForRelaxMusicSource.Stop();
+        stingerForMetalMusicSource.Stop();
+        spinnerMusicSource.Play();
+    }
+
+    private void OnSpinnerTaskFinished()
+    {
+        if (spinnerMusicSource.isPlaying)
+        {
+            spinnerMusicSource.Stop();
+        }
+    }
+
     void MusicMix()
     {
+        if (spinnerMusicSource.isPlaying)
+        {
+            return;
+        }
         //TODO change music on stress value change
         if (StressBar.currentValue <= 50f)
         {

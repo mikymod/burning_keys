@@ -12155,6 +12155,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 303201459162785714, guid: 811da5fac28f5ca46b753ba240c90251,
+        type: 3}
+      propertyPath: spinnerMusicSource
+      value: 
+      objectReference: {fileID: 2026650112}
     - target: {fileID: 303201459162785715, guid: 811da5fac28f5ca46b753ba240c90251,
         type: 3}
       propertyPath: m_RootOrder
@@ -17746,6 +17751,12 @@ Transform:
   m_Father: {fileID: 1021943526}
   m_RootOrder: 54
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &2026650112 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8275370184803399512, guid: 811da5fac28f5ca46b753ba240c90251,
+    type: 3}
+  m_PrefabInstance: {fileID: 1377678385}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2028295695
 GameObject:
   m_ObjectHideFlags: 0
