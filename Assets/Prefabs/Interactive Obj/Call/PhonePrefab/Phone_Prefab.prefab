@@ -657,6 +657,7 @@ GameObject:
   - component: {fileID: 4845667437938422245}
   - component: {fileID: 1364338863721938579}
   - component: {fileID: 7607166327618446311}
+  - component: {fileID: 8061227104338139212}
   m_Layer: 6
   m_Name: Phone_Prefab
   m_TagString: Untagged
@@ -745,6 +746,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e262bad4423f64ebcda6590902112f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8061227104338139212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8876410164148991560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 2
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &6487017046426059637
 PrefabInstance:
   m_ObjectHideFlags: 0
