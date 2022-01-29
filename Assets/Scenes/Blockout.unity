@@ -12915,7 +12915,7 @@ PrefabInstance:
     - target: {fileID: 303201459162785723, guid: 811da5fac28f5ca46b753ba240c90251,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 811da5fac28f5ca46b753ba240c90251, type: 3}
@@ -22451,10 +22451,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5554993232592272938, guid: bbece1a46d038224d9ece24696c5bdbe,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ec5b86c66451244697cf7fe1ec31324, type: 2}
+    - target: {fileID: 5556735510909701295, guid: bbece1a46d038224d9ece24696c5bdbe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7974532230268331912, guid: bbece1a46d038224d9ece24696c5bdbe,
         type: 3}
       propertyPath: m_Name
       value: FidgetSpinner
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227710845933561150, guid: bbece1a46d038224d9ece24696c5bdbe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbece1a46d038224d9ece24696c5bdbe, type: 3}
