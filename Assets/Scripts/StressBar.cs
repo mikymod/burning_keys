@@ -93,11 +93,11 @@ public class StressBar : MonoBehaviour
         // TODO: shit! need refactoring
         if (currentValue >= 0f && currentValue < 20f)
         {
-            return 2f;
+            return 1.5f;
         }
         else if (currentValue >= 20f && currentValue < 40f)
         {
-            return 1.5f;
+            return 1.25f;
         }
         else if (currentValue >= 40f && currentValue < 60f)
         {
