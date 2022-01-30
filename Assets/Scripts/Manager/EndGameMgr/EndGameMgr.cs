@@ -25,6 +25,13 @@ public class EndGameMgr : MonoBehaviour
     [SerializeField] private string backToMenuScene;
 
     [SerializeField] private GameObject allItems;
+
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
     private void OnEnable()
     {
         GameManager.DesktopTaskFinished.AddListener(OnDesktopTaskFinished);
@@ -47,21 +54,21 @@ public class EndGameMgr : MonoBehaviour
     private void OnDesktopTaskFinished()
     {
         allItems.SetActive(true);
+        animator.SetTrigger("EndGameStart");
 
         title.text = winTitleText;
         retryButton.text = retryTextWin;
         menuButton.text = backToMenuTextWin;
-
         Cursor.lockState = CursorLockMode.None;
     }
     private void OnStressBarFilled()
     {
         allItems.SetActive(true);
+        animator.SetTrigger("EndGameStart");
 
         title.text = loseTitleText;
         menuButton.text = backToMenuTextLose;
         retryButton.text = retryTextLose;
-
         Cursor.lockState = CursorLockMode.None;
     }
 
@@ -70,7 +77,6 @@ public class EndGameMgr : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(backToMenuScene);
     }
-
     public void RestartGame()
     {
         Time.timeScale = 1f;
