@@ -72,11 +72,12 @@ public class CameraMgr : MonoBehaviour
 
         if (zoomOut != null && zoomOut.activeInHierarchy) zoomOut.SetActive(false);
 
+        rotation.y -= visualSensitivity * Input.GetAxis("Mouse Y");
         rotation.x += visualSensitivity * Input.GetAxis("Mouse X");
-        rotation.y += visualSensitivity * Input.GetAxis("Mouse Y");
         var xQuat = Quaternion.AngleAxis(rotation.x, Vector3.up);
         var yQuat = Quaternion.AngleAxis(rotation.y, Vector3.left);
         Camera.main.transform.localRotation = xQuat * yQuat;
+        Camera.main.transform.rotation *= Quaternion.Euler(0, -180, 0);
     }
 
     //Darei un ritocchino a questa cosa non amo dover mettere due metodi per fare praticamente la stessa cosa

@@ -9,16 +9,16 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu Scene/StartScene.unity
     guid: d01cf195e95289349945bc2be647e9fd
   - enabled: 1
-    path: Assets/Scenes/MainTaskTutorialScene.unity
+    path: Assets/Scenes/TutorialScene/MainTaskTutorialScene.unity
     guid: ff25b5b3ae33bd14a95049e422952dc9
   - enabled: 1
-    path: Assets/Scenes/AlarmTutorialScene.unity
+    path: Assets/Scenes/TutorialScene/AlarmTutorialScene.unity
     guid: 24a206f49bd814d42a639bd14c5b68c6
   - enabled: 1
-    path: Assets/Scenes/EmailTutorialScene.unity
+    path: Assets/Scenes/TutorialScene/EmailTutorialScene.unity
     guid: 87805136ce4e328408abfb7c8469c506
   - enabled: 1
-    path: Assets/Scenes/PhoneTutorialScene.unity
+    path: Assets/Scenes/TutorialScene/PhoneTutorialScene.unity
     guid: 95d71912083ddc84bb7b1931c550b7ab
   - enabled: 1
     path: Assets/Scenes/FinalGameScene.unity
