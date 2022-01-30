@@ -56,16 +56,12 @@ public class Day_NightCycle : MonoBehaviour
         //Light & Reflection Intensity
         RenderSettings.ambientIntensity = lightingIntensityMultiplier.Evaluate(time);
         RenderSettings.reflectionIntensity = reflectionsIntensityMultiplier.Evaluate(time);
-        print(sun.transform.eulerAngles.x);
         if (sun.transform.eulerAngles.x > 0 && sun.transform.eulerAngles.x < 180)
         {
-            print("Giorno");
-
             DayTime.Invoke();
         }
         else
         {
-            print("notte");
             NightTime.Invoke();
         }
     }

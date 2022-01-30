@@ -60,6 +60,8 @@ public class EndGameMgr : MonoBehaviour
         retryButton.text = retryTextWin;
         menuButton.text = backToMenuTextWin;
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
     }
     private void OnStressBarFilled()
     {
@@ -70,6 +72,7 @@ public class EndGameMgr : MonoBehaviour
         menuButton.text = backToMenuTextLose;
         retryButton.text = retryTextLose;
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void BackToMainMenu()
