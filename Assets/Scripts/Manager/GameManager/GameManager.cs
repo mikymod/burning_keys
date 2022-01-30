@@ -62,17 +62,18 @@ public class GameManager : MonoBehaviour
     private float timer = 0;
 
     [SerializeField] TimedEvent[] timedEvents;
-    private bool spinnerActive;
+    private bool spinnerActive = false;
+    private bool spinnerConsumed = false;
 
     private void OnEnable()
     {
-        AlarmAdverterStart.AddListener(OnAlarmAdverterStart);
-        PhoneAdverterStart.AddListener(OnPhoneAdverterStart);
-        MailAdverterStart.AddListener(OnMailAdverterStart);
+        GameManager.AlarmAdverterStart.AddListener(OnAlarmAdverterStart);
+        GameManager.PhoneAdverterStart.AddListener(OnPhoneAdverterStart);
+        GameManager.MailAdverterStart.AddListener(OnMailAdverterStart);
 
-        AlarmAdverterEnd.AddListener(OnAlarmAdverterEnd);
-        PhoneAdverterEnd.AddListener(OnPhoneAdverterEnd);
-        MailAdverterEnd.AddListener(OnMailAdverterEnd);
+        GameManager.AlarmAdverterEnd.AddListener(OnAlarmAdverterEnd);
+        GameManager.PhoneAdverterEnd.AddListener(OnPhoneAdverterEnd);
+        GameManager.MailAdverterEnd.AddListener(OnMailAdverterEnd);
 
         GameManager.SpinnerTaskStart.AddListener(OnSpinnerTaskStart);
         GameManager.SpinnerTaskFinished.AddListener(OnSpinnerTaskFinished);
@@ -83,13 +84,13 @@ public class GameManager : MonoBehaviour
 
     private void OnDisable()
     {
-        AlarmAdverterStart.RemoveListener(OnAlarmAdverterStart);
-        PhoneAdverterStart.RemoveListener(OnPhoneAdverterStart);
-        MailAdverterStart.RemoveListener(OnMailAdverterStart);
+        GameManager.AlarmAdverterStart.RemoveListener(OnAlarmAdverterStart);
+        GameManager.PhoneAdverterStart.RemoveListener(OnPhoneAdverterStart);
+        GameManager.MailAdverterStart.RemoveListener(OnMailAdverterStart);
 
-        AlarmAdverterEnd.RemoveListener(OnAlarmAdverterEnd);
-        PhoneAdverterEnd.RemoveListener(OnPhoneAdverterEnd);
-        MailAdverterEnd.RemoveListener(OnMailAdverterEnd);
+        GameManager.AlarmAdverterEnd.RemoveListener(OnAlarmAdverterEnd);
+        GameManager.PhoneAdverterEnd.RemoveListener(OnPhoneAdverterEnd);
+        GameManager.MailAdverterEnd.RemoveListener(OnMailAdverterEnd);
         
         GameManager.SpinnerTaskStart.RemoveListener(OnSpinnerTaskStart);
         GameManager.SpinnerTaskFinished.RemoveListener(OnSpinnerTaskFinished);
@@ -105,7 +106,12 @@ public class GameManager : MonoBehaviour
     private void OnPhoneAdverterEnd() => phoneIsFocusable = false;
     private void OnMailAdverterEnd() => mailIsFocusable = false;
     private void OnSpinnerTaskStart() => spinnerActive = true;
-    private void OnSpinnerTaskFinished() => spinnerActive = false;
+    private void OnSpinnerTaskFinished() 
+    {
+        spinnerConsumed = true;
+        spinnerActive = false;
+    } 
+
     private void GameWon() => Time.timeScale = 0f;
     private void GameLost() => Time.timeScale = 0f;
 
@@ -135,7 +141,6 @@ public class GameManager : MonoBehaviour
                 {
                     case TimedEvent.TimedEventType.Alarm:
                         AlarmAdverterStart.Invoke();
-                        // AlarmTaskStart.Invoke();
                         break;
                     case TimedEvent.TimedEventType.Email:
                         MailAdverterStart.Invoke();
@@ -179,7 +184,7 @@ public class GameManager : MonoBehaviour
                             DesktopTaskFocus.Invoke();
                         break;
                     case "Spinner":
-                        if (!spinnerActive)
+                        if (!spinnerActive && !spinnerConsumed)
                             SpinnerTaskStart.Invoke();
                         break;
                 }
