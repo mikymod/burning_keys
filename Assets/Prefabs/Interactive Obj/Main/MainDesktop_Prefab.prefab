@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 3983487111373046365}
   - component: {fileID: 6391717841503369563}
   - component: {fileID: 8360420135869643408}
-  - component: {fileID: 7915826866912689390}
   m_Layer: 0
   m_Name: Monitor:MonitorSchermo1
   m_TagString: Desktop
@@ -110,7 +109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046605664332368600}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -168,20 +167,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7915826866912689390
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2046605664332368600}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1471034747062634436, guid: c0a05c1e7a8a1dd44b6056268c6f6af0, type: 3}
 --- !u!1 &2974191232636216211
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,7 +313,6 @@ GameObject:
   - component: {fileID: 565338283539342904}
   - component: {fileID: 5566897725244691369}
   - component: {fileID: 1355838218512366820}
-  - component: {fileID: 791040229135091482}
   m_Layer: 6
   m_Name: Monitor:MonitorBase
   m_TagString: Desktop
@@ -401,20 +385,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &791040229135091482
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3170863967705954232}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8155699544437008253, guid: c0a05c1e7a8a1dd44b6056268c6f6af0, type: 3}
 --- !u!1 &3456354337388427955
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,7 +507,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9150908636263409429
 RectTransform:
   m_ObjectHideFlags: 0
@@ -607,7 +577,6 @@ GameObject:
   - component: {fileID: 3097689149904039274}
   - component: {fileID: 5075127084425381227}
   - component: {fileID: 1576798868509587635}
-  - component: {fileID: 5443903876303930799}
   m_Layer: 6
   m_Name: Monitor:MonitorSostegno
   m_TagString: Desktop
@@ -680,20 +649,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5443903876303930799
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5884900988839334199}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 3807759709424140367, guid: c0a05c1e7a8a1dd44b6056268c6f6af0, type: 3}
 --- !u!1 &7057560892165679765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1004,7 +959,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9052056402882473270}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1036,7 +991,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9052056402882473270}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
@@ -1386,6 +1341,11 @@ PrefabInstance:
     - target: {fileID: 2182054429711984939, guid: 71f4e61802f3178479a66a9a0a3794a2,
         type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182054429711984939, guid: 71f4e61802f3178479a66a9a0a3794a2,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4527016962148814674, guid: 71f4e61802f3178479a66a9a0a3794a2,
