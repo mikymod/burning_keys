@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class Spinner : MonoBehaviour
 {
     public static UnityEvent StopRotating = new UnityEvent();
+    public static UnityEvent StartRotating = new UnityEvent();
 
     [SerializeField] private float timeForSpin;
     [SerializeField] private int maxUsage;
@@ -68,7 +69,7 @@ public class Spinner : MonoBehaviour
         currentUsage++;
         isRotating = true;
         animator.SetTrigger("Rotate");
-
+        StartRotating.Invoke();
         yield return new WaitForSeconds(timeForSpin);
 
         animator.SetTrigger("StopRotate");
