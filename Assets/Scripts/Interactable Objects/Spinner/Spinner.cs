@@ -39,11 +39,6 @@ public class Spinner : MonoBehaviour
 
     private void OnSpinnerTaskStarted()
     {
-        if (currentUsage >= maxUsage)
-        {
-            return;
-        }
-
         animator.SetTrigger("MoveToCamera");
         isActive = true;
     }
