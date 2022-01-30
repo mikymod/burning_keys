@@ -8,8 +8,8 @@ public class Progressbar : MonoBehaviour
 {
     [SerializeField] private Image mask;
     [SerializeField] private float maxValue;
-    [SerializeField] private float keySmashCompletedValue = 2f;
-    [SerializeField] private float wordCompletedValue = 3f;
+    [SerializeField] private float keySmashCompletedValue = 1.5f;
+    [SerializeField] private float wordCompletedValue = 2.25f;
 
     private float currentValue = 0f;
     private bool Filled { get => currentValue >= 100f; }
