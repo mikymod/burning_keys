@@ -16,12 +16,12 @@ Entry for the [Global Game Jam 2022](https://globalgamejam.org/2022/games/burnin
 ## Design
 
 - [Igor Ripanti](https://www.linkedin.com/in/igor-ripanti-609093205)
-- Riccardo Rocchi 
+- [Riccardo Rocchi](https://www.linkedin.com/in/riccardo-rocchi-81907019b) 
 
 ## Graphic
 
 - [Agnese Lucchese](https://www.instagram.com/theweirdcatlady/)
-- Andrea Savieri
+- [Andrea Saviero](https://www.artstation.com/andreasiviero)
 - [Christian Tagliapietra](https://www.linkedin.com/in/christiantagliapietra)
 - [Lorenzo Secli](https://www.artstation.com/lorenzosecli) 
 - [Simone Piermattei](https://www.artstation.com/simonepiermattei)
