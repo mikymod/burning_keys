@@ -514,7 +514,7 @@ PrefabInstance:
     - target: {fileID: 1684313475356559832, guid: d9501587d3cbf024e81650f5efab39fb,
         type: 3}
       propertyPath: nextScene
-      value: MainTaskTutorialScene
+      value: SpinnerTutorialScene
       objectReference: {fileID: 0}
     - target: {fileID: 1684313475356559832, guid: d9501587d3cbf024e81650f5efab39fb,
         type: 3}
