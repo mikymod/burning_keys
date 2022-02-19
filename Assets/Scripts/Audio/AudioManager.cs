@@ -32,6 +32,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource gameWinOverSource;
     [SerializeField] private AudioClip gameWinClip;
     [SerializeField] private AudioClip gameOverClip;
+    private bool phoneVoices;
 
     IEnumerator FadeIn(AudioSource audioSource, float fadeTime)
     {
@@ -75,7 +76,6 @@ public class AudioManager : MonoBehaviour
         GameManager.DesktopTaskFinished.AddListener(OnGameCompleted);
         GameManager.StressBarFilled.AddListener(OnGameOver);
     }
-
 
     private void OnDisable()
     {
@@ -140,22 +140,23 @@ public class AudioManager : MonoBehaviour
     {
         if (!phoneSource.isPlaying)
         {
+            phoneSource.loop = true;
             phoneSource.clip = phonePlay;
             phoneSource.Play();
         }
     }
     private void OnPhoneTaskStartedCallback()
     {
-            phoneSource.Stop();
-            int random = Random.Range(0, 2);
-            phoneSource.clip = voices[random];
-            phoneSource.Play();
+        phoneSource.Stop();
+        phoneSource.loop = false;
+        phoneVoices = true;
     }
     private void OnPhoneTaskFinishedCallback()
     {
         OnTaskFinishedCallback();
         if (phoneSource.isPlaying)
         {
+            phoneVoices = false;
             phoneSource.Stop();
         }
     }
@@ -206,7 +207,20 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    void MusicMix()
+    private void PhoneVoicesMix()
+    {
+        if (phoneVoices)
+        {
+            if (!phoneSource.isPlaying)
+            {
+                int random = Random.Range(0, 2);
+                phoneSource.clip = voices[random];
+                phoneSource.Play();
+            }
+        }
+    }
+
+    private void MusicMix()
     {
         if (spinnerMusicSource.isPlaying)
         {
@@ -244,6 +258,7 @@ public class AudioManager : MonoBehaviour
     private void Update()
     {
         MusicMix();
+        PhoneVoicesMix();
     }
 
 }
