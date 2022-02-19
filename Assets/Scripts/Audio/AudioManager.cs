@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+    [Header("AudioSnapshot")]
+    [SerializeField] private AudioMixerSnapshot clean;
+    [SerializeField] private AudioMixerSnapshot lpFilter;
+
     [Header("Music")]
     [SerializeField] private AudioSource relaxMusicSource;
     [SerializeField] private AudioSource metalMusicSource;
@@ -197,6 +202,7 @@ public class AudioManager : MonoBehaviour
         stingerForRelaxMusicSource.Stop();
         stingerForMetalMusicSource.Stop();
         spinnerMusicSource.Play();
+        lpFilter.TransitionTo(1f);
     }
 
     private void OnSpinnerTaskFinished()
@@ -205,6 +211,7 @@ public class AudioManager : MonoBehaviour
         {
             spinnerMusicSource.Stop();
         }
+        clean.TransitionTo(1f);
     }
 
     private void PhoneVoicesMix()
