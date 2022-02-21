@@ -59,9 +59,9 @@ public class Spinner : MonoBehaviour
     void Update()
     {
         if (!isActive) return;
-        if(animator.GetCurrentAnimatorStateInfo(0).)
+        if(animator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash("FidgetSpinnerRotate"))
         myDheph.focalLength.value *= animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
-        print(animator.GetCurrentAnimatorStateInfo(0).normalizedTime)
+        print(animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
         if (Input.GetMouseButtonDown(1) && !isRotating)
         {
             StartCoroutine(Rotate());

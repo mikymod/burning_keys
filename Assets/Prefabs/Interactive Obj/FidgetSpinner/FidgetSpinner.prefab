@@ -118,9 +118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72841a1f77d9d9e42b5e52ff720bdf33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  depthOfField: {fileID: 7604695381632565375}
   timeForSpin: 3
   maxUsage: 2
-  depthOfField: {fileID: 0}
 --- !u!65 &5543877767472654508
 BoxCollider:
   m_ObjectHideFlags: 0
