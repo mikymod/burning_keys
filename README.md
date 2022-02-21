@@ -1,19 +1,31 @@
-# Silent Man Project
+# Burning keys
 
-Entry for the Global Game Jam 2022.
+Entry for the [Global Game Jam 2022](https://globalgamejam.org/2022/games/burning-keys-0).
 
-## Repository Workflow
+[![Watch the video](https://img.youtube.com/vi/zDJlVRkj79k/0.jpg)](https://www.youtube.com/watch?v=zDJlVRkj79k)
 
-branches:
+# Contributors
 
-- master
-- dev
-  - dev-name
+## Code
 
-Ognuno di noi crea un proprio branch di lavoro chiamato `dev-name` (e.g. dev-michele) a partire da dev.
+- Antonio Troiano
+- Lorenzo Guerrini
+- [Mauro Cirafisi](https://twitter.com/_Jumbax)
+- [Michele Rossi](https://twitter.com/MikyM0D)
 
-Come mergiare:
+## Design
 
-`dev-name` -> `dev`
+- [Igor Ripanti](https://www.linkedin.com/in/igor-ripanti-609093205)
+- [Riccardo Rocchi](https://www.linkedin.com/in/riccardo-rocchi-81907019b) 
 
-Il merge in `master` avverrá quando `dev` é funzionante al 100% e abbiamo implementato le task giornaliere.
+## Graphic
+
+- [Agnese Lucchese](https://www.instagram.com/theweirdcatlady/)
+- [Andrea Saviero](https://www.artstation.com/andreasiviero)
+- [Christian Tagliapietra](https://www.linkedin.com/in/christiantagliapietra)
+- [Lorenzo Secli](https://www.artstation.com/lorenzosecli) 
+- [Simone Piermattei](https://www.artstation.com/simonepiermattei)
+
+## Music & Sounds
+
+- [Angelo Carnemolla](https://soundcloud.com/trpm)

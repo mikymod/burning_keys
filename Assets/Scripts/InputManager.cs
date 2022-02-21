@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class InputManager : MonoBehaviour
 {
     public static UnityEvent<KeyCode> KeyCodeInput = new UnityEvent<KeyCode>();
+    public static UnityEvent MouseInput = new UnityEvent();
 
     void Update()
     {
@@ -20,8 +21,13 @@ public class InputManager : MonoBehaviour
         {
             if (Input.GetKeyDown(keyCode))
             {
-                KeyCodeInput.Invoke(keyCode);
+                KeyCodeInput?.Invoke(keyCode);
             }
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            MouseInput?.Invoke();
+        }        
     }
 }

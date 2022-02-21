@@ -958,6 +958,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameUI
       objectReference: {fileID: 0}
+    - target: {fileID: 8880446248705614416, guid: 61a8fed7d611a4648893420174b708b7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8880446248705614417, guid: 61a8fed7d611a4648893420174b708b7,
         type: 3}
       propertyPath: m_RootOrder
@@ -1042,6 +1047,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880446249198609247, guid: 61a8fed7d611a4648893420174b708b7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8880446250461867610, guid: 61a8fed7d611a4648893420174b708b7,
         type: 3}

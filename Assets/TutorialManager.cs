@@ -20,16 +20,20 @@ public class TutorialManager : MonoBehaviour
         GameManager.AlarmTaskFinished.AddListener(OnAlarmTaskFinished);        
         GameManager.PhoneTaskFinished.AddListener(OnPhoneTaskFinished);        
         GameManager.MailSubTaskFinished.AddListener(OnMailTaskFinished);
+        GameManager.SpinnerTaskFinished.AddListener(OnSpinnerTaskFinished);
 
         KeySmashValidator.KeySmashCompleted.AddListener(OnDesktopTaskFinished);
         WordValidator.WordCompleted.AddListener(OnDesktopTaskFinished);
     }
+
+    
 
     private void OnDisable()
     {
         GameManager.AlarmTaskFinished.AddListener(OnAlarmTaskFinished);        
         GameManager.PhoneTaskFinished.AddListener(OnPhoneTaskFinished);        
         GameManager.MailSubTaskFinished.AddListener(OnMailTaskFinished);
+        GameManager.SpinnerTaskFinished.RemoveListener(OnSpinnerTaskFinished);
 
         KeySmashValidator.KeySmashCompleted.AddListener(OnDesktopTaskFinished);
         WordValidator.WordCompleted.AddListener(OnDesktopTaskFinished);        
@@ -77,5 +81,9 @@ public class TutorialManager : MonoBehaviour
         {
             StartCoroutine(GoToNextScene());
         }
+    }
+    private void OnSpinnerTaskFinished()
+    {
+        StartCoroutine(GoToNextScene());
     }
 }
