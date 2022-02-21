@@ -74,12 +74,24 @@ public class CameraMgr : MonoBehaviour
 
         rotation.y -= visualSensitivity * Input.GetAxis("Mouse Y");
         rotation.x += visualSensitivity * Input.GetAxis("Mouse X");
-        var xQuat = Quaternion.AngleAxis(rotation.x, Vector3.up);
+        Quaternion xQuat = Quaternion.AngleAxis(rotation.x, Vector3.up);
         var yQuat = Quaternion.AngleAxis(rotation.y, Vector3.left);
-        Camera.main.transform.localRotation = xQuat * yQuat;
+        Camera.main.transform.localRotation = xQuat * ClampRotationAroundXAxis(yQuat) /*xQuat * yQuat*/;
         Camera.main.transform.rotation *= Quaternion.Euler(0, -180, 0);
     }
+    Quaternion ClampRotationAroundXAxis(Quaternion q)
+    {
+        q.x /= q.w;
+        q.y /= q.w;
+        q.z /= q.w;
+        q.w = 1.0f;
 
+        float angleX = 2.0f * Mathf.Rad2Deg * Mathf.Atan(q.x);
+        angleX = Mathf.Clamp(angleX, -50, 50);
+        q.x = Mathf.Tan(0.5f * Mathf.Deg2Rad * angleX);
+
+        return q;
+    }
     //Darei un ritocchino a questa cosa non amo dover mettere due metodi per fare praticamente la stessa cosa
     private void LerpMyCamToDesktop()
     {
