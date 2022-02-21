@@ -241,6 +241,18 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &216657355 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7604695381632565375, guid: bbece1a46d038224d9ece24696c5bdbe,
+    type: 3}
+  m_PrefabInstance: {fileID: 1490419031}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &543600991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1416,6 +1428,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3287523371949436636, guid: bbece1a46d038224d9ece24696c5bdbe,
+        type: 3}
+      propertyPath: depthOfField
+      value: 
+      objectReference: {fileID: 216657355}
     - target: {fileID: 7974532230268331912, guid: bbece1a46d038224d9ece24696c5bdbe,
         type: 3}
       propertyPath: m_Name
