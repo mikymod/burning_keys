@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TutorialScene/EmailTutorialScene.unity
     guid: 87805136ce4e328408abfb7c8469c506
   - enabled: 1
+    path: Assets/Scenes/TutorialScene/SpinnerTutorialScene.unity
+    guid: 61ceb36b20f246644991ba7ff7d808f2
+  - enabled: 1
     path: Assets/Scenes/TutorialScene/PhoneTutorialScene.unity
     guid: 95d71912083ddc84bb7b1931c550b7ab
   - enabled: 1
