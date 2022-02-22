@@ -812,12 +812,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 811da5fac28f5ca46b753ba240c90251, type: 3}
---- !u!224 &1419640115 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8880446250137843760, guid: 61a8fed7d611a4648893420174b708b7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1848408700}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1595836334
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,11 +952,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameUI
       objectReference: {fileID: 0}
-    - target: {fileID: 8880446248705614416, guid: 61a8fed7d611a4648893420174b708b7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8880446248705614417, guid: 61a8fed7d611a4648893420174b708b7,
         type: 3}
       propertyPath: m_RootOrder
@@ -971,17 +960,17 @@ PrefabInstance:
     - target: {fileID: 8880446248705614417, guid: 61a8fed7d611a4648893420174b708b7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.1068586
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8880446248705614417, guid: 61a8fed7d611a4648893420174b708b7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.3665049
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8880446248705614417, guid: 61a8fed7d611a4648893420174b708b7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.778702
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8880446248705614417, guid: 61a8fed7d611a4648893420174b708b7,
         type: 3}
@@ -1016,106 +1005,6 @@ PrefabInstance:
     - target: {fileID: 8880446248705614417, guid: 61a8fed7d611a4648893420174b708b7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880446248841593252, guid: 61a8fed7d611a4648893420174b708b7,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880446248841593252, guid: 61a8fed7d611a4648893420174b708b7,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880446248841593252, guid: 61a8fed7d611a4648893420174b708b7,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880446248841593252, guid: 61a8fed7d611a4648893420174b708b7,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880446248841593252, guid: 61a8fed7d611a4648893420174b708b7,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880446248841593252, guid: 61a8fed7d611a4648893420174b708b7,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880446249198609247, guid: 61a8fed7d611a4648893420174b708b7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880446250461867610, guid: 61a8fed7d611a4648893420174b708b7,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880446250461867610, guid: 61a8fed7d611a4648893420174b708b7,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880446250461867610, guid: 61a8fed7d611a4648893420174b708b7,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880446250461867610, guid: 61a8fed7d611a4648893420174b708b7,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880446250461867610, guid: 61a8fed7d611a4648893420174b708b7,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880446250461867610, guid: 61a8fed7d611a4648893420174b708b7,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880446250690569489, guid: 61a8fed7d611a4648893420174b708b7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880446250702486932, guid: 61a8fed7d611a4648893420174b708b7,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880446250702486932, guid: 61a8fed7d611a4648893420174b708b7,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880446250702486932, guid: 61a8fed7d611a4648893420174b708b7,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880446250702486932, guid: 61a8fed7d611a4648893420174b708b7,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880446250702486932, guid: 61a8fed7d611a4648893420174b708b7,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880446250702486932, guid: 61a8fed7d611a4648893420174b708b7,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1205,6 +1094,337 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1915910292}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1976563381
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 541683220747881399, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: m_Name
+      value: DialogueTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: You should turn off the alarm...
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[3]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[4]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[5]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[6]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[7]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[8]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[9]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[10]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[11]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[12]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[13]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[14]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[15]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[16]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[17]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[18]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[19]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[20]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[21]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[22]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[23]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[24]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[25]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[26]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[27]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[28]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[29]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881400, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[30]
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien
+        sapien, ullamcorper et varius sed, scelerisque at neque. Nulla at ante in
+        nibh elementum luctus. Sed sagittis eget ante id euismod. Donec interdum
+        nibh at diam tincidunt vulputate. Pellentesque ultrices luctus justo, sagittis
+        semper neque. Phasellus tempus consectetur tortor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881401, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881401, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881401, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881401, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881401, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881401, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881401, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881401, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881401, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881401, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 541683220747881401, guid: 42804a9a754863c4e9f1e58423709ffd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 42804a9a754863c4e9f1e58423709ffd, type: 3}
 --- !u!1001 &2093362826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1368,125 +1588,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2477af0ae917bd4b8800024ddd511c5, type: 3}
---- !u!1001 &314164791268541697
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1419640115}
-    m_Modifications:
-    - target: {fileID: 314164792475450428, guid: 848e41a4df209b54582b0b9f54ad9478,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 314164792475450428, guid: 848e41a4df209b54582b0b9f54ad9478,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 314164792475450428, guid: 848e41a4df209b54582b0b9f54ad9478,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 314164792475450428, guid: 848e41a4df209b54582b0b9f54ad9478,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 314164792475450428, guid: 848e41a4df209b54582b0b9f54ad9478,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 314164792475450428, guid: 848e41a4df209b54582b0b9f54ad9478,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 314164792475450428, guid: 848e41a4df209b54582b0b9f54ad9478,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 314164792475450428, guid: 848e41a4df209b54582b0b9f54ad9478,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 314164792475450428, guid: 848e41a4df209b54582b0b9f54ad9478,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 314164792475450428, guid: 848e41a4df209b54582b0b9f54ad9478,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 314164792475450428, guid: 848e41a4df209b54582b0b9f54ad9478,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 314164792475450428, guid: 848e41a4df209b54582b0b9f54ad9478,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 314164792475450428, guid: 848e41a4df209b54582b0b9f54ad9478,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 314164792475450428, guid: 848e41a4df209b54582b0b9f54ad9478,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 314164792475450428, guid: 848e41a4df209b54582b0b9f54ad9478,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 314164792475450428, guid: 848e41a4df209b54582b0b9f54ad9478,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 314164792475450428, guid: 848e41a4df209b54582b0b9f54ad9478,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -756
-      objectReference: {fileID: 0}
-    - target: {fileID: 314164792475450428, guid: 848e41a4df209b54582b0b9f54ad9478,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 331
-      objectReference: {fileID: 0}
-    - target: {fileID: 314164792475450428, guid: 848e41a4df209b54582b0b9f54ad9478,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 314164792475450428, guid: 848e41a4df209b54582b0b9f54ad9478,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 314164792475450428, guid: 848e41a4df209b54582b0b9f54ad9478,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 314164792475450429, guid: 848e41a4df209b54582b0b9f54ad9478,
-        type: 3}
-      propertyPath: m_Name
-      value: Boss
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 848e41a4df209b54582b0b9f54ad9478, type: 3}
 --- !u!1001 &2401350797467025635
 PrefabInstance:
   m_ObjectHideFlags: 0
