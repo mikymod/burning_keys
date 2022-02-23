@@ -80,6 +80,7 @@ public class TutorialManager : MonoBehaviour
         if (desktopTasksCompleted == 5)
         {
             StartCoroutine(GoToNextScene());
+            AudioTutorial.StopMusicTutorial.Invoke();
         }
     }
     private void OnSpinnerTaskFinished()
