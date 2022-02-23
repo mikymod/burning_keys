@@ -14,6 +14,8 @@ public class Spinner : MonoBehaviour
     [SerializeField] private Volume depthOfField;
     [SerializeField] private float timeForSpin;
     [SerializeField] private int maxUsage;
+    [SerializeField] private float blurAmount;
+
     private int currentUsage = 0;
 
     private float randomSpin;
@@ -26,7 +28,6 @@ public class Spinner : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        //depthOfField = GetComponentInChildren<Volume>();
         depthOfField.profile.TryGet<DepthOfField>(out myDheph);
     }
 
@@ -46,28 +47,50 @@ public class Spinner : MonoBehaviour
     {
         animator.SetTrigger("MoveToCamera");
         isActive = true;
-        depthOfField.enabled = true;
     }
 
     private void OnSpinnerTaskFinished()
     {
         isActive = false;
         animator.SetTrigger("MoveToInitialPos");
-        depthOfField.enabled = false;
     }
 
     void Update()
     {
         if (!isActive) return;
-        if(animator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash("FidgetSpinnerRotate"))
-        myDheph.focalLength.value *= animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
-        print(animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
         if (Input.GetMouseButtonDown(1) && !isRotating)
         {
             StartCoroutine(Rotate());
         }
     }
+    public void OnBlurStart()
+    {
+        StartCoroutine(BlurFadeIn());
+    }
+    public void OnBlurEnd()
+    {
+        StartCoroutine(BlurFadeOut());
+    }
 
+    private IEnumerator BlurFadeIn()
+    {
+        if (!depthOfField.enabled)
+            depthOfField.enabled = true;
+
+        for (float i = 0; i < animator.GetCurrentAnimatorStateInfo(0).length; i += Time.deltaTime)
+        {
+            myDheph.focalLength.value = Mathf.Lerp(0, blurAmount, i);
+            yield return null;
+        }
+    }
+    private IEnumerator BlurFadeOut()
+    {
+        for (float i = 0; i < animator.GetCurrentAnimatorStateInfo(0).length; i += Time.deltaTime)
+        {
+            myDheph.focalLength.value = Mathf.Lerp(blurAmount, 0, i);
+            yield return null;
+        }
+    }
     private IEnumerator Rotate()
     {
         currentUsage++;
