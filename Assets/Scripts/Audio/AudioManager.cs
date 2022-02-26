@@ -38,6 +38,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip gameWinClip;
     [SerializeField] private AudioClip gameOverClip;
     private bool phoneVoices;
+    private bool relaxStingerPlayed;
+    private bool metalStingerPlayed;
 
     IEnumerator FadeIn(AudioSource audioSource, float fadeTime)
     {
@@ -211,6 +213,8 @@ public class AudioManager : MonoBehaviour
         {
             spinnerMusicSource.Stop();
         }
+        metalStingerPlayed = false;
+        relaxStingerPlayed = false;
         clean.TransitionTo(1f);
     }
 
@@ -240,11 +244,13 @@ public class AudioManager : MonoBehaviour
             {
                 stingerForMetalMusicSource.Stop();
                 metalMusicSource.Stop();
+                relaxStingerPlayed = false;
             }
-            if (!relaxMusicSource.isPlaying)
+            if (!relaxMusicSource.isPlaying && !relaxStingerPlayed)
             {
                 stingerForRelaxMusicSource.Play();
                 relaxMusicSource.PlayDelayed(1.0f);
+                relaxStingerPlayed = true;
             }
         }
         if (StressBar.currentValue > 50f)
@@ -253,11 +259,13 @@ public class AudioManager : MonoBehaviour
             {
                 stingerForRelaxMusicSource.Stop();
                 relaxMusicSource.Stop();
+                metalStingerPlayed = false;
             }
-            if (!metalMusicSource.isPlaying)
+            if (!metalMusicSource.isPlaying && !metalStingerPlayed)
             {
                 stingerForMetalMusicSource.Play();
                 metalMusicSource.PlayDelayed(2.2f);
+                metalStingerPlayed = true;
             }
         }
     }
